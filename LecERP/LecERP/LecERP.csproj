@@ -1,0 +1,399 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D67580FA-7D12-40D2-AB01-86255C35AF22}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LecERP</RootNamespace>
+    <AssemblyName>LecERP</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Costura, Version=1.6.2.0, Culture=neutral, PublicKeyToken=9919ef960d84173d, processorArchitecture=MSIL">
+      <HintPath>..\packages\Costura.Fody.1.6.2\lib\dotnet\Costura.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.BonusSkins.v17.1" />
+    <Reference Include="DevExpress.Charts.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v17.1" />
+    <Reference Include="DevExpress.Office.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v17.1.Export, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v17.1" />
+    <Reference Include="DevExpress.Sparkline.v17.1.Core" />
+    <Reference Include="DevExpress.Utils.v17.1.UI, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v17.1" />
+    <Reference Include="DevExpress.XtraGauges.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraNavBar.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v17.1.Extensions, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.2.3\lib\net45\RestSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ServiceStack, Version=5.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.5.0.2\lib\net45\ServiceStack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ServiceStack.Client, Version=5.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Client.5.0.2\lib\net45\ServiceStack.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ServiceStack.Common, Version=5.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Common.5.0.2\lib\net45\ServiceStack.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Interfaces.5.0.2\lib\net45\ServiceStack.Interfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ServiceStack.Text, Version=5.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Text.5.0.2\lib\net45\ServiceStack.Text.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppSettings.cs" />
+    <Compile Include="Configuration\ConnectionConfiguration.cs" />
+    <Compile Include="ExtensionMethods.cs" />
+    <Compile Include="ServiceGates\AesCryptoProvider.cs" />
+    <Compile Include="ServiceGates\AESCryptor.cs" />
+    <Compile Include="ServiceGates\ICryptor.cs" />
+    <Compile Include="ServiceGates\RijndaelCrypt.cs" />
+    <Compile Include="UI\Form_CardDebtReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form_CardDebtReport.Designer.cs">
+      <DependentUpon>Form_CardDebtReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Manp_DataPermissions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Manp_DataPermissions.Designer.cs">
+      <DependentUpon>Manp_DataPermissions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrintDesign\SaleInvoiceDesign.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PrintDesign\SaleInvoiceDesign.Designer.cs">
+      <DependentUpon>SaleInvoiceDesign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceGates\MicrosoftHttpClientServiceGate.cs" />
+    <Compile Include="ServiceGates\ServiceStackUtilsServiceGate.cs" />
+    <Compile Include="UI\Form_CashTransaction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form_CashTransaction.Designer.cs">
+      <DependentUpon>Form_CashTransaction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Form_Fiches.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form_Fiches.Designer.cs">
+      <DependentUpon>Form_Fiches.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Form_Users.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form_Users.Designer.cs">
+      <DependentUpon>Form_Users.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Form_Prices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form_Prices.Designer.cs">
+      <DependentUpon>Form_Prices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceGates\GateHandler.cs" />
+    <Compile Include="Models\BusinessModels.cs" />
+    <Compile Include="Models\DBModels.cs" />
+    <Compile Include="UIHelpers\FormHolder.cs" />
+    <Compile Include="UI\Form_Cards.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form_Cards.Designer.cs">
+      <DependentUpon>Form_Cards.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Form_Items.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form_Items.Designer.cs">
+      <DependentUpon>Form_Items.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Form_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form_Login.designer.cs">
+      <DependentUpon>Form_Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIHelpers\GridViewDesignHandler.cs" />
+    <Compile Include="ServiceGates\IServiceGate.cs" />
+    <Compile Include="UI\Manp_Cards.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Manp_Cards.designer.cs">
+      <DependentUpon>Manp_Cards.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Manp_CashTransaction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Manp_CashTransaction.designer.cs">
+      <DependentUpon>Manp_CashTransaction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Manp_FichesNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Manp_FichesNew.designer.cs">
+      <DependentUpon>Manp_FichesNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Manp_ItemPriceByItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Manp_ItemPriceByItem.Designer.cs">
+      <DependentUpon>Manp_ItemPriceByItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Manp_Users.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Manp_Users.Designer.cs">
+      <DependentUpon>Manp_Users.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Manp_Items.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Manp_Items.Designer.cs">
+      <DependentUpon>Manp_Items.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceGates\MicrosoftServiceGate.cs" />
+    <Compile Include="ServiceGates\NewtonsoftJsonSerializerForRestSharp.cs" />
+    <Compile Include="Operation.cs" />
+    <Compile Include="Configuration\ConfigFileManager.cs" />
+    <Compile Include="UI\Form_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form_Main.Designer.cs">
+      <DependentUpon>Form_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Form_Test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form_Test.Designer.cs">
+      <DependentUpon>Form_Test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\IConfigManager.cs" />
+    <Compile Include="OperationHandler.cs" />
+    <Compile Include="Configuration\PrivateProfileStringHandler.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceGates\RestSharpServiceGate.cs" />
+    <Compile Include="StaticData.cs" />
+    <Compile Include="UIHelpers\UIFunctions.cs" />
+    <Compile Include="UIHelpers\XtraEditorsLocalizer.cs" />
+    <Compile Include="UIHelpers\XtraGridLocalizer.cs" />
+    <EmbeddedResource Include="UI\Form_CardDebtReport.resx">
+      <DependentUpon>Form_CardDebtReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Manp_DataPermissions.resx">
+      <DependentUpon>Manp_DataPermissions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Form_Cards.resx">
+      <DependentUpon>Form_Cards.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Form_CashTransaction.resx">
+      <DependentUpon>Form_CashTransaction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Form_Fiches.resx">
+      <DependentUpon>Form_Fiches.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Form_Users.resx">
+      <DependentUpon>Form_Users.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Form_Items.resx">
+      <DependentUpon>Form_Items.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Form_Login.resx">
+      <DependentUpon>Form_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Form_Main.resx">
+      <DependentUpon>Form_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Form_Prices.resx">
+      <DependentUpon>Form_Prices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Form_Test.resx">
+      <DependentUpon>Form_Test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Manp_Cards.resx">
+      <DependentUpon>Manp_Cards.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Manp_CashTransaction.resx">
+      <DependentUpon>Manp_CashTransaction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Manp_FichesNew.resx">
+      <DependentUpon>Manp_FichesNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Manp_ItemPriceByItem.resx">
+      <DependentUpon>Manp_ItemPriceByItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Manp_Users.resx">
+      <DependentUpon>Manp_Users.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Manp_Items.resx">
+      <DependentUpon>Manp_Items.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pageorientationlandscape_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\withtextwrapping_topcenter_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\apply_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newtask_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pagesetup_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deletetable_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\excel_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\removepivotfield_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="FodyWeavers.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bolocalization_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\groupfieldcollection_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refreshallpivottable_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\show_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\show_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printer_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boreport2_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\properties_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bouser_16x16.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Costura.Fody.1.6.2\build\dotnet\Costura.Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Costura.Fody.1.6.2\build\dotnet\Costura.Fody.targets'))" />
+    <Error Condition="!Exists('..\packages\Fody.2.2.1.0\build\portable-net+sl+win+wpa+wp\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.2.2.1.0\build\portable-net+sl+win+wpa+wp\Fody.targets'))" />
+  </Target>
+  <Import Project="..\packages\Costura.Fody.1.6.2\build\dotnet\Costura.Fody.targets" Condition="Exists('..\packages\Costura.Fody.1.6.2\build\dotnet\Costura.Fody.targets')" />
+  <Import Project="..\packages\Fody.2.2.1.0\build\portable-net+sl+win+wpa+wp\Fody.targets" Condition="Exists('..\packages\Fody.2.2.1.0\build\portable-net+sl+win+wpa+wp\Fody.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
