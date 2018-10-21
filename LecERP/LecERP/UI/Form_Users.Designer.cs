@@ -33,6 +33,7 @@
             this.cmsMain = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsAddNew = new System.Windows.Forms.ToolStripMenuItem();
             this.tsModify = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsDataPermissions = new System.Windows.Forms.ToolStripMenuItem();
             this.tsDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.gvData = new DevExpress.XtraGrid.Views.Grid.GridView();
             ((System.ComponentModel.ISupportInitialize)(this.gcData)).BeginInit();
@@ -57,15 +58,16 @@
             this.cmsMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsAddNew,
             this.tsModify,
+            this.tsDataPermissions,
             this.tsDelete});
             this.cmsMain.Name = "cmsMain";
-            this.cmsMain.Size = new System.Drawing.Size(153, 92);
+            this.cmsMain.Size = new System.Drawing.Size(195, 114);
             // 
             // tsAddNew
             // 
             this.tsAddNew.Image = global::LecERP.Properties.Resources.newtask_16x16;
             this.tsAddNew.Name = "tsAddNew";
-            this.tsAddNew.Size = new System.Drawing.Size(152, 22);
+            this.tsAddNew.Size = new System.Drawing.Size(194, 22);
             this.tsAddNew.Text = "Yeni...";
             this.tsAddNew.Click += new System.EventHandler(this.tsAddNew_Click);
             // 
@@ -73,15 +75,22 @@
             // 
             this.tsModify.Image = global::LecERP.Properties.Resources.pagesetup_16x16;
             this.tsModify.Name = "tsModify";
-            this.tsModify.Size = new System.Drawing.Size(152, 22);
+            this.tsModify.Size = new System.Drawing.Size(194, 22);
             this.tsModify.Text = "Düzəliş Et";
             this.tsModify.Click += new System.EventHandler(this.tsModify_Click);
+            // 
+            // tsDataPermissions
+            // 
+            this.tsDataPermissions.Name = "tsDataPermissions";
+            this.tsDataPermissions.Size = new System.Drawing.Size(194, 22);
+            this.tsDataPermissions.Text = "Məlumat Səlahiyyətləri";
+            this.tsDataPermissions.Click += new System.EventHandler(this.tsDataPermissions_Click);
             // 
             // tsDelete
             // 
             this.tsDelete.Image = global::LecERP.Properties.Resources.deletetable_16x16;
             this.tsDelete.Name = "tsDelete";
-            this.tsDelete.Size = new System.Drawing.Size(152, 22);
+            this.tsDelete.Size = new System.Drawing.Size(194, 22);
             this.tsDelete.Text = "Sil";
             // 
             // gvData
@@ -116,5 +125,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsAddNew;
         private System.Windows.Forms.ToolStripMenuItem tsModify;
         private System.Windows.Forms.ToolStripMenuItem tsDelete;
+        private System.Windows.Forms.ToolStripMenuItem tsDataPermissions;
     }
 }

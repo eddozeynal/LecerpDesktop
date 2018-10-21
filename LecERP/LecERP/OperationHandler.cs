@@ -230,5 +230,13 @@ namespace LecERP
             Operation<List<VW_CardMaster>> op_ = sw.Get(method);
             return op_;
         }
+        public static Operation<List<UserDataPermissionView>> GetUserDataPermissionView(int userId)
+        {
+            IServiceGate<List<UserDataPermissionView>> sw = GateHandler.GetServiceGate<List<UserDataPermissionView>>();
+            string method = "GetUserDataPermissionView/{0}";
+            method = string.Format(method, userId);
+            Operation<List<UserDataPermissionView>> op_ = sw.Get(method);
+            return op_;
+        }
     }
 }

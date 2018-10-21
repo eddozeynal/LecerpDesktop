@@ -50,6 +50,7 @@ namespace LecERP
                 RestRequest request = new RestRequest(MethodName, Method.POST);
                 request.JsonSerializer = NewtonsoftJsonSerializerForRestSharp.Default;
                 request.AddJsonBody(parameters);
+                request.AddHeader("GUID", StaticData.CurrentUser?.LoginSession?.Guid);
                 IRestResponse<Operation<T>> response = client.Execute<Operation<T>>(request);
                 retval.Successful = true;
                 if (response.ResponseStatus == ResponseStatus.Error)
@@ -79,6 +80,7 @@ namespace LecERP
                 RestClient client = new RestClient(URL);
                 RestRequest request = new RestRequest(MethodName, Method.GET);
                 request.JsonSerializer = NewtonsoftJsonSerializerForRestSharp.Default;
+                request.AddHeader("GUID", StaticData.CurrentUser?.LoginSession?.Guid);
                 foreach (string key in parameters.Keys.ToList())
                 {
                     request.AddParameter(key, parameters[key], ParameterType.UrlSegment);

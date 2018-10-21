@@ -30,6 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Manp_DataPermissions));
             this.grpCenter = new DevExpress.XtraEditors.GroupControl();
+            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.searchLookUpCard = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.btnAddLine = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.gcLines = new DevExpress.XtraGrid.GridControl();
@@ -47,6 +52,9 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.grpCenter)).BeginInit();
             this.grpCenter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpCard.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcLines)).BeginInit();
@@ -63,6 +71,10 @@
             this.grpCenter.Appearance.Options.UseFont = true;
             this.grpCenter.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 10F);
             this.grpCenter.AppearanceCaption.Options.UseFont = true;
+            this.grpCenter.Controls.Add(this.comboBoxEdit1);
+            this.grpCenter.Controls.Add(this.searchLookUpCard);
+            this.grpCenter.Controls.Add(this.labelControl4);
+            this.grpCenter.Controls.Add(this.labelControl1);
             this.grpCenter.Controls.Add(this.btnAddLine);
             this.grpCenter.Controls.Add(this.groupControl1);
             this.grpCenter.Controls.Add(this.txtUserName);
@@ -70,9 +82,60 @@
             this.grpCenter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpCenter.Location = new System.Drawing.Point(0, 0);
             this.grpCenter.Name = "grpCenter";
-            this.grpCenter.Size = new System.Drawing.Size(621, 524);
+            this.grpCenter.Size = new System.Drawing.Size(621, 505);
             this.grpCenter.TabIndex = 1;
             this.grpCenter.Text = "İstifadəçi";
+            // 
+            // comboBoxEdit1
+            // 
+            this.comboBoxEdit1.Location = new System.Drawing.Point(130, 66);
+            this.comboBoxEdit1.Name = "comboBoxEdit1";
+            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit1.Size = new System.Drawing.Size(198, 20);
+            this.comboBoxEdit1.TabIndex = 45;
+            // 
+            // searchLookUpCard
+            // 
+            this.searchLookUpCard.Location = new System.Drawing.Point(130, 98);
+            this.searchLookUpCard.Name = "searchLookUpCard";
+            this.searchLookUpCard.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.searchLookUpCard.Properties.Appearance.Options.UseFont = true;
+            this.searchLookUpCard.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.searchLookUpCard.Properties.DisplayMember = "CardName";
+            this.searchLookUpCard.Properties.NullText = "Seçin";
+            this.searchLookUpCard.Properties.ValueMember = "Id";
+            this.searchLookUpCard.Properties.View = this.searchLookUpEdit1View;
+            this.searchLookUpCard.Size = new System.Drawing.Size(431, 22);
+            this.searchLookUpCard.TabIndex = 44;
+            // 
+            // searchLookUpEdit1View
+            // 
+            this.searchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
+            this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.labelControl4.Appearance.Options.UseFont = true;
+            this.labelControl4.Location = new System.Drawing.Point(12, 99);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(35, 16);
+            this.labelControl4.TabIndex = 43;
+            this.labelControl4.Text = "Hesab";
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Location = new System.Drawing.Point(12, 67);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(28, 16);
+            this.labelControl1.TabIndex = 42;
+            this.labelControl1.Text = "Növü";
             // 
             // btnAddLine
             // 
@@ -81,6 +144,7 @@
             this.btnAddLine.Name = "btnAddLine";
             this.btnAddLine.Size = new System.Drawing.Size(40, 40);
             this.btnAddLine.TabIndex = 41;
+            this.btnAddLine.Click += new System.EventHandler(this.btnAddLine_Click);
             // 
             // groupControl1
             // 
@@ -211,7 +275,7 @@
             // 
             // txtUserName
             // 
-            this.txtUserName.Location = new System.Drawing.Point(130, 26);
+            this.txtUserName.Location = new System.Drawing.Point(130, 32);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtUserName.Properties.Appearance.Options.UseFont = true;
@@ -223,7 +287,7 @@
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(12, 29);
+            this.labelControl2.Location = new System.Drawing.Point(12, 35);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(73, 16);
             this.labelControl2.TabIndex = 1;
@@ -233,14 +297,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(621, 524);
+            this.ClientSize = new System.Drawing.Size(621, 505);
             this.Controls.Add(this.grpCenter);
             this.Name = "Manp_DataPermissions";
-            this.Text = "Manp_DataPermissions";
+            this.Text = "Məlumat Səlahiyyətləri";
             this.Load += new System.EventHandler(this.Manp_DataPermissions_Load);
+            this.Shown += new System.EventHandler(this.Manp_DataPermissions_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.grpCenter)).EndInit();
             this.grpCenter.ResumeLayout(false);
             this.grpCenter.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpCard.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcLines)).EndInit();
@@ -271,5 +339,10 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit rse_Width;
         private DevExpress.XtraEditors.SimpleButton btnAddLine;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.SearchLookUpEdit searchLookUpCard;
+        private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
     }
 }

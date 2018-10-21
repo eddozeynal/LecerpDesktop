@@ -60,5 +60,15 @@ namespace LecERP
                 // Show Error
             }
         }
+
+        private void tsDataPermissions_Click(object sender, EventArgs e)
+        {
+            object objValue = gvData.GetFocusedRowCellValue("Id");
+            if (objValue == null) return;
+            int userId = Convert.ToInt32(objValue);
+            Manp_DataPermissions manp_dataper = new Manp_DataPermissions(userId);
+            manp_dataper.ShowDialog();
+            RefreshData();
+        }
     }
 }

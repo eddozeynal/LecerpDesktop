@@ -85,4 +85,10 @@ namespace LecERP
         public int SourceCardTypeId { get; set; }
         public int DestCardTypeId { get; set; }
     }
+    public class UserDataPermissionView : DataPermission
+    {
+        public string PermissionTypeName { get; set; }
+        public string PermissionCode { get; set; }
+        public string PermissionName { get; set; }
+    }
 }

@@ -12,5 +12,6 @@ namespace LecERP
         public static bool UnitsUseDefault { get; set; }
         public static string CompanyName { get; set; }
         public static int DBVersion { get; set; }
+
     }
 }
