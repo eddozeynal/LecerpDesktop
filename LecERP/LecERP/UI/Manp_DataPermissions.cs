@@ -56,11 +56,29 @@ namespace LecERP
             datapermission.SourceId = userId;
             datapermission.PermissionType = 1;
             datapermission.PermissionId = Convert.ToInt32(objValue);
-            
+            Operation<DataPermission> operation = OperationHandler.PostDataPermission(datapermission);
+            if (!operation.Successful)
+            {
+                MessageBox.Show(operation.Fail);
+            }
+            RefreshPermissionsView();
         }
 
         private void Manp_DataPermissions_Shown(object sender, EventArgs e)
         {
+            RefreshPermissionsView();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            object objId = gvLines.GetFocusedRow();
+            if (objId == null) return;
+            int Id = (objId as DataPermission).Id;
+            Operation<int> operation = OperationHandler.DeleteDataPermission(Id);
+            if (!operation.Successful)
+            {
+                MessageBox.Show(operation.Fail);
+            }
             RefreshPermissionsView();
         }
     }

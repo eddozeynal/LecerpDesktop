@@ -34,6 +34,7 @@ namespace LecERP
             spPurchasePrice.Visible = StaticData.IsPermitted(16);
             spSalePrice.Visible = StaticData.IsPermitted(17);
             gcCards.Visible = StaticData.IsPermitted(18);
+            btnOk.Visible = StaticData.IsPermitted(19);
             GridViewDesignHandler gvh = new GridViewDesignHandler();
             gvh.GridView = gvCards;
             gvh.GridViewInfo = OperationHandler.GetGridViewInfo(13);

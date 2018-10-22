@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Manp_DataPermissions));
             this.grpCenter = new DevExpress.XtraEditors.GroupControl();
+            this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.searchLookUpCard = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -71,6 +72,7 @@
             this.grpCenter.Appearance.Options.UseFont = true;
             this.grpCenter.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 10F);
             this.grpCenter.AppearanceCaption.Options.UseFont = true;
+            this.grpCenter.Controls.Add(this.btnDelete);
             this.grpCenter.Controls.Add(this.comboBoxEdit1);
             this.grpCenter.Controls.Add(this.searchLookUpCard);
             this.grpCenter.Controls.Add(this.labelControl4);
@@ -85,6 +87,15 @@
             this.grpCenter.Size = new System.Drawing.Size(621, 505);
             this.grpCenter.TabIndex = 1;
             this.grpCenter.Text = "İstifadəçi";
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.ImageOptions.Image = global::LecERP.Properties.Resources.cancel_32x32;
+            this.btnDelete.Location = new System.Drawing.Point(569, 90);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(40, 40);
+            this.btnDelete.TabIndex = 46;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // comboBoxEdit1
             // 
@@ -107,7 +118,7 @@
             this.searchLookUpCard.Properties.NullText = "Seçin";
             this.searchLookUpCard.Properties.ValueMember = "Id";
             this.searchLookUpCard.Properties.View = this.searchLookUpEdit1View;
-            this.searchLookUpCard.Size = new System.Drawing.Size(431, 22);
+            this.searchLookUpCard.Size = new System.Drawing.Size(387, 22);
             this.searchLookUpCard.TabIndex = 44;
             // 
             // searchLookUpEdit1View
@@ -140,7 +151,7 @@
             // btnAddLine
             // 
             this.btnAddLine.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAddLine.ImageOptions.Image")));
-            this.btnAddLine.Location = new System.Drawing.Point(567, 88);
+            this.btnAddLine.Location = new System.Drawing.Point(523, 90);
             this.btnAddLine.Name = "btnAddLine";
             this.btnAddLine.Size = new System.Drawing.Size(40, 40);
             this.btnAddLine.TabIndex = 41;
@@ -344,5 +355,6 @@
         private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
+        private DevExpress.XtraEditors.SimpleButton btnDelete;
     }
 }

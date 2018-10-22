@@ -22,6 +22,9 @@ namespace LecERP
         {
             dateBegin.DateTime = DateTime.Today;
             dateEnd.DateTime = DateTime.Today.AddHours(23).AddMinutes(59).AddSeconds(59);
+            tsAddNew.Enabled = StaticData.IsPermitted(29);
+            tsModify.Enabled = StaticData.IsPermitted(30);
+            tsDelete.Enabled = StaticData.IsPermitted(31);
         }
 
         private void Form_CashTransaction_Shown(object sender, EventArgs e)

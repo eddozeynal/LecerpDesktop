@@ -22,6 +22,11 @@ namespace LecERP
         {
             dateBegin.DateTime = DateTime.Today;
             dateEnd.DateTime = DateTime.Today.AddHours(23).AddMinutes(59).AddSeconds(59);
+            tsAddNew.Enabled = StaticData.IsPermitted(20);
+            tsModify.Enabled = StaticData.IsPermitted(21);
+            tsDelete.Enabled = StaticData.IsPermitted(22);
+            btnCreateInvoice.Enabled = StaticData.IsPermitted(23);
+            tsPrintDocument.Enabled = StaticData.IsPermitted(24);
         }
 
         private void Form_Fiches_Shown(object sender, EventArgs e)
@@ -38,7 +43,6 @@ namespace LecERP
                 
 
             }
-
             lookUpFicheType.Properties.DataSource = op_DocumentMasters.Value;
             if (op_DocumentMasters.Value.Count > 0) lookUpFicheType.ItemIndex = 0;
 
@@ -48,6 +52,7 @@ namespace LecERP
 
         private void tsAddNew_Click(object sender, EventArgs e)
         {
+            if (lookUpFicheType.EditValue == null) return;
             Manp_FichesNew manp = new Manp_FichesNew();
             manp.DocTypeId = Convert.ToByte(lookUpFicheType.EditValue);
             manp.IsEditMode = true;
@@ -62,6 +67,7 @@ namespace LecERP
 
         void RefreshData()
         {
+            if (lookUpFicheType.EditValue == null) return;
             Operation<List<VW_FicheMaster>> op_Fiches = OperationHandler.GetFiches(Convert.ToByte(lookUpFicheType.EditValue), dateBegin.DateTime, dateEnd.DateTime);
             gcData.DataSource = op_Fiches.Value;
         }

@@ -36,7 +36,9 @@ namespace LecERP
 
         private void Form_Items_Load(object sender, EventArgs e)
         {
-           
+            tsAddNew.Enabled = StaticData.IsPermitted(3);
+            tsModify.Enabled = StaticData.IsPermitted(4);
+            tsDelete.Enabled = StaticData.IsPermitted(6);
         }
 
         private void Form_Items_Shown(object sender, EventArgs e)

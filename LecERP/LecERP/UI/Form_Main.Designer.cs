@@ -31,9 +31,10 @@
             this.components = new System.ComponentModel.Container();
             this.xtraTDMain = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.navbarMain = new DevExpress.XtraNavBar.NavBarControl();
+            this.nvAdministration = new DevExpress.XtraNavBar.NavBarGroup();
+            this.nvUsers = new DevExpress.XtraNavBar.NavBarItem();
             this.nvDeclarations = new DevExpress.XtraNavBar.NavBarGroup();
             this.nvItems = new DevExpress.XtraNavBar.NavBarItem();
-            this.nvTest = new DevExpress.XtraNavBar.NavBarItem();
             this.nvCards = new DevExpress.XtraNavBar.NavBarItem();
             this.nvPrices = new DevExpress.XtraNavBar.NavBarItem();
             this.nvProcesses = new DevExpress.XtraNavBar.NavBarGroup();
@@ -41,8 +42,7 @@
             this.nvCashTransaction = new DevExpress.XtraNavBar.NavBarItem();
             this.nvReports = new DevExpress.XtraNavBar.NavBarGroup();
             this.nv_CardDebtReport = new DevExpress.XtraNavBar.NavBarItem();
-            this.nvAdministration = new DevExpress.XtraNavBar.NavBarGroup();
-            this.nvUsers = new DevExpress.XtraNavBar.NavBarItem();
+            this.nvCompanyParameters = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTDMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navbarMain)).BeginInit();
             this.SuspendLayout();
@@ -54,7 +54,7 @@
             // 
             // navbarMain
             // 
-            this.navbarMain.ActiveGroup = this.nvAdministration;
+            this.navbarMain.ActiveGroup = this.nvReports;
             this.navbarMain.Dock = System.Windows.Forms.DockStyle.Left;
             this.navbarMain.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
             this.nvDeclarations,
@@ -63,13 +63,13 @@
             this.nvAdministration});
             this.navbarMain.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
             this.nvItems,
-            this.nvTest,
             this.nvCards,
             this.nvPrices,
             this.nvFiches,
             this.nvUsers,
             this.nvCashTransaction,
-            this.nv_CardDebtReport});
+            this.nv_CardDebtReport,
+            this.nvCompanyParameters});
             this.navbarMain.Location = new System.Drawing.Point(0, 0);
             this.navbarMain.Name = "navbarMain";
             this.navbarMain.OptionsNavPane.ExpandedWidth = 166;
@@ -78,12 +78,28 @@
             this.navbarMain.TabIndex = 1;
             this.navbarMain.Text = "navBarControl1";
             // 
+            // nvAdministration
+            // 
+            this.nvAdministration.Caption = "Administrasiya";
+            this.nvAdministration.Expanded = true;
+            this.nvAdministration.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nvUsers),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nvCompanyParameters)});
+            this.nvAdministration.Name = "nvAdministration";
+            this.nvAdministration.SmallImage = global::LecERP.Properties.Resources.bouser_16x16;
+            // 
+            // nvUsers
+            // 
+            this.nvUsers.Caption = "İstifadəçilər";
+            this.nvUsers.Name = "nvUsers";
+            this.nvUsers.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nvUsers_LinkClicked);
+            // 
             // nvDeclarations
             // 
             this.nvDeclarations.Caption = "Tanımlar";
+            this.nvDeclarations.Expanded = true;
             this.nvDeclarations.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.nvItems),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nvTest),
             new DevExpress.XtraNavBar.NavBarItemLink(this.nvCards),
             new DevExpress.XtraNavBar.NavBarItemLink(this.nvPrices)});
             this.nvDeclarations.LargeImage = global::LecERP.Properties.Resources.withtextwrapping_topcenter_16x16;
@@ -94,12 +110,6 @@
             this.nvItems.Caption = "Məhsullar";
             this.nvItems.Name = "nvItems";
             this.nvItems.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nvItems_LinkClicked);
-            // 
-            // nvTest
-            // 
-            this.nvTest.Caption = "Test Form";
-            this.nvTest.Name = "nvTest";
-            this.nvTest.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nvTest_LinkClicked);
             // 
             // nvCards
             // 
@@ -150,20 +160,10 @@
             this.nv_CardDebtReport.Name = "nv_CardDebtReport";
             this.nv_CardDebtReport.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nv_CardDebtReport_LinkClicked);
             // 
-            // nvAdministration
+            // nvCompanyParameters
             // 
-            this.nvAdministration.Caption = "Administrasiya";
-            this.nvAdministration.Expanded = true;
-            this.nvAdministration.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nvUsers)});
-            this.nvAdministration.Name = "nvAdministration";
-            this.nvAdministration.SmallImage = global::LecERP.Properties.Resources.bouser_16x16;
-            // 
-            // nvUsers
-            // 
-            this.nvUsers.Caption = "İstifadəçilər";
-            this.nvUsers.Name = "nvUsers";
-            this.nvUsers.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nvUsers_LinkClicked);
+            this.nvCompanyParameters.Caption = "Şirkət Parametrləri";
+            this.nvCompanyParameters.Name = "nvCompanyParameters";
             // 
             // Form_Main
             // 
@@ -188,7 +188,6 @@
         private DevExpress.XtraNavBar.NavBarControl navbarMain;
         private DevExpress.XtraNavBar.NavBarGroup nvDeclarations;
         private DevExpress.XtraNavBar.NavBarItem nvItems;
-        private DevExpress.XtraNavBar.NavBarItem nvTest;
         private DevExpress.XtraNavBar.NavBarItem nvCards;
         private DevExpress.XtraNavBar.NavBarGroup nvProcesses;
         private DevExpress.XtraNavBar.NavBarItem nvPrices;
@@ -198,6 +197,7 @@
         private DevExpress.XtraNavBar.NavBarItem nvCashTransaction;
         private DevExpress.XtraNavBar.NavBarGroup nvReports;
         private DevExpress.XtraNavBar.NavBarItem nv_CardDebtReport;
+        private DevExpress.XtraNavBar.NavBarItem nvCompanyParameters;
     }
 }
 

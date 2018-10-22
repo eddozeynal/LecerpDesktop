@@ -43,7 +43,9 @@ namespace LecERP
 
         private void Form_Cards_Load(object sender, EventArgs e)
         {
-
+            tsAddNew.Enabled = StaticData.IsPermitted(7);
+            tsModify.Enabled = StaticData.IsPermitted(8);
+            tsDelete.Enabled = StaticData.IsPermitted(9);
         }
 
         private void tsAddNew_Click(object sender, EventArgs e)

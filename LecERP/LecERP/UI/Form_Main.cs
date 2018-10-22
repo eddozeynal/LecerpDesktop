@@ -49,6 +49,7 @@ namespace LecERP
             nvFiches.Enabled = StaticData.IsPermitted(12);
             nvCashTransaction.Enabled = StaticData.IsPermitted(13);
             nv_CardDebtReport.Enabled = StaticData.IsPermitted(15);
+            nvUsers.Enabled = StaticData.CurrentUser.BaseUser.IsAdmin;
         }
 
         private void nvPrices_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)

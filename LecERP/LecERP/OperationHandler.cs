@@ -238,5 +238,23 @@ namespace LecERP
             Operation<List<UserDataPermissionView>> op_ = sw.Get(method);
             return op_;
         }
+
+        public static Operation<DataPermission> PostDataPermission(DataPermission dataPermission)
+        {
+            IServiceGate<DataPermission> sw = GateHandler.GetServiceGate<DataPermission>();
+            Dictionary<string, object> prms = new Dictionary<string, object>();
+            prms["dataPermission"] = dataPermission;
+            Operation<DataPermission> op_item = sw.Post("PostDataPermission", prms);
+            return op_item;
+        }
+
+        public static Operation<int> DeleteDataPermission(int dataPermissionId)
+        {
+            IServiceGate<int> sw = GateHandler.GetServiceGate<int>();
+            Dictionary<string, object> prms = new Dictionary<string, object>();
+            prms["dataPermissionId"] = dataPermissionId;
+            Operation<int> op_item = sw.Post("DeleteDataPermission", prms);
+            return op_item;
+        }
     }
 }
