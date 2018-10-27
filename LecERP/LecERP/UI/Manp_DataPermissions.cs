@@ -34,10 +34,8 @@ namespace LecERP
                 searchLookUpCard.Properties.DataSource = op_CardMaster.Value.Where(x => x.CardType == 4).ToList();
             }
 
-            GridViewDesignHandler gvh = new GridViewDesignHandler();
-            gvh.GridView = searchLookUpCard.Properties.View;
-            gvh.GridViewInfo = OperationHandler.GetGridViewInfo(14);
-            gvh.SetView();
+            searchLookUpCard.Properties.View.AssignGridView(14);;
+
         }
 
         private void Manp_DataPermissions_Load(object sender, EventArgs e)

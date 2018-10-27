@@ -53,8 +53,6 @@ namespace LecERP
                 if (BaseSettings == null) return;
                 AppSettings.CompanyName = BaseSettings.Where(x => x.ParameterKey == "Company.Name").First().ParameterValue;
                 AppSettings.DBVersion = Convert.ToInt32(BaseSettings.Where(x => x.ParameterKey == "DB.Version").First().ParameterValue);
-                AppSettings.UnitsDefaultName = BaseSettings.Where(x => x.ParameterKey == "Units.Default.Name").First().ParameterValue;
-                AppSettings.UnitsUseDefault = Convert.ToBoolean(BaseSettings.Where(x => x.ParameterKey == "Units.UseDefault").First().ParameterValue);
             }
             catch { }
         }

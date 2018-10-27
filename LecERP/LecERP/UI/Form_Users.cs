@@ -41,10 +41,7 @@ namespace LecERP
 
         private void Form_Users_Shown(object sender, EventArgs e)
         {
-            GridViewDesignHandler gvh = new GridViewDesignHandler();
-            gvh.GridView = gvData;
-            gvh.GridViewInfo = OperationHandler.GetGridViewInfo(16);
-            gvh.SetView();
+            gvData.AssignGridView(16);
             RefreshData();
         }
 

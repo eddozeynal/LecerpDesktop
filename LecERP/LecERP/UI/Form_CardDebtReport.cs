@@ -25,10 +25,7 @@ namespace LecERP
 
         private void Form_CardDebtReport_Shown(object sender, EventArgs e)
         {
-            GridViewDesignHandler gvh = new GridViewDesignHandler();
-            gvh.GridView = gvData;
-            gvh.GridViewInfo = OperationHandler.GetGridViewInfo(18);
-            gvh.SetView();
+            gvData.AssignGridView(18);
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)

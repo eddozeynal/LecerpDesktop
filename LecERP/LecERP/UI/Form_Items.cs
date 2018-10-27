@@ -43,16 +43,13 @@ namespace LecERP
 
         private void Form_Items_Shown(object sender, EventArgs e)
         {
-            GridViewDesignHandler gvh = new GridViewDesignHandler();
-            gvh.GridView = gvData;
-            gvh.GridViewInfo = OperationHandler.GetGridViewInfo(10);
-            gvh.SetView();
+            gvData.AssignGridView(10);
             RefreshData();
         }
 
         private void RefreshData()
         {
-            Operation<List<VW_Item>> op_Items = OperationHandler.GetAllItems();
+            Operation<List<ItemView>> op_Items = OperationHandler.GetAllItems();
             if (op_Items.Successful)
             {
                 gcData.DataSource = op_Items.Value;

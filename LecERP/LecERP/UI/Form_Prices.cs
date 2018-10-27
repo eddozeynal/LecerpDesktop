@@ -20,12 +20,8 @@ namespace LecERP
 
         private void Form_Prices_Shown(object sender, EventArgs e)
         {
-            GridViewDesignHandler gvh_items = new GridViewDesignHandler();
-            gvh_items.GridView = gvByItems;
-            gvh_items.GridViewInfo = OperationHandler.GetGridViewInfo(12);
-            gvh_items.SetView();
+            gvByItems.AssignGridView(12);
 
-            
             RefreshItemPriceData();
         }
 

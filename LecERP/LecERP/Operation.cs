@@ -11,7 +11,7 @@ namespace LecERP
         public bool Successful { get; set; }
         public T Value { get; set; }
         public string Fail { get; set; }
-
+        
     }
 
     public interface IBaseOperation

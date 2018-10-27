@@ -20,7 +20,7 @@ namespace LecERP
 
         CashTransaction cashTransaction = null;
         List<ExchangeMaster> Exchanges = null;
-        List<VW_CardMaster> Cards = null;
+        List<CardMasterView> Cards = null;
         List<EnumMaster> CashTrsancationTypes = null;
 
         public byte DocTypeId { get; set; }
@@ -46,7 +46,7 @@ namespace LecERP
             List<IBaseOperation> loadOperations = new List<IBaseOperation>();
             Operation<List<ExchangeMaster>> op_ExchangeMaster = OperationHandler.GetAllExchanges();
             loadOperations.Add(op_ExchangeMaster);
-            Operation<List<VW_CardMaster>> op_CardMaster = OperationHandler.GetAllCards();
+            Operation<List<CardMasterView>> op_CardMaster = OperationHandler.GetAllCards();
             loadOperations.Add(op_CardMaster);
             Operation<List<EnumMaster>> op_CashTrsancationTypes = OperationHandler.GetEnums(8);
             loadOperations.Add(op_CashTrsancationTypes);
@@ -96,12 +96,9 @@ namespace LecERP
                 searchLookUpSourceCard.EditValue = cashTransaction.SourceCardId;
                 searchLookUpDestCard.EditValue = cashTransaction.DestCardId;
             }
-            GridViewDesignHandler gvh = new GridViewDesignHandler();
-            gvh.GridViewInfo = OperationHandler.GetGridViewInfo(14);
-            gvh.GridView = searchLookUpSourceCard.Properties.View;
-            gvh.SetView();
-            gvh.GridView = searchLookUpDestCard.Properties.View;
-            gvh.SetView();
+
+            searchLookUpSourceCard.Properties.View.AssignGridView(14);
+            searchLookUpDestCard.Properties.View.AssignGridView(14);
         }
 
 

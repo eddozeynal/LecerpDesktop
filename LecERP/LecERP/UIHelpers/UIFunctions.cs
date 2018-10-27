@@ -23,6 +23,16 @@ namespace LecERP
         {
             return (XtraMessageBox.Show("İmtina etmək istədiyinizdən əminsinizmi? Dəyişiklikləriniz ləğv olunacaqdır.", "İmtina etmək", MessageBoxButtons.YesNo) == DialogResult.Yes);
         }
+
+        public static void AssignGridView(this DevExpress.XtraGrid.Views.Grid.GridView GridView, int ViewId)
+        {
+            GridViewDesignHandler gvh = new GridViewDesignHandler();
+            gvh.GridView = GridView;
+            gvh.GridViewInfo = OperationHandler.GetGridViewInfo(ViewId);
+            gvh.SetView();
+        }
+
+
         #region WindowsAPI
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using LecERP.PrintDesign;
 
 namespace LecERP
 {
@@ -31,11 +32,7 @@ namespace LecERP
 
         private void Form_Fiches_Shown(object sender, EventArgs e)
         {
-            GridViewDesignHandler gvh = new GridViewDesignHandler();
-            gvh.GridView = gvData;
-            gvh.GridViewInfo = OperationHandler.GetGridViewInfo(15);
-            gvh.SetView();
-
+            gvData.AssignGridView(15);
             Operation<List<DocumentMaster>> op_DocumentMasters = OperationHandler.GetDocumentMasters();
 
             if (!op_DocumentMasters.Successful)
@@ -68,7 +65,7 @@ namespace LecERP
         void RefreshData()
         {
             if (lookUpFicheType.EditValue == null) return;
-            Operation<List<VW_FicheMaster>> op_Fiches = OperationHandler.GetFiches(Convert.ToByte(lookUpFicheType.EditValue), dateBegin.DateTime, dateEnd.DateTime);
+            Operation<List<FicheMasterView>> op_Fiches = OperationHandler.GetFiches(Convert.ToByte(lookUpFicheType.EditValue), dateBegin.DateTime, dateEnd.DateTime);
             gcData.DataSource = op_Fiches.Value;
         }
 
@@ -112,6 +109,14 @@ namespace LecERP
             manp.CreateInvoiceFromOrderFiche = true;
             manp.ShowDialog();
             RefreshData();
+        }
+
+        private void tsPrintDocument_Click(object sender, EventArgs e)
+        {
+            object objCurrentId = gvData.GetFocusedRowCellValue("Id");
+            if (objCurrentId == null) return;
+            int CurrentId = Convert.ToInt32(objCurrentId);
+            DocumentPrintHandler.PrintSaleInvoice(CurrentId);
         }
     }
 }

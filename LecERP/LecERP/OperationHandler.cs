@@ -40,16 +40,16 @@ namespace LecERP
             Operation<GridViewInfo> op_item = sw.Get("GetGridViewInfo/" + Id.ToString() + "/" + StaticData.CurrentUserId);
             return op_item.Value;
         }
-        public static Operation<List<VW_Item>> GetAllItems()
+        public static Operation<List<ItemView>> GetAllItems()
         {
-            IServiceGate<List<VW_Item>> sw = GateHandler.GetServiceGate<List<VW_Item>>();
-            Operation<List<VW_Item>> op_item = sw.Get("GetAllItems");
+            IServiceGate<List<ItemView>> sw = GateHandler.GetServiceGate<List<ItemView>>();
+            Operation<List<ItemView>> op_item = sw.Get("GetAllItems");
             return op_item;
         }
-        public static Operation<List<VW_CardMaster>> GetAllCards()
+        public static Operation<List<CardMasterView>> GetAllCards()
         {
-            IServiceGate<List<VW_CardMaster>> sw = GateHandler.GetServiceGate<List<VW_CardMaster>>();
-            Operation<List<VW_CardMaster>> op_ = sw.Get("GetAllCards");
+            IServiceGate<List<CardMasterView>> sw = GateHandler.GetServiceGate<List<CardMasterView>>();
+            Operation<List<CardMasterView>> op_ = sw.Get("GetAllCards");
             return op_;
         }
         public static Operation<List<ExchangeMaster>> GetAllExchanges()
@@ -135,12 +135,12 @@ namespace LecERP
             Operation<Fiche> op_ = sw.Post("PostFiche", prms);
             return op_;
         }
-        public static Operation<List<VW_FicheMaster>> GetFiches(byte DocType, DateTime dateBegin, DateTime dateEnd)
+        public static Operation<List<FicheMasterView>> GetFiches(byte DocType, DateTime dateBegin, DateTime dateEnd)
         {
-            IServiceGate<List<VW_FicheMaster>> sw = GateHandler.GetServiceGate<List<VW_FicheMaster>>();
+            IServiceGate<List<FicheMasterView>> sw = GateHandler.GetServiceGate<List<FicheMasterView>>();
             string method = "GetFiches/{0}/{1}/{2}";
             method = string.Format(method, DocType, dateBegin.GetFormattedStringFromDate(), dateEnd.GetFormattedStringFromDate());
-            Operation<List<VW_FicheMaster>> op_ = sw.Get(method);
+            Operation<List<FicheMasterView>> op_ = sw.Get(method);
             return op_;
         }
         public static Operation<List<PriceCalcType>> GetPriceCalcTypes()
@@ -156,6 +156,14 @@ namespace LecERP
             string method = "GetFicheById/{0}";
             method = string.Format(method, Id);
             Operation<Fiche> op_ = sw.Get(method);
+            return op_;
+        }
+        public static Operation<FicheView> GetFicheViewById(int Id)
+        {
+            IServiceGate<FicheView> sw = GateHandler.GetServiceGate<FicheView>();
+            string method = "GetFicheViewById/{0}";
+            method = string.Format(method, Id);
+            Operation<FicheView> op_ = sw.Get(method);
             return op_;
         }
         public static Operation<List<PermissionMaster>> GetPermissionMasters()
@@ -222,12 +230,12 @@ namespace LecERP
             return op_;
         }
 
-        public static Operation<List<VW_CardMaster>> GetAllCardsExt(DateTime date, int userId)
+        public static Operation<List<CardMasterView>> GetAllCardsExt(DateTime date, int userId)
         {
-            IServiceGate<List<VW_CardMaster>> sw = GateHandler.GetServiceGate<List<VW_CardMaster>>();
+            IServiceGate<List<CardMasterView>> sw = GateHandler.GetServiceGate<List<CardMasterView>>();
             string method = "GetAllCardsExt/{0}/{1}";
             method = string.Format(method, date.GetFormattedStringFromDate(), userId);
-            Operation<List<VW_CardMaster>> op_ = sw.Get(method);
+            Operation<List<CardMasterView>> op_ = sw.Get(method);
             return op_;
         }
         public static Operation<List<UserDataPermissionView>> GetUserDataPermissionView(int userId)

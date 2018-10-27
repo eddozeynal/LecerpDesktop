@@ -19,7 +19,7 @@ namespace LecERP
         }
         private void RefreshData()
         {
-            Operation<List<VW_CardMaster>> op_CardMaster = OperationHandler.GetAllCards();
+            Operation<List<CardMasterView>> op_CardMaster = OperationHandler.GetAllCards();
             if (op_CardMaster.Successful)
             {
                 gcData.DataSource = op_CardMaster.Value;
@@ -34,10 +34,7 @@ namespace LecERP
 
         private void Form_Cards_Shown(object sender, EventArgs e)
         {
-            GridViewDesignHandler gvh = new GridViewDesignHandler();
-            gvh.GridView = gvData;
-            gvh.GridViewInfo = OperationHandler.GetGridViewInfo(11);
-            gvh.SetView();
+            gvData.AssignGridView(11);
             RefreshData();
         }
 

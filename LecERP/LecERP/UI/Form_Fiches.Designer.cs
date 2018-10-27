@@ -262,6 +262,7 @@
             this.tsPrintDocument.Name = "tsPrintDocument";
             this.tsPrintDocument.Size = new System.Drawing.Size(152, 22);
             this.tsPrintDocument.Text = "Çap Et";
+            this.tsPrintDocument.Click += new System.EventHandler(this.tsPrintDocument_Click);
             // 
             // gvData
             // 

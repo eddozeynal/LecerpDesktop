@@ -29,11 +29,7 @@ namespace LecERP
 
         private void Form_CashTransaction_Shown(object sender, EventArgs e)
         {
-            GridViewDesignHandler gvh = new GridViewDesignHandler();
-            gvh.GridView = gvData;
-            gvh.GridViewInfo = OperationHandler.GetGridViewInfo(17);
-            gvh.SetView();
-
+            gvData.AssignGridView(17);
             //Operation<List<DocumentMaster>> op_DocumentMasters = OperationHandler.GetDocumentMasters();
 
             //if (!op_DocumentMasters.Successful)

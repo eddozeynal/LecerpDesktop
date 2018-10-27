@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LecERP
 {
-    public class VW_CardMaster : CardMaster
+    public class CardMasterView : CardMaster
     {
         public string CardTypeName { get; set; }
         public string ExchangeName { get; set; }
@@ -29,8 +29,12 @@ namespace LecERP
         public FicheMaster FicheMaster { get; set; }
         public List<FicheLine> FicheLines { get; set; }
     }
-
-    public class VW_FicheMaster : FicheMaster
+    public class FicheView
+    {
+        public FicheMasterView FicheMaster { get; set; }
+        public List<FicheLineView> FicheLines { get; set; }
+    }
+    public class FicheMasterView : FicheMaster
     {
         public string ExchangeName { get; set; }
         public decimal Total { get; set; }
@@ -38,7 +42,7 @@ namespace LecERP
         public string CardNumber { get; set; }
         public string CardName { get; set; }
     }
-    public class VW_Item : Item
+    public class ItemView : Item
     {
         public string ItemTypeName { get; set; }
     }
@@ -61,7 +65,7 @@ namespace LecERP
         public LoginSession LoginSession { get; set; }
     }
 
-    public class FicheLineEditMode : FicheLine
+    public class FicheLineView : FicheLine
     {
         public string ItemCode { get; set; }
         public string ItemName { get; set; }

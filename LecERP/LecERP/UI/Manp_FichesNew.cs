@@ -19,10 +19,10 @@ namespace LecERP
         public bool IsEditMode { get; set; }
 
         Fiche Fiche_ = null;
-        List<FicheLineEditMode> Lines = null;
-        List<VW_Item> Items = null;
+        List<FicheLineView> Lines = null;
+        List<ItemView> Items = null;
         List<ExchangeMaster> Exchanges = null;
-        List<VW_CardMaster> Cards = null;
+        List<CardMasterView> Cards = null;
         List<WarehouseMaster> Warehouses = null;
         List<ItemPrice> ItemPrices = null;
         List<DocumentMaster> DocumentMasters = null;
@@ -40,8 +40,6 @@ namespace LecERP
         private void Manp_FichesNew_Load(object sender, EventArgs e)
         {
 
-            //gvLines.Columns["ItemName"].Width = 250;
-           
         }
 
         private void Manp_FichesNew_Shown(object sender, EventArgs e)
@@ -54,11 +52,11 @@ namespace LecERP
             List<IBaseOperation> loadOperations = new List<IBaseOperation>();
             Operation<List<EnumMaster>> op_ItemTypes = OperationHandler.GetEnums(3);
             loadOperations.Add(op_ItemTypes);
-            Operation<List<VW_Item>> op_Items = OperationHandler.GetAllItems();
+            Operation<List<ItemView>> op_Items = OperationHandler.GetAllItems();
             loadOperations.Add(op_Items);
             Operation<List<ExchangeMaster>> op_ExchangeMaster = OperationHandler.GetAllExchanges();
             loadOperations.Add(op_ExchangeMaster);
-            Operation<List<VW_CardMaster>> op_CardMaster = OperationHandler.GetAllCards();
+            Operation<List<CardMasterView>> op_CardMaster = OperationHandler.GetAllCards();
             loadOperations.Add(op_CardMaster);
             Operation<List<WarehouseMaster>> op_Warehouses = OperationHandler.GetWarehouses();
             loadOperations.Add(op_Warehouses);
@@ -86,12 +84,8 @@ namespace LecERP
             DocumentMasters = op_DocumentMasters.Value;
             PriceCalcTypes = op_PriceCalcTypes.Value;
 
-            GridViewDesignHandler gvh = new GridViewDesignHandler();
-            gvh.GridView = searchLookUpCard.Properties.View;
-            gvh.GridViewInfo = OperationHandler.GetGridViewInfo(14);
-            gvh.SetView();
-
-
+            searchLookUpCard.Properties.View.AssignGridView(14); 
+            
             lookUpExchange.Properties.DataSource = Exchanges;
             
             LookUpWarehouse.Properties.DataSource = Warehouses;
@@ -104,7 +98,7 @@ namespace LecERP
             if (Id == 0)
             {
                 Fiche_ = new Fiche();
-                Lines = new List<FicheLineEditMode>();
+                Lines = new List<FicheLineView>();
                 LookUpWarehouse.ItemIndex = 0;
             }
             else
@@ -136,10 +130,10 @@ namespace LecERP
 
                 txtSourceDoc.Text =Fiche_.FicheMaster.SourceDocument;
 
-                Lines = new List<FicheLineEditMode>();
+                Lines = new List<FicheLineView>();
                 foreach (var line_ in Fiche_.FicheLines)
                 {
-                    FicheLineEditMode ficheLineEditMode = line_.GetEligibleOjbect<FicheLineEditMode>();
+                    FicheLineView ficheLineEditMode = line_.GetEligibleOjbect<FicheLineView>();
                     ficheLineEditMode.ItemCode = Items.Where(x => x.Id == ficheLineEditMode.ItemId).First().ItemCode;
                     ficheLineEditMode.ItemName = Items.Where(x => x.Id == ficheLineEditMode.ItemId).First().ItemName;
                     ficheLineEditMode.ItemTypeName = Items.Where(x => x.Id == ficheLineEditMode.ItemId).First().ItemTypeName;
@@ -241,7 +235,7 @@ namespace LecERP
         private void lookUpItem_EditValueChanged(object sender, EventArgs e)
         {
             if (lookUpItem.EditValue == null) return;
-            VW_Item item = Items.Where(x => x.Id == Convert.ToInt32(lookUpItem.EditValue)).FirstOrDefault();
+            ItemView item = Items.Where(x => x.Id == Convert.ToInt32(lookUpItem.EditValue)).FirstOrDefault();
             spHeight.Value = item.Height_;
             spWeight.Value = item.Weight_;
             spLength.Value = item.Length_;
@@ -273,7 +267,7 @@ namespace LecERP
                 XtraMessageBox.Show("Məhsulun qiymətini daxil edin");
                 return;
             }
-            FicheLineEditMode line = new FicheLineEditMode();
+            FicheLineView line = new FicheLineView();
             line.Amount = spAmount.Value;
             line.Height_ = spHeight.Value;
             line.ItemId = Convert.ToInt32(lookUpItem.EditValue);
@@ -290,7 +284,7 @@ namespace LecERP
             line.LinePrice = spPrice.Value;
 
             //line.LineNetTotal = line.LinePrice * line.Amount;
-            VW_Item item = Items.Where(x => x.Id == line.ItemId).First();
+            ItemView item = Items.Where(x => x.Id == line.ItemId).First();
             line.LineNetTotal = StaticData.CalculateItemTotal(item.PriceCalcTypeId, line.LinePrice, line.Amount, line.Width_, line.Length_, line.Height_);
 
             Lines.Add(line );
@@ -310,7 +304,7 @@ namespace LecERP
                 DialogResult del = XtraMessageBox.Show("Silmək istədiyinizdən əminsinizmi?", "Sətir silinməsi", MessageBoxButtons.YesNo);
                 if (del == DialogResult.Yes)
                 {
-                    FicheLineEditMode currentLine = gvLines.GetFocusedRow() as FicheLineEditMode;
+                    FicheLineView currentLine = gvLines.GetFocusedRow() as FicheLineView;
                     Lines.Remove(currentLine);
                 }
                 Lines.ForEach(x => x.LineNumber = Lines.IndexOf(x) + 1);
@@ -323,14 +317,14 @@ namespace LecERP
                 if (gvLines.GetFocusedRow() == null) return;
 
                 string keyString = ((char)(e.KeyValue + 32)).ToString();
-                VW_Item newItem = Items.Where(x => x.ShortcutKey.ToLower() == keyString.ToLower()).FirstOrDefault();
+                ItemView newItem = Items.Where(x => x.ShortcutKey.ToLower() == keyString.ToLower()).FirstOrDefault();
                 if (newItem == null) return;
 
 
-                FicheLineEditMode currentLine = gvLines.GetFocusedRow() as FicheLineEditMode;
+                FicheLineView currentLine = gvLines.GetFocusedRow() as FicheLineView;
                 int index = Lines.IndexOf(currentLine);
 
-                FicheLineEditMode newLine = new FicheLineEditMode();
+                FicheLineView newLine = new FicheLineView();
                
                 newLine.ItemId = newItem.Id;
                 newLine.ItemName = newItem.ItemName;
