@@ -59,5 +59,10 @@ namespace LecERP
                 // Show Error
             }
         }
+
+        private void tsExportToExcel_Click(object sender, EventArgs e)
+        {
+            gvData.ExportExcell();
+        }
     }
 }

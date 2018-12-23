@@ -60,5 +60,10 @@ namespace LecERP
             mp_cards.ShowDialog();
             RefreshData();
         }
+
+        private void tsExportToExcel_Click(object sender, EventArgs e)
+        {
+            gvData.ExportExcell();
+        }
     }
 }

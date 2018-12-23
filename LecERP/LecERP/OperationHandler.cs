@@ -79,10 +79,10 @@ namespace LecERP
             return op_item;
         }
 
-        public static Operation<List<VW_ItemPricesDefault>> GetItemDefaultPricesView()
+        public static Operation<List<ItemDefaultPrices>> GetItemDefaultPricesView()
         {
-            IServiceGate<List<VW_ItemPricesDefault>> sw = GateHandler.GetServiceGate<List<VW_ItemPricesDefault>>();
-            Operation<List<VW_ItemPricesDefault>> op_item = sw.Get("GetItemDefaultPricesView");
+            IServiceGate<List<ItemDefaultPrices>> sw = GateHandler.GetServiceGate<List<ItemDefaultPrices>>();
+            Operation<List<ItemDefaultPrices>> op_item = sw.Get("GetItemDefaultPricesView");
             return op_item;
         }
         public static Operation<List<ItemPriceForCard>> GetItemPriceForCards(int ItemId)
@@ -229,7 +229,22 @@ namespace LecERP
             Operation<List<CashTransactionView>> op_ = sw.Get(method);
             return op_;
         }
-
+        public static Operation<List<CardTransactionView>> GetCardTransactionViewByCardId(int cardId, DateTime dateBegin, DateTime dateEnd)
+        {
+            IServiceGate<List<CardTransactionView>> sw = GateHandler.GetServiceGate<List<CardTransactionView>>();
+            string method = "GetCardTransactionViewByCardId/{0}/{1}/{2}";
+            method = string.Format(method,cardId, dateBegin.GetFormattedStringFromDate(), dateEnd.GetFormattedStringFromDate());
+            Operation<List<CardTransactionView>> op_ = sw.Get(method);
+            return op_;
+        }
+        public static Operation<List<CardTotalByIntervalView>> GetCardTotalsByInterval(int userId, DateTime dateBegin, DateTime dateEnd)
+        {
+            IServiceGate<List<CardTotalByIntervalView>> sw = GateHandler.GetServiceGate<List<CardTotalByIntervalView>>();
+            string method = "GetCardTotalsByInterval/{0}/{1}/{2}";
+            method = string.Format(method, userId, dateBegin.GetFormattedStringFromDate(), dateEnd.GetFormattedStringFromDate());
+            Operation<List<CardTotalByIntervalView>> op_ = sw.Get(method);
+            return op_;
+        }
         public static Operation<List<CardMasterView>> GetAllCardsExt(DateTime date, int userId)
         {
             IServiceGate<List<CardMasterView>> sw = GateHandler.GetServiceGate<List<CardMasterView>>();
@@ -263,6 +278,15 @@ namespace LecERP
             prms["dataPermissionId"] = dataPermissionId;
             Operation<int> op_item = sw.Post("DeleteDataPermission", prms);
             return op_item;
+        }
+
+        public static Operation<Fiche> ChangeFicheStatus(int Id,byte StatusId)
+        {
+            IServiceGate<Fiche> sw = GateHandler.GetServiceGate<Fiche>();
+            string method = "ChangeFicheStatus/{0}/{1}";
+            method = string.Format(method, Id, StatusId);
+            Operation<Fiche> op_ = sw.Get(method);
+            return op_;
         }
     }
 }

@@ -14,6 +14,18 @@ namespace LecERP
         public decimal Debt { get; set; }
     }
 
+    public class CardTotalByIntervalView : CardMaster
+    {
+        public string CardTypeName { get; set; }
+        public string ExchangeName { get; set; }
+        public decimal RemByBegDate { get; set; }
+        public decimal TotalInput { get; set; }
+        public decimal TotalOutput { get; set; }
+        public decimal RemByEndDate { get; set; }
+
+    }
+
+
     public class GridViewInfo
     {
         public GridViewMaster GridViewMaster_ { get; set; }
@@ -41,6 +53,9 @@ namespace LecERP
         public decimal WeightTotal { get; set; }
         public string CardNumber { get; set; }
         public string CardName { get; set; }
+        public int LineCount { get; set; }
+        public bool WorksCompleted { get; set; }
+        public string StatusName { get; set; }
     }
     public class ItemView : Item
     {

@@ -13,7 +13,7 @@ namespace LecERP
 {
     public partial class Manp_ItemPriceByItem : DevExpress.XtraEditors.XtraForm
     {
-        public VW_ItemPricesDefault itemDef { get; set; }
+        public ItemDefaultPrices itemDef { get; set; }
         List<ItemPriceForCard> ItemPriceForCards = null;
         public Manp_ItemPriceByItem()
         {

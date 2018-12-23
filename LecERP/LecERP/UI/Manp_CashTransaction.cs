@@ -42,7 +42,7 @@ namespace LecERP
                 foreach (Control c in grpCenter.Controls) c.Enabled = false;
                 btnOk.Enabled = false;
             }
-
+            
             List<IBaseOperation> loadOperations = new List<IBaseOperation>();
             Operation<List<ExchangeMaster>> op_ExchangeMaster = OperationHandler.GetAllExchanges();
             loadOperations.Add(op_ExchangeMaster);
@@ -88,7 +88,7 @@ namespace LecERP
                 lookUpTransactionType.ReadOnly = true;
                 lookUpExchange.EditValue = cashTransaction.ExchangeId;
                 FillLookUpCards(cashTransaction.ExchangeId);
-               // lookUpExchange.ReadOnly = true;
+                lookUpExchange.ReadOnly = true;
                 txtNote.Text = cashTransaction.Note;
                 txtFicheno.Text = cashTransaction.Ficheno;
                 txtDate.Text = cashTransaction.CreatedDate.ToString("dd.MM.yyyy HH:mm");
@@ -123,8 +123,9 @@ namespace LecERP
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+            
             cashTransaction.TransactionType = Convert.ToByte( lookUpTransactionType.EditValue );
-            cashTransaction.ExchangeId = Convert.ToInt32( lookUpExchange.EditValue );
+            cashTransaction.ExchangeId = Convert.ToByte( lookUpExchange.EditValue );
             cashTransaction.Note = txtNote.Text ;
             cashTransaction.Ficheno = txtFicheno.Text ;
             if (Id == 0)

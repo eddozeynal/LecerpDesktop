@@ -83,15 +83,16 @@
             // 
             this.tsDelete.Image = global::LecERP.Properties.Resources.deletetable_16x16;
             this.tsDelete.Name = "tsDelete";
-            this.tsDelete.Size = new System.Drawing.Size(138, 22);
+            this.tsDelete.Size = new System.Drawing.Size(152, 22);
             this.tsDelete.Text = "Sil";
             // 
             // tsExportToExcel
             // 
             this.tsExportToExcel.Image = global::LecERP.Properties.Resources.excel_16x16;
             this.tsExportToExcel.Name = "tsExportToExcel";
-            this.tsExportToExcel.Size = new System.Drawing.Size(138, 22);
+            this.tsExportToExcel.Size = new System.Drawing.Size(152, 22);
             this.tsExportToExcel.Text = "Excel-ə çıxar";
+            this.tsExportToExcel.Click += new System.EventHandler(this.tsExportToExcel_Click);
             // 
             // gvData
             // 

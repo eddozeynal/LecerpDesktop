@@ -52,7 +52,7 @@ namespace LecERP
         public int SourceCardId { get; set; }
         public int DestCardId { get; set; }
         public decimal Total { get; set; }
-        public int ExchangeId { get; set; }
+        public byte ExchangeId { get; set; }
         public byte Status { get; set; }
         public string Note { get; set; }
         public int CreatedBy { get; set; }
@@ -134,6 +134,7 @@ namespace LecERP
         public decimal LinePrice { get; set; }
         public decimal LineTotal { get; set; }
         public decimal LineNetTotal { get; set; }
+        public bool IsCompleted { get; set; }
     }
 
 
@@ -269,7 +270,7 @@ namespace LecERP
 
 
 
-    public class VW_ItemPricesDefault
+    public class ItemDefaultPrices
     {
         public int ItemId { get; set; }
         public string ItemTypeName { get; set; }
@@ -291,7 +292,15 @@ namespace LecERP
 
 
 
-
+    public class CardTransactionView
+    {
+        public string DocTypeName { get; set; }
+        public string Ficheno { get; set; }
+        public int CardId { get; set; }
+        public decimal Total { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public decimal TotalWithSign { get; set; }
+    }
 
 
 

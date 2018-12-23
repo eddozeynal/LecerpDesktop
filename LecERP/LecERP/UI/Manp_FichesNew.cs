@@ -39,12 +39,25 @@ namespace LecERP
 
         private void Manp_FichesNew_Load(object sender, EventArgs e)
         {
-
+            
+            gvLines.Columns["Weight_"].Visible = spWeight.Visible = lblWeight.Visible = StaticData.weightVisible;
+            gvLines.Columns["Height_"].Visible = spHeight.Visible = lblHeight.Visible = StaticData.heightVisible;
+            gvLines.Columns["IsCompleted"].OptionsColumn.AllowEdit = StaticData.IsPermitted(34);
+            if (StaticData.weightVisible == false || StaticData.heightVisible == false)
+            {
+                lblPrice.Left -= spPrice.Width;
+                spPrice.Left -= spPrice.Width;
+            }
+            if (StaticData.weightVisible == false && StaticData.heightVisible == false)
+            {
+                lblPrice.Left -= spPrice.Width;
+                spPrice.Left -= spPrice.Width;
+            }
         }
 
         private void Manp_FichesNew_Shown(object sender, EventArgs e)
         {
-            btnOk.Enabled =
+            searchLookUpCard.Enabled =
                 LookUpWarehouse.Enabled =
                 lookUpItem.Enabled =
                 cmbItemType.Enabled = btnAddLine.Enabled= IsEditMode;
@@ -195,10 +208,12 @@ namespace LecERP
         {
             Fiche_.FicheLines = new List<FicheLine>();
             foreach (var line in Lines) Fiche_.FicheLines.Add(line);
+            Fiche_.FicheLines.ForEach(x => x.Note = x.Note ?? string.Empty );
             Fiche_.FicheMaster.CardId = Convert.ToInt32(searchLookUpCard.EditValue);
             Fiche_.FicheMaster.SourceWarehouse = Convert.ToInt32(LookUpWarehouse.EditValue);
-            Fiche_.FicheMaster.CreatedBy = StaticData.CurrentUserId;
-            Fiche_.FicheMaster.CreatedDate = DateTime.Now;
+            if ( Id == 0 ) Fiche_.FicheMaster.CreatedBy = StaticData.CurrentUserId;
+            if ( Id == 0 ) Fiche_.FicheMaster.CreatedDate = DateTime.Now;
+            if (Id == 0) Fiche_.FicheMaster.Status_ = 1;
             Fiche_.FicheMaster.DocTypeId = DocTypeId;
             Fiche_.FicheMaster.ExchangeId = Convert.ToByte(lookUpExchange.EditValue);
             Fiche_.FicheMaster.Note1 = txtNote1.Text;

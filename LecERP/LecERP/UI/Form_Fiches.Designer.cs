@@ -46,7 +46,11 @@
             this.tsDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.tsExportToExcel = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCreateInvoice = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsExecutePayment = new System.Windows.Forms.ToolStripMenuItem();
             this.tsPrintDocument = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsProcess = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsBeginProcess = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsCompleteProcess = new System.Windows.Forms.ToolStripMenuItem();
             this.gvData = new DevExpress.XtraGrid.Views.Grid.GridView();
             ((System.ComponentModel.ISupportInitialize)(this.grpTop)).BeginInit();
             this.grpTop.SuspendLayout();
@@ -207,15 +211,17 @@
             this.tsDelete,
             this.tsExportToExcel,
             this.btnCreateInvoice,
-            this.tsPrintDocument});
+            this.tsExecutePayment,
+            this.tsPrintDocument,
+            this.tsProcess});
             this.cmsMain.Name = "cmsMain";
-            this.cmsMain.Size = new System.Drawing.Size(153, 180);
+            this.cmsMain.Size = new System.Drawing.Size(140, 202);
             // 
             // tsAddNew
             // 
             this.tsAddNew.Image = global::LecERP.Properties.Resources.newtask_16x16;
             this.tsAddNew.Name = "tsAddNew";
-            this.tsAddNew.Size = new System.Drawing.Size(152, 22);
+            this.tsAddNew.Size = new System.Drawing.Size(139, 22);
             this.tsAddNew.Text = "Yeni...";
             this.tsAddNew.Click += new System.EventHandler(this.tsAddNew_Click);
             // 
@@ -223,7 +229,7 @@
             // 
             this.tsView.Image = global::LecERP.Properties.Resources.show_32x32;
             this.tsView.Name = "tsView";
-            this.tsView.Size = new System.Drawing.Size(152, 22);
+            this.tsView.Size = new System.Drawing.Size(139, 22);
             this.tsView.Text = "Baxış";
             this.tsView.Click += new System.EventHandler(this.tsView_Click);
             // 
@@ -231,7 +237,7 @@
             // 
             this.tsModify.Image = global::LecERP.Properties.Resources.pagesetup_16x16;
             this.tsModify.Name = "tsModify";
-            this.tsModify.Size = new System.Drawing.Size(152, 22);
+            this.tsModify.Size = new System.Drawing.Size(139, 22);
             this.tsModify.Text = "Düzəliş Et";
             this.tsModify.Click += new System.EventHandler(this.tsModify_Click);
             // 
@@ -239,30 +245,64 @@
             // 
             this.tsDelete.Image = global::LecERP.Properties.Resources.deletetable_16x16;
             this.tsDelete.Name = "tsDelete";
-            this.tsDelete.Size = new System.Drawing.Size(152, 22);
+            this.tsDelete.Size = new System.Drawing.Size(139, 22);
             this.tsDelete.Text = "Sil";
             // 
             // tsExportToExcel
             // 
             this.tsExportToExcel.Image = global::LecERP.Properties.Resources.excel_16x16;
             this.tsExportToExcel.Name = "tsExportToExcel";
-            this.tsExportToExcel.Size = new System.Drawing.Size(152, 22);
+            this.tsExportToExcel.Size = new System.Drawing.Size(139, 22);
             this.tsExportToExcel.Text = "Excel-ə çıxar";
+            this.tsExportToExcel.Click += new System.EventHandler(this.tsExportToExcel_Click);
             // 
             // btnCreateInvoice
             // 
+            this.btnCreateInvoice.Image = global::LecERP.Properties.Resources.newtablestyle_32x32;
             this.btnCreateInvoice.Name = "btnCreateInvoice";
-            this.btnCreateInvoice.Size = new System.Drawing.Size(152, 22);
+            this.btnCreateInvoice.Size = new System.Drawing.Size(139, 22);
             this.btnCreateInvoice.Text = "Fakturalama";
             this.btnCreateInvoice.Click += new System.EventHandler(this.btnCreateInvoice_Click);
+            // 
+            // tsExecutePayment
+            // 
+            this.tsExecutePayment.Image = global::LecERP.Properties.Resources.bosale_32x32;
+            this.tsExecutePayment.Name = "tsExecutePayment";
+            this.tsExecutePayment.Size = new System.Drawing.Size(139, 22);
+            this.tsExecutePayment.Text = "Ödəmə Et...";
+            this.tsExecutePayment.Click += new System.EventHandler(this.tsExecutePayment_Click);
             // 
             // tsPrintDocument
             // 
             this.tsPrintDocument.Image = global::LecERP.Properties.Resources.printer_16x16;
             this.tsPrintDocument.Name = "tsPrintDocument";
-            this.tsPrintDocument.Size = new System.Drawing.Size(152, 22);
+            this.tsPrintDocument.Size = new System.Drawing.Size(139, 22);
             this.tsPrintDocument.Text = "Çap Et";
             this.tsPrintDocument.Click += new System.EventHandler(this.tsPrintDocument_Click);
+            // 
+            // tsProcess
+            // 
+            this.tsProcess.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsBeginProcess,
+            this.tsCompleteProcess});
+            this.tsProcess.Image = global::LecERP.Properties.Resources.project_32x32;
+            this.tsProcess.Name = "tsProcess";
+            this.tsProcess.Size = new System.Drawing.Size(139, 22);
+            this.tsProcess.Text = "Proses";
+            // 
+            // tsBeginProcess
+            // 
+            this.tsBeginProcess.Name = "tsBeginProcess";
+            this.tsBeginProcess.Size = new System.Drawing.Size(152, 22);
+            this.tsBeginProcess.Text = "Başlat";
+            this.tsBeginProcess.Click += new System.EventHandler(this.tsBeginProcess_Click);
+            // 
+            // tsCompleteProcess
+            // 
+            this.tsCompleteProcess.Name = "tsCompleteProcess";
+            this.tsCompleteProcess.Size = new System.Drawing.Size(152, 22);
+            this.tsCompleteProcess.Text = "Tamamla";
+            this.tsCompleteProcess.Click += new System.EventHandler(this.tsCompleteProcess_Click);
             // 
             // gvData
             // 
@@ -271,6 +311,7 @@
             this.gvData.OptionsView.ColumnAutoWidth = false;
             this.gvData.OptionsView.ShowFooter = true;
             this.gvData.OptionsView.ShowGroupPanel = false;
+            this.gvData.DoubleClick += new System.EventHandler(this.gvData_DoubleClick);
             // 
             // Form_Fiches
             // 
@@ -324,5 +365,9 @@
         private System.Windows.Forms.ToolStripMenuItem tsView;
         private System.Windows.Forms.ToolStripMenuItem btnCreateInvoice;
         private System.Windows.Forms.ToolStripMenuItem tsPrintDocument;
+        private System.Windows.Forms.ToolStripMenuItem tsExecutePayment;
+        private System.Windows.Forms.ToolStripMenuItem tsProcess;
+        private System.Windows.Forms.ToolStripMenuItem tsBeginProcess;
+        private System.Windows.Forms.ToolStripMenuItem tsCompleteProcess;
     }
 }

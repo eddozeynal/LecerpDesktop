@@ -93,6 +93,16 @@ namespace LecERP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bosale_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("bosale_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bouser_16x16 {
             get {
                 object obj = ResourceManager.GetObject("bouser_16x16", resourceCulture);
@@ -163,6 +173,16 @@ namespace LecERP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap newtablestyle_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("newtablestyle_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap newtask_16x16 {
             get {
                 object obj = ResourceManager.GetObject("newtask_16x16", resourceCulture);
@@ -193,9 +213,39 @@ namespace LecERP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap print_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("print_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap printer_16x16 {
             get {
                 object obj = ResourceManager.GetObject("printer_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap printer_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("printer_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap project_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("project_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

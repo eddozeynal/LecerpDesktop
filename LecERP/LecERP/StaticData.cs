@@ -8,8 +8,8 @@ using LecERP.ServiceGates;
 
 namespace LecERP
 {
-	public static class StaticData
-	{
+    public static class StaticData
+    {
         public static IConfigManager ConfigManager = new ConfigFileManager();
         static Dictionary<string, object> _ConfigSettings = null;
         public static Dictionary<string, object> ConfigSettings
@@ -20,9 +20,9 @@ namespace LecERP
                 return _ConfigSettings;
             }
         }
-        
-		public static int CurrentUserId { get { return CurrentUser.BaseUser.Id; } }
-		public static string AppName { get { return ""; } }
+
+        public static int CurrentUserId { get { return CurrentUser.BaseUser.Id; } }
+        public static string AppName { get { return ""; } }
 
         private static List<ConnectionConfiguration> _ConnectionConfigurations;
         public static List<ConnectionConfiguration> ConnectionConfigurations
@@ -43,8 +43,8 @@ namespace LecERP
 
 
         public static string LogDataFolder { get { return System.Windows.Forms.Application.UserAppDataPath; } }
-		public static string LogDataFileName { get { return LogDataFolder + @"erpconfig.ini"; } }
-        public static List<Parameter> BaseSettings { get;set;}
+        public static string LogDataFileName { get { return LogDataFolder + @"erpconfig.ini"; } }
+        public static List<Parameter> BaseSettings { get; set; }
         public static void RetrieveAppSettings()
         {
             try
@@ -57,7 +57,7 @@ namespace LecERP
             catch { }
         }
 
-        public static decimal CalculateItemTotal(byte PriceCalType, decimal ItemPrice, decimal Quantity,decimal Width, decimal Lenght, decimal Height)
+        public static decimal CalculateItemTotal(byte PriceCalType, decimal ItemPrice, decimal Quantity, decimal Width, decimal Lenght, decimal Height)
         {
             if (PriceCalType == 1) return ItemPrice * Quantity;
             if (PriceCalType == 2)
@@ -66,7 +66,7 @@ namespace LecERP
             }
             if (PriceCalType == 2)
             {
-                return ItemPrice * Quantity * Width * Lenght * Height/1000000000;
+                return ItemPrice * Quantity * Width * Lenght * Height / 1000000000;
             }
             return ItemPrice * Quantity;
         }
@@ -91,10 +91,13 @@ namespace LecERP
                 if (_Cryptor == null)
                 {
                     _Cryptor = new RijndaelCrypt(EncryptionKey, InitVector);
-                   
+
                 }
                 return _Cryptor;
             }
         }
+
+        public static bool weightVisible { get { return Convert.ToBoolean(BaseSettings.Where(x => x.ParameterKey == "Fiches.Manp.Weight.Visible").First().ParameterValue); } }
+        public static bool heightVisible { get { return Convert.ToBoolean(BaseSettings.Where(x => x.ParameterKey == "Fiches.Manp.Height.Visible").First().ParameterValue); } }
     }
 }

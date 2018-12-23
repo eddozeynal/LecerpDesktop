@@ -29,7 +29,7 @@ namespace LecERP
 
         private void RefreshItemPriceData()
         {
-            Operation<List<VW_ItemPricesDefault>> op_itprs_def = OperationHandler.GetItemDefaultPricesView();
+            Operation<List<ItemDefaultPrices>> op_itprs_def = OperationHandler.GetItemDefaultPricesView();
             if (op_itprs_def.Successful)
             {
                 gcByItems.DataSource = op_itprs_def.Value;
@@ -50,7 +50,7 @@ namespace LecERP
         {
             object objCurrent = gvByItems.GetFocusedRow();
             if (objCurrent == null) return;
-            VW_ItemPricesDefault itemDef = (VW_ItemPricesDefault)objCurrent;
+            ItemDefaultPrices itemDef = (ItemDefaultPrices)objCurrent;
             Manp_ItemPriceByItem m_itp = new Manp_ItemPriceByItem();
             m_itp.itemDef = itemDef;
             m_itp.ShowDialog();

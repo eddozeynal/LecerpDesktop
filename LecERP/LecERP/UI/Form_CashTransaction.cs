@@ -99,5 +99,10 @@ namespace LecERP
             //manp.ShowDialog();
             //RefreshData();
         }
+
+        private void tsExportToExcel_Click(object sender, EventArgs e)
+        {
+            gvData.ExportExcell();
+        }
     }
 }

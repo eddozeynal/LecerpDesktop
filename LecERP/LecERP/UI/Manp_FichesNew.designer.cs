@@ -44,11 +44,11 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.grpUnits = new DevExpress.XtraEditors.GroupControl();
             this.spPrice = new DevExpress.XtraEditors.SpinEdit();
-            this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
+            this.lblPrice = new DevExpress.XtraEditors.LabelControl();
             this.spWeight = new DevExpress.XtraEditors.SpinEdit();
-            this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
+            this.lblWeight = new DevExpress.XtraEditors.LabelControl();
             this.spHeight = new DevExpress.XtraEditors.SpinEdit();
-            this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
+            this.lblHeight = new DevExpress.XtraEditors.LabelControl();
             this.spWidth = new DevExpress.XtraEditors.SpinEdit();
             this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
             this.spLength = new DevExpress.XtraEditors.SpinEdit();
@@ -78,6 +78,7 @@
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.rse_Price = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.txtNote4 = new DevExpress.XtraEditors.TextEdit();
             this.txtNote3 = new DevExpress.XtraEditors.TextEdit();
             this.txtNote2 = new DevExpress.XtraEditors.TextEdit();
@@ -156,7 +157,7 @@
             this.grpCenter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpCenter.Location = new System.Drawing.Point(0, 0);
             this.grpCenter.Name = "grpCenter";
-            this.grpCenter.Size = new System.Drawing.Size(1168, 535);
+            this.grpCenter.Size = new System.Drawing.Size(1177, 535);
             this.grpCenter.TabIndex = 2;
             this.grpCenter.Text = "Qaimə";
             // 
@@ -297,11 +298,11 @@
             this.grpUnits.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 10F);
             this.grpUnits.AppearanceCaption.Options.UseFont = true;
             this.grpUnits.Controls.Add(this.spPrice);
-            this.grpUnits.Controls.Add(this.labelControl14);
+            this.grpUnits.Controls.Add(this.lblPrice);
             this.grpUnits.Controls.Add(this.spWeight);
-            this.grpUnits.Controls.Add(this.labelControl18);
+            this.grpUnits.Controls.Add(this.lblWeight);
             this.grpUnits.Controls.Add(this.spHeight);
-            this.grpUnits.Controls.Add(this.labelControl17);
+            this.grpUnits.Controls.Add(this.lblHeight);
             this.grpUnits.Controls.Add(this.spWidth);
             this.grpUnits.Controls.Add(this.labelControl16);
             this.grpUnits.Controls.Add(this.spLength);
@@ -317,7 +318,7 @@
             this.grpUnits.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.grpUnits.Location = new System.Drawing.Point(2, 145);
             this.grpUnits.Name = "grpUnits";
-            this.grpUnits.Size = new System.Drawing.Size(1164, 388);
+            this.grpUnits.Size = new System.Drawing.Size(1173, 388);
             this.grpUnits.TabIndex = 17;
             this.grpUnits.Text = "Sətirlər";
             // 
@@ -335,13 +336,13 @@
             this.spPrice.Size = new System.Drawing.Size(64, 20);
             this.spPrice.TabIndex = 50;
             // 
-            // labelControl14
+            // lblPrice
             // 
-            this.labelControl14.Location = new System.Drawing.Point(929, 26);
-            this.labelControl14.Name = "labelControl14";
-            this.labelControl14.Size = new System.Drawing.Size(34, 13);
-            this.labelControl14.TabIndex = 49;
-            this.labelControl14.Text = "Qiymət";
+            this.lblPrice.Location = new System.Drawing.Point(929, 26);
+            this.lblPrice.Name = "lblPrice";
+            this.lblPrice.Size = new System.Drawing.Size(34, 13);
+            this.lblPrice.TabIndex = 49;
+            this.lblPrice.Text = "Qiymət";
             // 
             // spWeight
             // 
@@ -357,13 +358,13 @@
             this.spWeight.Size = new System.Drawing.Size(64, 20);
             this.spWeight.TabIndex = 48;
             // 
-            // labelControl18
+            // lblWeight
             // 
-            this.labelControl18.Location = new System.Drawing.Point(859, 26);
-            this.labelControl18.Name = "labelControl18";
-            this.labelControl18.Size = new System.Drawing.Size(20, 13);
-            this.labelControl18.TabIndex = 47;
-            this.labelControl18.Text = "Çəki";
+            this.lblWeight.Location = new System.Drawing.Point(859, 26);
+            this.lblWeight.Name = "lblWeight";
+            this.lblWeight.Size = new System.Drawing.Size(20, 13);
+            this.lblWeight.TabIndex = 47;
+            this.lblWeight.Text = "Çəki";
             // 
             // spHeight
             // 
@@ -379,13 +380,13 @@
             this.spHeight.Size = new System.Drawing.Size(64, 20);
             this.spHeight.TabIndex = 46;
             // 
-            // labelControl17
+            // lblHeight
             // 
-            this.labelControl17.Location = new System.Drawing.Point(781, 26);
-            this.labelControl17.Name = "labelControl17";
-            this.labelControl17.Size = new System.Drawing.Size(48, 13);
-            this.labelControl17.TabIndex = 45;
-            this.labelControl17.Text = "Hündürlük";
+            this.lblHeight.Location = new System.Drawing.Point(781, 26);
+            this.lblHeight.Name = "lblHeight";
+            this.lblHeight.Size = new System.Drawing.Size(48, 13);
+            this.lblHeight.TabIndex = 45;
+            this.lblHeight.Text = "Hündürlük";
             // 
             // spWidth
             // 
@@ -520,7 +521,7 @@
             this.rse_Heigt,
             this.rse_Weight,
             this.rse_Price});
-            this.gcLines.Size = new System.Drawing.Size(1160, 315);
+            this.gcLines.Size = new System.Drawing.Size(1169, 315);
             this.gcLines.TabIndex = 0;
             this.gcLines.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvLines});
@@ -537,7 +538,8 @@
             this.gridColumn10,
             this.gridColumn11,
             this.gridColumn12,
-            this.gridColumn4});
+            this.gridColumn4,
+            this.gridColumn5});
             this.gvLines.GridControl = this.gcLines;
             this.gvLines.Name = "gvLines";
             this.gvLines.OptionsView.ColumnAutoWidth = false;
@@ -702,6 +704,14 @@
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 9;
             // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "Tamamlanıb";
+            this.gridColumn5.FieldName = "IsCompleted";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 10;
+            // 
             // txtNote4
             // 
             this.txtNote4.Location = new System.Drawing.Point(588, 115);
@@ -806,7 +816,7 @@
             this.pnlExecution.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlExecution.Location = new System.Drawing.Point(0, 535);
             this.pnlExecution.Name = "pnlExecution";
-            this.pnlExecution.Size = new System.Drawing.Size(1168, 43);
+            this.pnlExecution.Size = new System.Drawing.Size(1177, 43);
             this.pnlExecution.TabIndex = 3;
             // 
             // lblError
@@ -816,7 +826,7 @@
             this.lblError.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lblError.Location = new System.Drawing.Point(12, 15);
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(913, 16);
+            this.lblError.Size = new System.Drawing.Size(922, 16);
             this.lblError.TabIndex = 2;
             this.lblError.Text = "Error :";
             // 
@@ -826,7 +836,7 @@
             this.btnCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.btnCancel.Appearance.Options.UseFont = true;
             this.btnCancel.ImageOptions.Image = global::LecERP.Properties.Resources.cancel_16x16;
-            this.btnCancel.Location = new System.Drawing.Point(1050, 5);
+            this.btnCancel.Location = new System.Drawing.Point(1059, 5);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(113, 32);
             this.btnCancel.TabIndex = 1;
@@ -839,7 +849,7 @@
             this.btnOk.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.btnOk.Appearance.Options.UseFont = true;
             this.btnOk.ImageOptions.Image = global::LecERP.Properties.Resources.apply_16x16;
-            this.btnOk.Location = new System.Drawing.Point(931, 5);
+            this.btnOk.Location = new System.Drawing.Point(940, 5);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(113, 32);
             this.btnOk.TabIndex = 0;
@@ -850,7 +860,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1168, 578);
+            this.ClientSize = new System.Drawing.Size(1177, 578);
             this.Controls.Add(this.grpCenter);
             this.Controls.Add(this.pnlExecution);
             this.Name = "Manp_FichesNew";
@@ -950,15 +960,16 @@
         private DevExpress.XtraEditors.ComboBoxEdit cmbItemType;
         private DevExpress.XtraEditors.SimpleButton btnAddLine;
         private DevExpress.XtraEditors.SpinEdit spHeight;
-        private DevExpress.XtraEditors.LabelControl labelControl17;
+        private DevExpress.XtraEditors.LabelControl lblHeight;
         private DevExpress.XtraEditors.SpinEdit spWidth;
         private DevExpress.XtraEditors.LabelControl labelControl16;
         private DevExpress.XtraEditors.SpinEdit spLength;
         private DevExpress.XtraEditors.LabelControl labelControl15;
         private DevExpress.XtraEditors.SpinEdit spWeight;
-        private DevExpress.XtraEditors.LabelControl labelControl18;
+        private DevExpress.XtraEditors.LabelControl lblWeight;
         private DevExpress.XtraEditors.SpinEdit spPrice;
-        private DevExpress.XtraEditors.LabelControl labelControl14;
+        private DevExpress.XtraEditors.LabelControl lblPrice;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
     }
 }

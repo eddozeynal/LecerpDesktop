@@ -163,13 +163,13 @@
             this.tsExportToExcel,
             this.tsPrintDocument});
             this.cmsMain.Name = "cmsMain";
-            this.cmsMain.Size = new System.Drawing.Size(139, 136);
+            this.cmsMain.Size = new System.Drawing.Size(153, 158);
             // 
             // tsAddNew
             // 
             this.tsAddNew.Image = global::LecERP.Properties.Resources.newtask_16x16;
             this.tsAddNew.Name = "tsAddNew";
-            this.tsAddNew.Size = new System.Drawing.Size(138, 22);
+            this.tsAddNew.Size = new System.Drawing.Size(152, 22);
             this.tsAddNew.Text = "Yeni...";
             this.tsAddNew.Click += new System.EventHandler(this.tsAddNew_Click);
             // 
@@ -177,7 +177,7 @@
             // 
             this.tsView.Image = global::LecERP.Properties.Resources.show_32x32;
             this.tsView.Name = "tsView";
-            this.tsView.Size = new System.Drawing.Size(138, 22);
+            this.tsView.Size = new System.Drawing.Size(152, 22);
             this.tsView.Text = "Baxış";
             this.tsView.Click += new System.EventHandler(this.tsView_Click);
             // 
@@ -185,7 +185,7 @@
             // 
             this.tsModify.Image = global::LecERP.Properties.Resources.pagesetup_16x16;
             this.tsModify.Name = "tsModify";
-            this.tsModify.Size = new System.Drawing.Size(138, 22);
+            this.tsModify.Size = new System.Drawing.Size(152, 22);
             this.tsModify.Text = "Düzəliş Et";
             this.tsModify.Click += new System.EventHandler(this.tsModify_Click);
             // 
@@ -193,21 +193,22 @@
             // 
             this.tsDelete.Image = global::LecERP.Properties.Resources.deletetable_16x16;
             this.tsDelete.Name = "tsDelete";
-            this.tsDelete.Size = new System.Drawing.Size(138, 22);
+            this.tsDelete.Size = new System.Drawing.Size(152, 22);
             this.tsDelete.Text = "Sil";
             // 
             // tsExportToExcel
             // 
             this.tsExportToExcel.Image = global::LecERP.Properties.Resources.excel_16x16;
             this.tsExportToExcel.Name = "tsExportToExcel";
-            this.tsExportToExcel.Size = new System.Drawing.Size(138, 22);
+            this.tsExportToExcel.Size = new System.Drawing.Size(152, 22);
             this.tsExportToExcel.Text = "Excel-ə çıxar";
+            this.tsExportToExcel.Click += new System.EventHandler(this.tsExportToExcel_Click);
             // 
             // tsPrintDocument
             // 
             this.tsPrintDocument.Image = global::LecERP.Properties.Resources.printer_16x16;
             this.tsPrintDocument.Name = "tsPrintDocument";
-            this.tsPrintDocument.Size = new System.Drawing.Size(138, 22);
+            this.tsPrintDocument.Size = new System.Drawing.Size(152, 22);
             this.tsPrintDocument.Text = "Çap Et";
             // 
             // gvData
