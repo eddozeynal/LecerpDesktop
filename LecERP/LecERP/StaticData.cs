@@ -19,6 +19,9 @@ namespace LecERP
                 if (_ConfigSettings == null) _ConfigSettings = ConfigManager.ReadConfigSettings().Value;
                 return _ConfigSettings;
             }
+
+
+
         }
 
         public static int CurrentUserId { get { return CurrentUser.BaseUser.Id; } }
