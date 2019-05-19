@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using LecERP.Models;
 
 namespace LecERP
 {
@@ -19,7 +20,7 @@ namespace LecERP
         }
         private void RefreshData()
         {
-            Operation<List<CardMasterView>> op_CardMaster = OperationHandler.GetAllCards();
+            Operation<List<CardView>> op_CardMaster = OperationHandler.GetCards();
             if (op_CardMaster.Successful)
             {
                 gcData.DataSource = op_CardMaster.Value;
@@ -34,7 +35,6 @@ namespace LecERP
 
         private void Form_Cards_Shown(object sender, EventArgs e)
         {
-            gvData.AssignGridView(11);
             RefreshData();
         }
 

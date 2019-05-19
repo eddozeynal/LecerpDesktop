@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using LecERP.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,23 +37,31 @@ namespace LecERP
 
 		void Login()
 		{
-            if (txtUsername.Text == string.Empty) return;
-            if (txtPassword.Text == string.Empty) return;
-
-            object lookUpConnectionsCurrentRow = lookUpConnections.GetSelectedDataRow();
-            if (lookUpConnectionsCurrentRow == null) return;
-            ConnectionConfiguration SelectedConfig = (lookUpConnectionsCurrentRow as ConnectionConfiguration);
-            StaticData.CurrentConnectionConfiguration = SelectedConfig;
-
-            Operation<User> operation = OperationHandler.LoginUser(txtUsername.Text, StaticData.Cryptor.Encrypt(txtPassword.Text));
-            if (operation.Successful)
+            try
             {
-                StaticData.CurrentUser= operation.Value;
-                Close();
+                if (txtUsername.Text == string.Empty) { XtraMessageBox.Show("İstifadəçi adı daxil edin"); return; }
+                if (txtPassword.Text == string.Empty) { XtraMessageBox.Show("Şifrə daxil edin"); return; }
+
+                object lookUpConnectionsCurrentRow = lookUpConnections.GetSelectedDataRow();
+                if (lookUpConnectionsCurrentRow == null) return;
+                ConnectionConfiguration SelectedConfig = (lookUpConnectionsCurrentRow as ConnectionConfiguration);
+                StaticData.CurrentConnectionConfiguration = SelectedConfig;
+
+                Operation<UserView> operation = OperationHandler.LoginUser( new LoginData { Login = txtUsername.Text, PassHash = StaticData.Cryptor.Encrypt(txtPassword.Text) });
+                if (operation.Successful)
+                {
+                    StaticData.CurrentUser = operation.Value;
+                    PrivateProfileStringHandler.SetPrivateProfileString("USERNAME", txtUsername.Text);
+                    Close();
+                }
+                else
+                {
+                    XtraMessageBox.Show(operation.Fail);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                XtraMessageBox.Show(operation.Fail);
+                XtraMessageBox.Show("Bağlantı alınmadı /n" + ex.Message);
             }
         }
 
@@ -95,7 +104,7 @@ namespace LecERP
                 txtUsername.Text = PrivateProfileStringHandler.ReadPrivateProfileString("USERNAME");
             }
             catch { }
-            if (txtUsername.Text.Length == 0) txtUsername.Text = Environment.UserName;
+            //if (txtUsername.Text.Length == 0) txtUsername.Text = Environment.UserName;
             txtPassword.Focus();
 
             lookUpConnections.Properties.DataSource = StaticData.ConnectionConfigurations;
@@ -103,8 +112,8 @@ namespace LecERP
             lookUpConnections.ItemIndex = 0;
 
             //TO DO Test only
-            txtUsername.Text = "Admin";
-            txtPassword.Text = "000";
+            //txtUsername.Text = "Admin";
+            //txtPassword.Text = "000";
 
         }
 

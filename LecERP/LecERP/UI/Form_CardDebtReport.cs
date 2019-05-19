@@ -31,7 +31,30 @@ namespace LecERP
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            gcData.DataSource = OperationHandler.GetCardTotalsByInterval(StaticData.CurrentUserId,dateBegin.DateTime,dateEnd.DateTime).Value;
+            var list = OperationHandler.GetCardTotalsByInterval(StaticData.CurrentUserId, dateBegin.DateTime, dateEnd.DateTime).Value;
+            var extList = new List<CardTotalByIntervalViewAcc>();
+            foreach (var item in list)
+            {
+                CardTotalByIntervalViewAcc accItem = item.GetEligibleOjbect<CardTotalByIntervalViewAcc>();
+                if (accItem.RemByBegDate > 0)
+                {
+                    accItem.RemDebitByBegDate = accItem.RemByBegDate;
+                }
+                else
+                {
+                    accItem.RemCreditByBegDate = Math.Abs(accItem.RemByBegDate);
+                }
+                if (accItem.RemByEndDate > 0)
+                {
+                    accItem.RemDebitByEndDate = accItem.RemByEndDate;
+                }
+                else
+                {
+                    accItem.RemCreditByEndDate = Math.Abs(accItem.RemByEndDate);
+                }
+                extList.Add(accItem);
+            }
+            gcData.DataSource = extList;
         }
 
         private void btnExcel_Click(object sender, EventArgs e)

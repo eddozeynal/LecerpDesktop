@@ -42,7 +42,6 @@
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.spDebtLimit = new DevExpress.XtraEditors.SpinEdit();
             this.grpLocation = new DevExpress.XtraEditors.GroupControl();
-            this.btnLocation = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
             this.txtDistrict = new DevExpress.XtraEditors.TextEdit();
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
@@ -56,7 +55,7 @@
             this.grpCardInfo = new DevExpress.XtraEditors.GroupControl();
             this.chkActive = new DevExpress.XtraEditors.CheckEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.lookUpExchange = new DevExpress.XtraEditors.LookUpEdit();
+            this.lookUpCurrency = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -65,6 +64,7 @@
             this.txtCardName = new DevExpress.XtraEditors.TextEdit();
             this.pnlExecution = new DevExpress.XtraEditors.PanelControl();
             this.lblError = new DevExpress.XtraEditors.LabelControl();
+            this.btnLocation = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnOk = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.grpCenter)).BeginInit();
@@ -88,7 +88,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.grpCardInfo)).BeginInit();
             this.grpCardInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chkActive.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpExchange.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpCurrency.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpCardType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCardCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCardName.Properties)).BeginInit();
@@ -109,7 +109,7 @@
             this.grpCenter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpCenter.Location = new System.Drawing.Point(0, 0);
             this.grpCenter.Name = "grpCenter";
-            this.grpCenter.Size = new System.Drawing.Size(557, 472);
+            this.grpCenter.Size = new System.Drawing.Size(853, 332);
             this.grpCenter.TabIndex = 0;
             this.grpCenter.Text = "Hesablar";
             // 
@@ -125,7 +125,7 @@
             this.grpContact.Controls.Add(this.labelControl6);
             this.grpContact.Location = new System.Drawing.Point(302, 135);
             this.grpContact.Name = "grpContact";
-            this.grpContact.Size = new System.Drawing.Size(242, 143);
+            this.grpContact.Size = new System.Drawing.Size(242, 186);
             this.grpContact.TabIndex = 20;
             this.grpContact.Text = "Əlaqə";
             // 
@@ -263,26 +263,17 @@
             this.grpLocation.Controls.Add(this.txtCountry);
             this.grpLocation.Controls.Add(this.labelControl8);
             this.grpLocation.Controls.Add(this.txtLocationAddress);
-            this.grpLocation.Location = new System.Drawing.Point(12, 284);
+            this.grpLocation.Location = new System.Drawing.Point(550, 30);
             this.grpLocation.Name = "grpLocation";
-            this.grpLocation.Size = new System.Drawing.Size(532, 179);
+            this.grpLocation.Size = new System.Drawing.Size(293, 291);
             this.grpLocation.TabIndex = 19;
             this.grpLocation.Text = "Yerləşmə Məlumatları";
-            // 
-            // btnLocation
-            // 
-            this.btnLocation.ImageOptions.Image = global::LecERP.Properties.Resources.bolocalization_32x32;
-            this.btnLocation.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnLocation.Location = new System.Drawing.Point(489, 26);
-            this.btnLocation.Name = "btnLocation";
-            this.btnLocation.Size = new System.Drawing.Size(36, 36);
-            this.btnLocation.TabIndex = 24;
             // 
             // labelControl14
             // 
             this.labelControl14.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.labelControl14.Appearance.Options.UseFont = true;
-            this.labelControl14.Location = new System.Drawing.Point(310, 45);
+            this.labelControl14.Location = new System.Drawing.Point(21, 186);
             this.labelControl14.Name = "labelControl14";
             this.labelControl14.Size = new System.Drawing.Size(35, 16);
             this.labelControl14.TabIndex = 22;
@@ -370,12 +361,12 @@
             // 
             // txtLocationAddress
             // 
-            this.txtLocationAddress.Location = new System.Drawing.Point(310, 67);
+            this.txtLocationAddress.Location = new System.Drawing.Point(21, 208);
             this.txtLocationAddress.Name = "txtLocationAddress";
             this.txtLocationAddress.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtLocationAddress.Properties.Appearance.Options.UseFont = true;
             this.txtLocationAddress.Properties.MaxLength = 25;
-            this.txtLocationAddress.Size = new System.Drawing.Size(215, 96);
+            this.txtLocationAddress.Size = new System.Drawing.Size(259, 76);
             this.txtLocationAddress.TabIndex = 23;
             // 
             // grpCardInfo
@@ -384,7 +375,7 @@
             this.grpCardInfo.AppearanceCaption.Options.UseFont = true;
             this.grpCardInfo.Controls.Add(this.chkActive);
             this.grpCardInfo.Controls.Add(this.labelControl1);
-            this.grpCardInfo.Controls.Add(this.lookUpExchange);
+            this.grpCardInfo.Controls.Add(this.lookUpCurrency);
             this.grpCardInfo.Controls.Add(this.labelControl2);
             this.grpCardInfo.Controls.Add(this.labelControl9);
             this.grpCardInfo.Controls.Add(this.labelControl3);
@@ -393,7 +384,7 @@
             this.grpCardInfo.Controls.Add(this.txtCardName);
             this.grpCardInfo.Location = new System.Drawing.Point(12, 30);
             this.grpCardInfo.Name = "grpCardInfo";
-            this.grpCardInfo.Size = new System.Drawing.Size(278, 248);
+            this.grpCardInfo.Size = new System.Drawing.Size(278, 291);
             this.grpCardInfo.TabIndex = 18;
             this.grpCardInfo.Text = "Hesab Məlumatları";
             // 
@@ -415,21 +406,21 @@
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Hesab Növü";
             // 
-            // lookUpExchange
+            // lookUpCurrency
             // 
-            this.lookUpExchange.Location = new System.Drawing.Point(130, 143);
-            this.lookUpExchange.Name = "lookUpExchange";
-            this.lookUpExchange.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.lookUpExchange.Properties.Appearance.Options.UseFont = true;
-            this.lookUpExchange.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.lookUpCurrency.Location = new System.Drawing.Point(130, 143);
+            this.lookUpCurrency.Name = "lookUpCurrency";
+            this.lookUpCurrency.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lookUpCurrency.Properties.Appearance.Options.UseFont = true;
+            this.lookUpCurrency.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpExchange.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name_", "Seçin")});
-            this.lookUpExchange.Properties.DisplayMember = "Name_";
-            this.lookUpExchange.Properties.NullText = "Seçin";
-            this.lookUpExchange.Properties.ValueMember = "Id";
-            this.lookUpExchange.Size = new System.Drawing.Size(141, 22);
-            this.lookUpExchange.TabIndex = 17;
+            this.lookUpCurrency.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("CurrencyName", "Seçin")});
+            this.lookUpCurrency.Properties.DisplayMember = "CurrencyName";
+            this.lookUpCurrency.Properties.NullText = "Seçin";
+            this.lookUpCurrency.Properties.ValueMember = "Id";
+            this.lookUpCurrency.Size = new System.Drawing.Size(141, 22);
+            this.lookUpCurrency.TabIndex = 17;
             // 
             // labelControl2
             // 
@@ -470,10 +461,10 @@
             this.lookUpCardType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lookUpCardType.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name_", "Seçin")});
-            this.lookUpCardType.Properties.DisplayMember = "Name_";
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("CardTypeName", "Seçin")});
+            this.lookUpCardType.Properties.DisplayMember = "CardTypeName";
             this.lookUpCardType.Properties.NullText = "Seçin";
-            this.lookUpCardType.Properties.ValueMember = "Key_";
+            this.lookUpCardType.Properties.ValueMember = "Id";
             this.lookUpCardType.Size = new System.Drawing.Size(141, 22);
             this.lookUpCardType.TabIndex = 8;
             // 
@@ -501,9 +492,9 @@
             this.pnlExecution.Controls.Add(this.btnCancel);
             this.pnlExecution.Controls.Add(this.btnOk);
             this.pnlExecution.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlExecution.Location = new System.Drawing.Point(0, 472);
+            this.pnlExecution.Location = new System.Drawing.Point(0, 332);
             this.pnlExecution.Name = "pnlExecution";
-            this.pnlExecution.Size = new System.Drawing.Size(557, 43);
+            this.pnlExecution.Size = new System.Drawing.Size(853, 43);
             this.pnlExecution.TabIndex = 1;
             this.pnlExecution.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlExecution_MouseDown);
             // 
@@ -514,10 +505,20 @@
             this.lblError.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lblError.Location = new System.Drawing.Point(12, 10);
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(302, 23);
+            this.lblError.Size = new System.Drawing.Size(598, 23);
             this.lblError.TabIndex = 2;
             this.lblError.Text = "Error :";
             this.lblError.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblError_MouseDown);
+            // 
+            // btnLocation
+            // 
+            this.btnLocation.ImageOptions.Image = global::LecERP.Properties.Resources.bolocalization_32x32;
+            this.btnLocation.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnLocation.Location = new System.Drawing.Point(244, 169);
+            this.btnLocation.Name = "btnLocation";
+            this.btnLocation.Size = new System.Drawing.Size(36, 36);
+            this.btnLocation.TabIndex = 24;
+            this.btnLocation.Click += new System.EventHandler(this.btnLocation_Click);
             // 
             // btnCancel
             // 
@@ -525,7 +526,7 @@
             this.btnCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.btnCancel.Appearance.Options.UseFont = true;
             this.btnCancel.ImageOptions.Image = global::LecERP.Properties.Resources.cancel_16x16;
-            this.btnCancel.Location = new System.Drawing.Point(439, 5);
+            this.btnCancel.Location = new System.Drawing.Point(735, 5);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(113, 32);
             this.btnCancel.TabIndex = 1;
@@ -538,7 +539,7 @@
             this.btnOk.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.btnOk.Appearance.Options.UseFont = true;
             this.btnOk.ImageOptions.Image = global::LecERP.Properties.Resources.apply_16x16;
-            this.btnOk.Location = new System.Drawing.Point(320, 5);
+            this.btnOk.Location = new System.Drawing.Point(616, 5);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(113, 32);
             this.btnOk.TabIndex = 0;
@@ -549,7 +550,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(557, 515);
+            this.ClientSize = new System.Drawing.Size(853, 375);
             this.Controls.Add(this.grpCenter);
             this.Controls.Add(this.pnlExecution);
             this.Name = "Manp_Cards";
@@ -582,7 +583,7 @@
             this.grpCardInfo.ResumeLayout(false);
             this.grpCardInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chkActive.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpExchange.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpCurrency.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpCardType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCardCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCardName.Properties)).EndInit();
@@ -615,7 +616,7 @@
         private DevExpress.XtraEditors.TextEdit txtTel2;
         private DevExpress.XtraEditors.TextEdit txtTel1;
         private DevExpress.XtraEditors.LabelControl lblError;
-        private DevExpress.XtraEditors.LookUpEdit lookUpExchange;
+        private DevExpress.XtraEditors.LookUpEdit lookUpCurrency;
         private DevExpress.XtraEditors.LabelControl labelControl9;
         private DevExpress.XtraEditors.GroupControl grpCardInfo;
         private DevExpress.XtraEditors.GroupControl grpFinancialInfo;

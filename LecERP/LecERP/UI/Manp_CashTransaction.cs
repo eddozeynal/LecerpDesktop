@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using System.Collections.ObjectModel;
 using DevExpress.XtraGrid.Views.Base;
+using LecERP.Models;
 
 namespace LecERP
 {
@@ -19,20 +20,36 @@ namespace LecERP
         public bool IsEditMode { get; set; }
 
         CashTransaction cashTransaction = null;
-        List<ExchangeMaster> Exchanges = null;
-        List<CardMasterView> Cards = null;
-        List<EnumMaster> CashTrsancationTypes = null;
-
+        List<Currency> Currencies = null;
+        List<CardView> Cards = null;
+        List<CashType> CashTypes = null;
         public byte DocTypeId { get; set; }
+        DataHolder dataHolder = new DataHolder();
+        DataObjectBindTool<CashTransaction> bindTool = new DataObjectBindTool<CashTransaction>();
+        bool injected = false;
+        int sourceCardId; int destCardId; decimal amount; string note = string.Empty; int connectedInvoiceId; byte cashCategoryId;
 
         public Manp_CashTransaction()
         {
             InitializeComponent();
         }
 
+        public Manp_CashTransaction(int _sourceCardId,int _destCardId,decimal _amount, string _note, int _connectedInvoiceId, byte _cashCategoryId)
+        {
+            InitializeComponent();
+            sourceCardId = _sourceCardId;
+            destCardId = _destCardId;
+            amount = _amount;
+            note = _note;
+            connectedInvoiceId = _connectedInvoiceId;
+            cashCategoryId = _cashCategoryId;
+            IsEditMode = true;
+            injected = true;
+        }
+
         private void Manp_CashTransaction_Load(object sender, EventArgs e)
         {
-
+            lblError.Text = string.Empty;
         }
 
         private void Manp_CashTransaction_Shown(object sender, EventArgs e)
@@ -42,14 +59,30 @@ namespace LecERP
                 foreach (Control c in grpCenter.Controls) c.Enabled = false;
                 btnOk.Enabled = false;
             }
-            
             List<IBaseOperation> loadOperations = new List<IBaseOperation>();
-            Operation<List<ExchangeMaster>> op_ExchangeMaster = OperationHandler.GetAllExchanges();
-            loadOperations.Add(op_ExchangeMaster);
-            Operation<List<CardMasterView>> op_CardMaster = OperationHandler.GetAllCards();
+
+            IBaseOperation baseOperation = dataHolder.LoadEnumData();
+            loadOperations.Add(baseOperation);
+
+            Operation<List<CardView>> op_CardMaster = OperationHandler.GetCards();
             loadOperations.Add(op_CardMaster);
-            Operation<List<EnumMaster>> op_CashTrsancationTypes = OperationHandler.GetEnums(8);
-            loadOperations.Add(op_CashTrsancationTypes);
+
+            if (Id != 0)
+            {
+                Operation<CashTransaction> op_ExistingCashTransaction = OperationHandler.GetCashTransactionById(Id);
+                loadOperations.Add(op_ExistingCashTransaction);
+                cashTransaction = op_ExistingCashTransaction.Value;
+                lookUpCurrency.ReadOnly = true;
+            }
+            else
+            {
+                cashTransaction = new CashTransaction();
+                cashTransaction.CurrencyId = 1;
+                cashTransaction.CurrencyRate = 1;
+                cashTransaction.CreatedDate = DateTime.Now;
+                cashTransaction.CreatedBy = StaticData.CurrentUserId;
+                cashTransaction.StatusId = 11;
+            }
 
             foreach (IBaseOperation ibop in loadOperations)
             {
@@ -60,45 +93,38 @@ namespace LecERP
                 }
             }
 
-            Exchanges = op_ExchangeMaster.Value;
             Cards = op_CardMaster.Value;
-            CashTrsancationTypes = op_CashTrsancationTypes.Value;
+            Currencies = dataHolder.Currencies;
+            CashTypes = dataHolder.CashTypes;
 
+            lookUpCurrency.Properties.DataSource = Currencies;
+            lookUpCashType.Properties.DataSource = CashTypes;
 
-            lookUpExchange.Properties.DataSource = Exchanges;
-            lookUpTransactionType.Properties.DataSource = CashTrsancationTypes;
+            bindTool.BindControl(lookUpCurrency, nameof(cashTransaction.CurrencyId));
+            bindTool.BindControl(lookUpCashType, nameof(cashTransaction.CashTypeId));
+            bindTool.BindControl(txtNote, nameof(cashTransaction.Note));
+            bindTool.BindControl(txtFicheno, nameof(cashTransaction.Ficheno));
+            bindTool.BindControl(spAmount, nameof(cashTransaction.Total));
+            bindTool.BindControl(spCurrencyRate, nameof(cashTransaction.CurrencyRate));
+            bindTool.BindControl(searchLookUpSourceCard, nameof(cashTransaction.SourceCardId));
+            bindTool.BindControl(searchLookUpDestCard, nameof(cashTransaction.DestCardId));
+            bindTool.DataObject = cashTransaction;
 
-            lookUpTransactionType.ItemIndex = 2;
+            txtDate.Text = cashTransaction.CreatedDate.ToString(StaticData.DateTimeFromatStr);
 
-
-            if (Id == 0)
+            if (injected)
             {
-                cashTransaction = new CashTransaction();
+                
+                
+                CardView sourceCard = Cards.Where(x => x.Id == sourceCardId).FirstOrDefault();
+                lookUpCurrency.EditValue = sourceCard.CurrencyId;
+                searchLookUpSourceCard.EditValue = sourceCard.Id;
+                searchLookUpDestCard.EditValue = destCardId;
+                spAmount.EditValue = amount;
+                txtNote.Text = note;
+                lookUpCurrency.ReadOnly = true;
+                cashTransaction.ConnectedFicheId = connectedInvoiceId;
             }
-            else
-            {
-                Operation<CashTransaction> op_ExistingCashTransaction = OperationHandler.GetCashTransactionById(Id);
-                if (!op_ExistingCashTransaction.Successful)
-                {
-                    SetError(op_ExistingCashTransaction.Fail);
-                    return;
-                }
-                cashTransaction = op_ExistingCashTransaction.Value;
-                lookUpTransactionType.EditValue = cashTransaction.TransactionType;
-                lookUpTransactionType.ReadOnly = true;
-                lookUpExchange.EditValue = cashTransaction.ExchangeId;
-                FillLookUpCards(cashTransaction.ExchangeId);
-                lookUpExchange.ReadOnly = true;
-                txtNote.Text = cashTransaction.Note;
-                txtFicheno.Text = cashTransaction.Ficheno;
-                txtDate.Text = cashTransaction.CreatedDate.ToString("dd.MM.yyyy HH:mm");
-                spAmount.EditValue = cashTransaction.Total;
-                searchLookUpSourceCard.EditValue = cashTransaction.SourceCardId;
-                searchLookUpDestCard.EditValue = cashTransaction.DestCardId;
-            }
-
-            searchLookUpSourceCard.Properties.View.AssignGridView(14);
-            searchLookUpDestCard.Properties.View.AssignGridView(14);
         }
 
 
@@ -123,36 +149,24 @@ namespace LecERP
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            
-            cashTransaction.TransactionType = Convert.ToByte( lookUpTransactionType.EditValue );
-            cashTransaction.ExchangeId = Convert.ToByte( lookUpExchange.EditValue );
-            cashTransaction.Note = txtNote.Text ;
-            cashTransaction.Ficheno = txtFicheno.Text ;
-            if (Id == 0)
-            {
-                cashTransaction.CreatedBy = StaticData.CurrentUserId;
-                cashTransaction.CreatedDate = DateTime.Now;
-            }
-            cashTransaction.Total = spAmount.Value ;
-            cashTransaction.SourceCardId = Convert.ToInt32( searchLookUpSourceCard.EditValue );
-            cashTransaction.DestCardId = Convert.ToInt32(searchLookUpDestCard.EditValue) ;
+            cashTransaction = bindTool.DataObject;
             Operation<CashTransaction> postedCashTransaction = OperationHandler.PostCashTransaction(cashTransaction);
             if (postedCashTransaction.Successful) this.Close();
-            SetError(postedCashTransaction.Fail,false);
+            SetError(postedCashTransaction.Fail, false);
         }
 
-        private void lookUpExchange_EditValueChanged(object sender, EventArgs e)
+        private void lookUpCurrency_EditValueChanged(object sender, EventArgs e)
         {
-            int ExchangeId = Convert.ToInt32(lookUpExchange.EditValue);
-            //lookUpExchange.Enabled = false;
-            FillLookUpCards(ExchangeId);
+            int currencyId = Convert.ToInt32(lookUpCurrency.EditValue);
+            List<CardView> cardViews = Cards.Where(x => x.CurrencyId == currencyId).ToList();
+            searchLookUpSourceCard.Properties.DataSource = cardViews;
+            searchLookUpDestCard.Properties.DataSource = cardViews;
+            
         }
 
-        void FillLookUpCards(int ExchangeId)
+        private void lookUpCashCategory_EditValueChanged(object sender, EventArgs e)
         {
-            Cards = Cards.Where(x => x.ExchangeId == ExchangeId).ToList();
-            searchLookUpSourceCard.Properties.DataSource = Cards;
-            searchLookUpDestCard.Properties.DataSource = Cards;
+
         }
     }
 }

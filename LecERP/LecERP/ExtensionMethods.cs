@@ -41,7 +41,21 @@ namespace LecERP
             return Newtonsoft.Json.JsonConvert.DeserializeObject<T>(SerializedObject);
         }
 
+        public static List<T> GetSelectedRows<T>(this DevExpress.XtraGrid.Views.Grid.GridView GridView)
+        {
+            List<T> list = new List<T>();
+            foreach (int i in GridView.GetSelectedRows())
+            {
+                T item = (T)GridView.GetRow(i);
+                list.Add(item);
+            }
+            return list;
+        }
 
-
+        public static T DeepClone<T>(this T t)
+        {
+            string ser = Newtonsoft.Json.JsonConvert.SerializeObject(t);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<T>(ser);
+        }
     }
 }

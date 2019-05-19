@@ -32,12 +32,6 @@
             this.lookupPriceCalcType = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.grpMeasure = new DevExpress.XtraEditors.GroupControl();
-            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
-            this.cmbShortcutKey = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.spWeight = new DevExpress.XtraEditors.SpinEdit();
-            this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
-            this.spHeight = new DevExpress.XtraEditors.SpinEdit();
-            this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
             this.spWidth = new DevExpress.XtraEditors.SpinEdit();
             this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
             this.spLength = new DevExpress.XtraEditors.SpinEdit();
@@ -65,9 +59,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lookupPriceCalcType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grpMeasure)).BeginInit();
             this.grpMeasure.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbShortcutKey.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spWeight.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spHeight.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spWidth.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spLength.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGroup4.Properties)).BeginInit();
@@ -87,8 +78,6 @@
             this.grpCenter.Appearance.Options.UseFont = true;
             this.grpCenter.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 10F);
             this.grpCenter.AppearanceCaption.Options.UseFont = true;
-            this.grpCenter.Controls.Add(this.lookupPriceCalcType);
-            this.grpCenter.Controls.Add(this.labelControl4);
             this.grpCenter.Controls.Add(this.grpMeasure);
             this.grpCenter.Controls.Add(this.txtGroup4);
             this.grpCenter.Controls.Add(this.txtGroup3);
@@ -107,13 +96,13 @@
             this.grpCenter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpCenter.Location = new System.Drawing.Point(0, 0);
             this.grpCenter.Name = "grpCenter";
-            this.grpCenter.Size = new System.Drawing.Size(666, 316);
+            this.grpCenter.Size = new System.Drawing.Size(666, 252);
             this.grpCenter.TabIndex = 0;
             this.grpCenter.Text = "Məhsullar";
             // 
             // lookupPriceCalcType
             // 
-            this.lookupPriceCalcType.Location = new System.Drawing.Point(130, 171);
+            this.lookupPriceCalcType.Location = new System.Drawing.Point(172, 54);
             this.lookupPriceCalcType.Name = "lookupPriceCalcType";
             this.lookupPriceCalcType.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.lookupPriceCalcType.Properties.Appearance.Options.UseFont = true;
@@ -131,7 +120,7 @@
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Location = new System.Drawing.Point(12, 174);
+            this.labelControl4.Location = new System.Drawing.Point(172, 32);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(107, 16);
             this.labelControl4.TabIndex = 18;
@@ -141,113 +130,18 @@
             // 
             this.grpMeasure.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 10F);
             this.grpMeasure.AppearanceCaption.Options.UseFont = true;
-            this.grpMeasure.Controls.Add(this.labelControl9);
-            this.grpMeasure.Controls.Add(this.cmbShortcutKey);
-            this.grpMeasure.Controls.Add(this.spWeight);
-            this.grpMeasure.Controls.Add(this.labelControl18);
-            this.grpMeasure.Controls.Add(this.spHeight);
-            this.grpMeasure.Controls.Add(this.labelControl17);
+            this.grpMeasure.Controls.Add(this.lookupPriceCalcType);
+            this.grpMeasure.Controls.Add(this.labelControl4);
             this.grpMeasure.Controls.Add(this.spWidth);
             this.grpMeasure.Controls.Add(this.labelControl16);
             this.grpMeasure.Controls.Add(this.spLength);
             this.grpMeasure.Controls.Add(this.labelControl15);
             this.grpMeasure.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.grpMeasure.Location = new System.Drawing.Point(2, 219);
+            this.grpMeasure.Location = new System.Drawing.Point(2, 155);
             this.grpMeasure.Name = "grpMeasure";
             this.grpMeasure.Size = new System.Drawing.Size(662, 95);
             this.grpMeasure.TabIndex = 17;
-            this.grpMeasure.Text = "Ölçülər";
-            // 
-            // labelControl9
-            // 
-            this.labelControl9.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.labelControl9.Appearance.Options.UseFont = true;
-            this.labelControl9.Location = new System.Drawing.Point(339, 57);
-            this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(41, 16);
-            this.labelControl9.TabIndex = 58;
-            this.labelControl9.Text = "Qısayol";
-            // 
-            // cmbShortcutKey
-            // 
-            this.cmbShortcutKey.Location = new System.Drawing.Point(386, 56);
-            this.cmbShortcutKey.Name = "cmbShortcutKey";
-            this.cmbShortcutKey.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbShortcutKey.Properties.Items.AddRange(new object[] {
-            "A",
-            "B",
-            "C",
-            "D",
-            "E",
-            "F",
-            "G",
-            "H",
-            "I",
-            "J",
-            "K",
-            "L",
-            "M",
-            "N",
-            "O",
-            "P",
-            "Q",
-            "R",
-            "S",
-            "T",
-            "U",
-            "V",
-            "W",
-            "X",
-            "Y",
-            "Z"});
-            this.cmbShortcutKey.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cmbShortcutKey.Size = new System.Drawing.Size(100, 20);
-            this.cmbShortcutKey.TabIndex = 57;
-            // 
-            // spWeight
-            // 
-            this.spWeight.EditValue = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.spWeight.Location = new System.Drawing.Point(248, 56);
-            this.spWeight.Name = "spWeight";
-            this.spWeight.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.spWeight.Size = new System.Drawing.Size(64, 20);
-            this.spWeight.TabIndex = 56;
-            // 
-            // labelControl18
-            // 
-            this.labelControl18.Location = new System.Drawing.Point(255, 37);
-            this.labelControl18.Name = "labelControl18";
-            this.labelControl18.Size = new System.Drawing.Size(20, 13);
-            this.labelControl18.TabIndex = 55;
-            this.labelControl18.Text = "Çəki";
-            // 
-            // spHeight
-            // 
-            this.spHeight.EditValue = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.spHeight.Location = new System.Drawing.Point(170, 56);
-            this.spHeight.Name = "spHeight";
-            this.spHeight.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.spHeight.Size = new System.Drawing.Size(64, 20);
-            this.spHeight.TabIndex = 54;
-            // 
-            // labelControl17
-            // 
-            this.labelControl17.Location = new System.Drawing.Point(177, 37);
-            this.labelControl17.Name = "labelControl17";
-            this.labelControl17.Size = new System.Drawing.Size(48, 13);
-            this.labelControl17.TabIndex = 53;
-            this.labelControl17.Text = "Hündürlük";
+            this.grpMeasure.Text = "Parametrlər";
             // 
             // spWidth
             // 
@@ -295,7 +189,7 @@
             // 
             // txtGroup4
             // 
-            this.txtGroup4.Location = new System.Drawing.Point(408, 174);
+            this.txtGroup4.Location = new System.Drawing.Point(408, 121);
             this.txtGroup4.Name = "txtGroup4";
             this.txtGroup4.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtGroup4.Properties.Appearance.Options.UseFont = true;
@@ -305,7 +199,7 @@
             // 
             // txtGroup3
             // 
-            this.txtGroup3.Location = new System.Drawing.Point(408, 129);
+            this.txtGroup3.Location = new System.Drawing.Point(408, 93);
             this.txtGroup3.Name = "txtGroup3";
             this.txtGroup3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtGroup3.Properties.Appearance.Options.UseFont = true;
@@ -315,7 +209,7 @@
             // 
             // txtGroup2
             // 
-            this.txtGroup2.Location = new System.Drawing.Point(408, 84);
+            this.txtGroup2.Location = new System.Drawing.Point(408, 65);
             this.txtGroup2.Name = "txtGroup2";
             this.txtGroup2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtGroup2.Properties.Appearance.Options.UseFont = true;
@@ -360,18 +254,19 @@
             this.lookUpItemType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lookUpItemType.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name_", "Seçin")});
-            this.lookUpItemType.Properties.DisplayMember = "Name_";
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ItemTypeName", "Seçin")});
+            this.lookUpItemType.Properties.DisplayMember = "ItemTypeName";
             this.lookUpItemType.Properties.NullText = "Seçin";
-            this.lookUpItemType.Properties.ValueMember = "Key_";
+            this.lookUpItemType.Properties.ValueMember = "Id";
             this.lookUpItemType.Size = new System.Drawing.Size(141, 22);
             this.lookUpItemType.TabIndex = 8;
+            this.lookUpItemType.EditValueChanged += new System.EventHandler(this.lookUpItemType_EditValueChanged);
             // 
             // labelControl8
             // 
             this.labelControl8.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.labelControl8.Appearance.Options.UseFont = true;
-            this.labelControl8.Location = new System.Drawing.Point(341, 177);
+            this.labelControl8.Location = new System.Drawing.Point(341, 124);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(39, 16);
             this.labelControl8.TabIndex = 7;
@@ -381,7 +276,7 @@
             // 
             this.labelControl7.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.labelControl7.Appearance.Options.UseFont = true;
-            this.labelControl7.Location = new System.Drawing.Point(341, 132);
+            this.labelControl7.Location = new System.Drawing.Point(341, 96);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(39, 16);
             this.labelControl7.TabIndex = 6;
@@ -391,7 +286,7 @@
             // 
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.labelControl6.Appearance.Options.UseFont = true;
-            this.labelControl6.Location = new System.Drawing.Point(341, 87);
+            this.labelControl6.Location = new System.Drawing.Point(341, 68);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(39, 16);
             this.labelControl6.TabIndex = 5;
@@ -443,7 +338,7 @@
             this.pnlExecution.Controls.Add(this.btnCancel);
             this.pnlExecution.Controls.Add(this.btnOk);
             this.pnlExecution.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlExecution.Location = new System.Drawing.Point(0, 316);
+            this.pnlExecution.Location = new System.Drawing.Point(0, 252);
             this.pnlExecution.Name = "pnlExecution";
             this.pnlExecution.Size = new System.Drawing.Size(666, 43);
             this.pnlExecution.TabIndex = 1;
@@ -491,7 +386,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(666, 359);
+            this.ClientSize = new System.Drawing.Size(666, 295);
             this.Controls.Add(this.grpCenter);
             this.Controls.Add(this.pnlExecution);
             this.Name = "Manp_Items";
@@ -506,9 +401,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.grpMeasure)).EndInit();
             this.grpMeasure.ResumeLayout(false);
             this.grpMeasure.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbShortcutKey.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spWeight.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spHeight.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spWidth.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spLength.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGroup4.Properties)).EndInit();
@@ -546,17 +438,11 @@
         private DevExpress.XtraEditors.TextEdit txtGroup1;
         private DevExpress.XtraEditors.GroupControl grpMeasure;
         private DevExpress.XtraEditors.LabelControl lblError;
-        private DevExpress.XtraEditors.SpinEdit spWeight;
-        private DevExpress.XtraEditors.LabelControl labelControl18;
-        private DevExpress.XtraEditors.SpinEdit spHeight;
-        private DevExpress.XtraEditors.LabelControl labelControl17;
         private DevExpress.XtraEditors.SpinEdit spWidth;
         private DevExpress.XtraEditors.LabelControl labelControl16;
         private DevExpress.XtraEditors.SpinEdit spLength;
         private DevExpress.XtraEditors.LabelControl labelControl15;
         private DevExpress.XtraEditors.LookUpEdit lookupPriceCalcType;
         private DevExpress.XtraEditors.LabelControl labelControl4;
-        private DevExpress.XtraEditors.ComboBoxEdit cmbShortcutKey;
-        private DevExpress.XtraEditors.LabelControl labelControl9;
     }
 }

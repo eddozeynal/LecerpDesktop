@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LecERP.ServiceGates
 {
-    public class RijndaelCrypt : ICryptor
+    public class RijndaelCrypt 
     {
         #region Private/Protected Member Variables
 

@@ -8,6 +8,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using ERPService.Models;
+using LecERP.Models;
 
 namespace LecERP
 {
@@ -25,18 +27,12 @@ namespace LecERP
             tsAddNew.Enabled = StaticData.IsPermitted(29);
             tsModify.Enabled = StaticData.IsPermitted(30);
             tsDelete.Enabled = StaticData.IsPermitted(31);
+            tsAcceptCashTran.Enabled = StaticData.IsPermitted(36);
+            tsReserveCash.Enabled = StaticData.IsPermitted(37);
         }
 
         private void Form_CashTransaction_Shown(object sender, EventArgs e)
         {
-            gvData.AssignGridView(17);
-            //Operation<List<DocumentMaster>> op_DocumentMasters = OperationHandler.GetDocumentMasters();
-
-            //if (!op_DocumentMasters.Successful)
-            //{
-
-
-            //}
 
         }
 
@@ -87,22 +83,78 @@ namespace LecERP
             RefreshData();
         }
 
-        private void btnCreateInvoice_Click(object sender, EventArgs e)
-        {
-            //object objCurrentId = gvData.GetFocusedRowCellValue("Id");
-            //if (objCurrentId == null) return;
-            //int CurrentId = Convert.ToInt32(objCurrentId);
-            //Manp_FichesNew manp = new Manp_FichesNew();
-            //manp.Id = CurrentId;
-            //manp.IsEditMode = true;
-            //manp.CreateInvoiceFromOrderFiche = true;
-            //manp.ShowDialog();
-            //RefreshData();
-        }
+        
 
         private void tsExportToExcel_Click(object sender, EventArgs e)
         {
             gvData.ExportExcell();
+        }
+
+        private void tsAcceptCashTran_Click(object sender, EventArgs e)
+        {
+             
+            var objCashTran = gvData.GetFocusedRow() as CashTransactionView;
+            if (objCashTran == null) return;
+            DialogResult dialogResult = XtraMessageBox.Show("Əminsinizmi?", "Kassa Tranzaksiya", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                CashTransaction cashTransaction = OperationHandler.GetCashTransactionById(objCashTran.Id).Value;
+                cashTransaction.StatusId = 12;
+                var oper = OperationHandler.PostCashTransaction(cashTransaction);
+                if (oper.Successful)
+                {
+                    XtraMessageBox.Show("Təhvil alındı");
+                }
+                else
+                {
+                    XtraMessageBox.Show("Səhvlik oldu " + oper.Fail);
+                }
+            }
+            RefreshData();
+        }
+
+        private void tsReserveCash_Click(object sender, EventArgs e)
+        {
+            var objCashTran = gvData.GetFocusedRow() as CashTransactionView;
+            if (objCashTran == null) return;
+            DialogResult dialogResult = XtraMessageBox.Show("Əminsinizmi?", "Kassa Tranzaksiya", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                CashTransaction cashTransaction = OperationHandler.GetCashTransactionById(objCashTran.Id).Value;
+                cashTransaction.StatusId = 10;
+                var oper = OperationHandler.PostCashTransaction(cashTransaction);
+                if (oper.Successful)
+                {
+                    XtraMessageBox.Show("Rezervə alındı");
+                }
+                else
+                {
+                    XtraMessageBox.Show("Səhvlik oldu " + oper.Fail);
+                }
+            }
+            RefreshData();
+        }
+
+        private void tsDelete_Click(object sender, EventArgs e)
+        {
+            var objCashTran = gvData.GetFocusedRow() as CashTransactionView;
+            if (objCashTran == null) return;
+            DialogResult dialogResult = XtraMessageBox.Show("Əminsinizmi?", "Kassa Tranzaksiya", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                CashTransaction cashTransaction = OperationHandler.GetCashTransactionById(objCashTran.Id).Value;
+                cashTransaction.StatusId = 13;
+                var oper = OperationHandler.PostCashTransaction(cashTransaction);
+                if (oper.Successful)
+                {
+                    XtraMessageBox.Show("Ləğv olundu");
+                }
+                else
+                {
+                    XtraMessageBox.Show("Səhvlik oldu " + oper.Fail);
+                }
+            }
+            RefreshData();
         }
     }
 }

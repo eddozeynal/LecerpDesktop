@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LecERP.ServiceGates
 {
-    internal class AESCryptor : ICryptor
+    internal class AESCryptor 
     {
         string keyStr = "D8903F7F075E4877A6C5F62EC68A2018";
         byte[] ivArr = (new char[] { '1', 'c', 'b', '2', 'a', '8', '0', 'f', '4', '3', '9', 'j', '7', '3', '9', 't' }).Select(c => (byte)c).ToArray();

@@ -28,22 +28,14 @@ namespace LecERP
             return (XtraMessageBox.Show("İmtina etmək istədiyinizdən əminsinizmi? Dəyişiklikləriniz ləğv olunacaqdır.", "İmtina etmək", MessageBoxButtons.YesNo) == DialogResult.Yes);
         }
 
-        public static void AssignGridView(this DevExpress.XtraGrid.Views.Grid.GridView GridView, int ViewId)
-        {
-            GridViewDesignHandler gvh = new GridViewDesignHandler();
-            gvh.GridView = GridView;
-            gvh.GridViewInfo = OperationHandler.GetGridViewInfo(ViewId);
-            gvh.SetView();
-        }
-
         public static DialogResult InputBox(string title, string promptText, ref string value)
         {
             Form form = new Form();
             Label label = new Label();
             MaskedTextBox textBox = new MaskedTextBox();
             textBox.Text = value;
-            Button buttonOk = new Button();
-            Button buttonCancel = new Button();
+            SimpleButton buttonOk = new SimpleButton();
+            SimpleButton buttonCancel = new SimpleButton();
 
             form.Text = title;
             label.Text = promptText;

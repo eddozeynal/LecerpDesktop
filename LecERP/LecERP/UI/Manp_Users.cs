@@ -8,14 +8,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using LecERP.Models;
 
 namespace LecERP
 {
     public partial class Manp_Users : DevExpress.XtraEditors.XtraForm
     {
         public int Id { get; set; }
-        User _User = null;
-        List<PermissionMasterExt> PermissionMastersExt = null;
+        DataObjectBindTool<User> objectBindTool = new DataObjectBindTool<User>();
+        //User _User = null;
         public Manp_Users()
         {
             InitializeComponent();
@@ -24,7 +25,6 @@ namespace LecERP
         private void Manp_Users_Load(object sender, EventArgs e)
         {
             this.FormBorderStyle = FormBorderStyle.None;
-            lblError.Text = "";
         }
 
         void OnLoadError(string Message)
@@ -32,48 +32,27 @@ namespace LecERP
             grpCenter.Enabled = false;
             btnOk.Enabled = false;
             if (Message == null) Message = "Unknown Error";
-            lblError.Text = "Error : " + Message;
+            XtraMessageBox.Show(Message);
         }
 
         private void Manp_Users_Shown(object sender, EventArgs e)
         {
-            PermissionMastersExt = new List<PermissionMasterExt>();
-
-            Operation<List<PermissionMaster>> op_PermissionMasters = OperationHandler.GetPermissionMasters();
-            if (!op_PermissionMasters.Successful)
+            User user = new User();
+            objectBindTool.BindControl(txtLogin, nameof(user.Login));
+            objectBindTool.BindControl(txtUserName, nameof(user.UserName));
+            objectBindTool.BindControl(chkIsActive, nameof(user.IsActive));
+            objectBindTool.BindControl(chkIsAdmin, nameof(user.IsAdmin));
+            if (Id != 0) user = OperationHandler.GetUserById(Id).Value;
+            if (user == null) OnLoadError(null);
+            if (user.Id == 0)
             {
-                OnLoadError(op_PermissionMasters.Fail);
-                return;
-            }
 
-            foreach (PermissionMaster permissionMaster in op_PermissionMasters.Value)
-                PermissionMastersExt.Add(permissionMaster.GetEligibleOjbect<PermissionMasterExt>());
-
-            if (Id == 0)
-            {
-                _User = new User();
             }
             else
             {
-                Operation<User> op_User = OperationHandler.GetUserById(Id);
-                if (!op_User.Successful)
-                {
-                    OnLoadError(op_User.Fail);
-                    return;
-                }
-                _User = op_User.Value;
-                txtName.Text = _User.BaseUser.Name_;
-                txtUserName.Text = _User.BaseUser.UserName;
-                chkIsActive.Checked = _User.BaseUser.IsActive;
-                chkIsAdmin.Checked = _User.BaseUser.IsAdmin;
-
-                foreach (var permissionMastersExtItem in PermissionMastersExt)
-                {
-                    var detailObj = _User.PermissionDetails.Where(x => x.PermissionId == permissionMastersExtItem.Id).FirstOrDefault();
-                    permissionMastersExtItem.IsPermitted = detailObj != null;
-                }
+                txtLogin.ReadOnly = true;
             }
-            treeListPermissions.DataSource = PermissionMastersExt.Where(x=>x.IsActive).ToList();
+            objectBindTool.DataObject = user;
         }
 
         private void pnlExecution_MouseDown(object sender, MouseEventArgs e)
@@ -88,31 +67,16 @@ namespace LecERP
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            List<PermissionDetail> permissionDetails = new List<PermissionDetail>();
-
-            foreach (var perMaster in PermissionMastersExt.Where(x=>x.IsPermitted))
+            User user = objectBindTool.DataObject;
+            Operation<User> operation = OperationHandler.PostUser(user);
+            if (operation.Successful)
             {
-                PermissionDetail permissionDetail = new PermissionDetail();
-                permissionDetail.CreatedBy = StaticData.CurrentUserId;
-                permissionDetail.CreatedDate = DateTime.Now;
-                permissionDetail.PermissionId = perMaster.Id;
-                permissionDetail.UserId = Id;
-                permissionDetails.Add(permissionDetail);
+                this.Close();
             }
-            
-            if (Id == 0)
+            else
             {
-                _User.BaseUser = new BaseUser();
+                XtraMessageBox.Show(operation.Fail);
             }
-
-            _User.PermissionDetails = permissionDetails;
-            _User.BaseUser.IsActive = chkIsActive.Checked;
-            _User.BaseUser.IsAdmin = chkIsAdmin.Checked;
-            _User.BaseUser.Name_ = txtName.Text;
-            _User.BaseUser.UserName = txtUserName.Text;
-            Operation<User> operation = OperationHandler.PostUser(_User);
-            if (operation.Successful) this.Close();
-            lblError.Text = operation.Fail;
         }
 
 

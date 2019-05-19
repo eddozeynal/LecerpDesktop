@@ -13,7 +13,7 @@ namespace LecERP
 {
     public partial class Dialog_DecimalInput : DevExpress.XtraEditors.XtraForm
     {
-        private bool okPressed;
+        private bool Accepted;
 
         public Dialog_DecimalInput()
         {
@@ -44,11 +44,11 @@ namespace LecERP
             }
         }
 
-        public bool IsOk { get { return okPressed; } }
+        public bool IsOk { get { return Accepted; } }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            okPressed = true;
+            Accepted = true;
             Close();
         }
 

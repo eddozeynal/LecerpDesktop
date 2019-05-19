@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using LecERP.Models;
 
 namespace LecERP
 {
@@ -20,8 +21,6 @@ namespace LecERP
 
         private void Form_Prices_Shown(object sender, EventArgs e)
         {
-            gvByItems.AssignGridView(12);
-
             RefreshItemPriceData();
         }
 
@@ -29,7 +28,7 @@ namespace LecERP
 
         private void RefreshItemPriceData()
         {
-            Operation<List<ItemDefaultPrices>> op_itprs_def = OperationHandler.GetItemDefaultPricesView();
+            Operation<List<ItemView>> op_itprs_def = OperationHandler.GetItems();
             if (op_itprs_def.Successful)
             {
                 gcByItems.DataSource = op_itprs_def.Value;
@@ -50,9 +49,9 @@ namespace LecERP
         {
             object objCurrent = gvByItems.GetFocusedRow();
             if (objCurrent == null) return;
-            ItemDefaultPrices itemDef = (ItemDefaultPrices)objCurrent;
-            Manp_ItemPriceByItem m_itp = new Manp_ItemPriceByItem();
-            m_itp.itemDef = itemDef;
+            ItemView itemDef = (ItemView)objCurrent;
+            Manp_ItemPrice m_itp = new Manp_ItemPrice();
+            m_itp.item = itemDef;
             m_itp.ShowDialog();
             RefreshItemPriceData();
         }

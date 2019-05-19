@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
@@ -10,10 +10,11 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LecERP</RootNamespace>
     <AssemblyName>LecERP</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -110,6 +111,53 @@
   <ItemGroup>
     <Compile Include="AppSettings.cs" />
     <Compile Include="Configuration\ConnectionConfiguration.cs" />
+    <Compile Include="DataHolder.cs" />
+    <Compile Include="DataObjectBindTool.cs" />
+    <Compile Include="UI\Form_CurrencyByDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form_CurrencyByDate.Designer.cs">
+      <DependentUpon>Form_CurrencyByDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Form_CompanyParameters.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form_CompanyParameters.Designer.cs">
+      <DependentUpon>Form_CompanyParameters.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginData.cs" />
+    <Compile Include="Models\Card.cs" />
+    <Compile Include="Models\CardView.cs" />
+    <Compile Include="Models\CardPermission.cs" />
+    <Compile Include="Models\CardType.cs" />
+    <Compile Include="Models\CashTransaction.cs" />
+    <Compile Include="Models\CashTransactionView.cs" />
+    <Compile Include="Models\CashType.cs" />
+    <Compile Include="Models\CompanyParameter.cs" />
+    <Compile Include="Models\Currency.cs" />
+    <Compile Include="Models\CurrencyByDate.cs" />
+    <Compile Include="Models\DataLog.cs" />
+    <Compile Include="Models\DocumentMaster.cs" />
+    <Compile Include="Models\DocumentStatusType.cs" />
+    <Compile Include="Models\ExchangeTransaction.cs" />
+    <Compile Include="Models\ExchangeTransactionView.cs" />
+    <Compile Include="Models\FicheLine.cs" />
+    <Compile Include="Models\FicheLineService.cs" />
+    <Compile Include="Models\FicheMaster.cs" />
+    <Compile Include="Models\FicheMasterView.cs" />
+    <Compile Include="Models\Item.cs" />
+    <Compile Include="Models\ItemPrice.cs" />
+    <Compile Include="Models\ItemPriceType.cs" />
+    <Compile Include="Models\ItemType.cs" />
+    <Compile Include="Models\ItemView.cs" />
+    <Compile Include="Models\LineCalcType.cs" />
+    <Compile Include="Models\LoginSession.cs" />
+    <Compile Include="Models\Parameter.cs" />
+    <Compile Include="Models\PermissionDetail.cs" />
+    <Compile Include="Models\PermissionMaster.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\Warehouse.cs" />
+    <Compile Include="ServiceClient.cs" />
     <Compile Include="UI\Dialog_DecimalInput.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,70 +165,29 @@
       <DependentUpon>Dialog_DecimalInput.cs</DependentUpon>
     </Compile>
     <Compile Include="ExtensionMethods.cs" />
-    <Compile Include="PrintDesign\DocumentPrintHandler.cs" />
-    <Compile Include="ServiceGates\AesCryptoProvider.cs" />
     <Compile Include="ServiceGates\AESCryptor.cs" />
-    <Compile Include="ServiceGates\ICryptor.cs" />
     <Compile Include="ServiceGates\RijndaelCrypt.cs" />
-    <Compile Include="UI\Form_CardDebtReport.cs">
+    <Compile Include="UIHelpers\FormHolder.cs" />
+    <Compile Include="ServiceGates\NewtonsoftJsonSerializerForRestSharp.cs" />
+    <Compile Include="Operation.cs" />
+    <Compile Include="Configuration\ConfigFileManager.cs" />
+    <Compile Include="UI\Form_Cards.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Form_CardDebtReport.Designer.cs">
-      <DependentUpon>Form_CardDebtReport.cs</DependentUpon>
+    <Compile Include="UI\Form_Cards.Designer.cs">
+      <DependentUpon>Form_Cards.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form_CardHistory.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Form_CardHistory.Designer.cs">
-      <DependentUpon>Form_CardHistory.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Manp_DataPermissions.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Manp_DataPermissions.Designer.cs">
-      <DependentUpon>Manp_DataPermissions.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PrintDesign\SaleInvoiceDesign.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="PrintDesign\SaleInvoiceDesign.Designer.cs">
-      <DependentUpon>SaleInvoiceDesign.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ServiceGates\MicrosoftHttpClientServiceGate.cs" />
-    <Compile Include="ServiceGates\ServiceStackUtilsServiceGate.cs" />
     <Compile Include="UI\Form_CashTransaction.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Form_CashTransaction.Designer.cs">
       <DependentUpon>Form_CashTransaction.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form_Fiches.cs">
+    <Compile Include="UI\Form_CurrencyExchange.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Form_Fiches.Designer.cs">
-      <DependentUpon>Form_Fiches.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Form_Users.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Form_Users.Designer.cs">
-      <DependentUpon>Form_Users.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Form_Prices.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Form_Prices.Designer.cs">
-      <DependentUpon>Form_Prices.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ServiceGates\GateHandler.cs" />
-    <Compile Include="Models\BusinessModels.cs" />
-    <Compile Include="Models\DBModels.cs" />
-    <Compile Include="UIHelpers\FormHolder.cs" />
-    <Compile Include="UI\Form_Cards.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Form_Cards.Designer.cs">
-      <DependentUpon>Form_Cards.cs</DependentUpon>
+    <Compile Include="UI\Form_CurrencyExchange.designer.cs">
+      <DependentUpon>Form_CurrencyExchange.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Form_Items.cs">
       <SubType>Form</SubType>
@@ -194,8 +201,33 @@
     <Compile Include="UI\Form_Login.designer.cs">
       <DependentUpon>Form_Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="UIHelpers\GridViewDesignHandler.cs" />
-    <Compile Include="ServiceGates\IServiceGate.cs" />
+    <Compile Include="UI\Form_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form_Main.Designer.cs">
+      <DependentUpon>Form_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\IConfigManager.cs" />
+    <Compile Include="OperationHandler.cs" />
+    <Compile Include="Configuration\PrivateProfileStringHandler.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StaticData.cs" />
+    <Compile Include="UIHelpers\UIFunctions.cs" />
+    <Compile Include="UIHelpers\XtraEditorsLocalizer.cs" />
+    <Compile Include="UIHelpers\XtraGridLocalizer.cs" />
+    <Compile Include="UI\Form_Prices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form_Prices.Designer.cs">
+      <DependentUpon>Form_Prices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Form_Users.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form_Users.Designer.cs">
+      <DependentUpon>Form_Users.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Manp_Cards.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -208,23 +240,23 @@
     <Compile Include="UI\Manp_CashTransaction.designer.cs">
       <DependentUpon>Manp_CashTransaction.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Manp_FichesNew.cs">
+    <Compile Include="UI\Manp_CurrencyExchange.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Manp_FichesNew.designer.cs">
-      <DependentUpon>Manp_FichesNew.cs</DependentUpon>
+    <Compile Include="UI\Manp_CurrencyExchange.designer.cs">
+      <DependentUpon>Manp_CurrencyExchange.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Manp_ItemPriceByItem.cs">
+    <Compile Include="UI\Manp_DataPermissions.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Manp_ItemPriceByItem.Designer.cs">
-      <DependentUpon>Manp_ItemPriceByItem.cs</DependentUpon>
+    <Compile Include="UI\Manp_DataPermissions.Designer.cs">
+      <DependentUpon>Manp_DataPermissions.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Manp_Users.cs">
+    <Compile Include="UI\Manp_ItemPrice.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Manp_Users.Designer.cs">
-      <DependentUpon>Manp_Users.cs</DependentUpon>
+    <Compile Include="UI\Manp_ItemPrice.Designer.cs">
+      <DependentUpon>Manp_ItemPrice.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Manp_Items.cs">
       <SubType>Form</SubType>
@@ -232,46 +264,29 @@
     <Compile Include="UI\Manp_Items.Designer.cs">
       <DependentUpon>Manp_Items.cs</DependentUpon>
     </Compile>
-    <Compile Include="ServiceGates\MicrosoftServiceGate.cs" />
-    <Compile Include="ServiceGates\NewtonsoftJsonSerializerForRestSharp.cs" />
-    <Compile Include="Operation.cs" />
-    <Compile Include="Configuration\ConfigFileManager.cs" />
-    <Compile Include="UI\Form_Main.cs">
+    <Compile Include="UI\Manp_UserPermissions.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Form_Main.Designer.cs">
-      <DependentUpon>Form_Main.cs</DependentUpon>
+    <Compile Include="UI\Manp_UserPermissions.designer.cs">
+      <DependentUpon>Manp_UserPermissions.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form_Test.cs">
+    <Compile Include="UI\Manp_Users.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Form_Test.Designer.cs">
-      <DependentUpon>Form_Test.cs</DependentUpon>
+    <Compile Include="UI\Manp_Users.Designer.cs">
+      <DependentUpon>Manp_Users.cs</DependentUpon>
     </Compile>
-    <Compile Include="Configuration\IConfigManager.cs" />
-    <Compile Include="OperationHandler.cs" />
-    <Compile Include="Configuration\PrivateProfileStringHandler.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServiceGates\RestSharpServiceGate.cs" />
-    <Compile Include="StaticData.cs" />
-    <Compile Include="UIHelpers\UIFunctions.cs" />
-    <Compile Include="UIHelpers\XtraEditorsLocalizer.cs" />
-    <Compile Include="UIHelpers\XtraGridLocalizer.cs" />
+    <Compile Include="ViewModels\ItemPriceView.cs" />
+    <Compile Include="ViewModels\PermissionMasterView.cs" />
+    <Compile Include="ViewModels\UserView.cs" />
+    <EmbeddedResource Include="UI\Form_CurrencyByDate.resx">
+      <DependentUpon>Form_CurrencyByDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Form_CompanyParameters.resx">
+      <DependentUpon>Form_CompanyParameters.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialog_DecimalInput.resx">
       <DependentUpon>Dialog_DecimalInput.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PrintDesign\SaleInvoiceDesign.resx">
-      <DependentUpon>SaleInvoiceDesign.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Form_CardDebtReport.resx">
-      <DependentUpon>Form_CardDebtReport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Form_CardHistory.resx">
-      <DependentUpon>Form_CardHistory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Manp_DataPermissions.resx">
-      <DependentUpon>Manp_DataPermissions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Form_Cards.resx">
       <DependentUpon>Form_Cards.cs</DependentUpon>
@@ -279,11 +294,8 @@
     <EmbeddedResource Include="UI\Form_CashTransaction.resx">
       <DependentUpon>Form_CashTransaction.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Form_Fiches.resx">
-      <DependentUpon>Form_Fiches.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Form_Users.resx">
-      <DependentUpon>Form_Users.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Form_CurrencyExchange.resx">
+      <DependentUpon>Form_CurrencyExchange.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Form_Items.resx">
       <DependentUpon>Form_Items.cs</DependentUpon>
@@ -293,30 +305,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Form_Main.resx">
       <DependentUpon>Form_Main.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Form_Prices.resx">
-      <DependentUpon>Form_Prices.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Form_Test.resx">
-      <DependentUpon>Form_Test.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Manp_Cards.resx">
-      <DependentUpon>Manp_Cards.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Manp_CashTransaction.resx">
-      <DependentUpon>Manp_CashTransaction.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Manp_FichesNew.resx">
-      <DependentUpon>Manp_FichesNew.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Manp_ItemPriceByItem.resx">
-      <DependentUpon>Manp_ItemPriceByItem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Manp_Users.resx">
-      <DependentUpon>Manp_Users.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Manp_Items.resx">
-      <DependentUpon>Manp_Items.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -329,6 +317,36 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UI\Form_Prices.resx">
+      <DependentUpon>Form_Prices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Form_Users.resx">
+      <DependentUpon>Form_Users.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Manp_Cards.resx">
+      <DependentUpon>Manp_Cards.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Manp_CashTransaction.resx">
+      <DependentUpon>Manp_CashTransaction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Manp_CurrencyExchange.resx">
+      <DependentUpon>Manp_CurrencyExchange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Manp_DataPermissions.resx">
+      <DependentUpon>Manp_DataPermissions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Manp_ItemPrice.resx">
+      <DependentUpon>Manp_ItemPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Manp_Items.resx">
+      <DependentUpon>Manp_Items.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Manp_UserPermissions.resx">
+      <DependentUpon>Manp_UserPermissions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Manp_Users.resx">
+      <DependentUpon>Manp_Users.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -421,6 +439,48 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\print_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\apply_16x161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_16x161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\safe-icon-png_2424.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exch_2424.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\invoiceee2424.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exbydate2424.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bocontact2_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boproductgroup_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bosale_32x321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bouser_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\technology_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chartsshowlegend_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paste_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\solidlightbluedatabar_32x32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using LecERP.Models;
 
 namespace LecERP
 {
@@ -15,6 +16,7 @@ namespace LecERP
     {
         public int Id { get; set; }
         Item Item = null;
+        DataObjectBindTool<Item> bindTool = new DataObjectBindTool<Item>();
         public Manp_Items()
         {
             InitializeComponent();
@@ -36,22 +38,16 @@ namespace LecERP
 
         private void Manp_Items_Shown(object sender, EventArgs e)
         {
-            Operation<List<EnumMaster>> op_ItemTypes = OperationHandler.GetEnums(3);
-            if (!op_ItemTypes.Successful)
+            DataHolder dataHolder = new DataHolder();
+            IBaseOperation loadOperation = dataHolder.LoadEnumData();
+            if (!loadOperation.Successful)
             {
-                OnLoadError(op_ItemTypes.Fail);
+                OnLoadError(loadOperation.Fail);
                 return;
             }
-            lookUpItemType.Properties.DataSource = op_ItemTypes.Value;
-
-            Operation<List<PriceCalcType>> op_PriceCalcTypes = OperationHandler.GetPriceCalcTypes();
-            if (!op_PriceCalcTypes.Successful)
-            {
-                OnLoadError(op_PriceCalcTypes.Fail);
-                return;
-            }
-            lookUpItemType.Properties.DataSource = op_ItemTypes.Value;
-            lookupPriceCalcType.Properties.DataSource = op_PriceCalcTypes.Value;
+            lookUpItemType.Properties.DataSource = dataHolder.ItemTypes;
+            lookupPriceCalcType.Properties.DataSource = dataHolder.LineCalcTypes;
+            
             if (Id == 0)
             {
                 Item = new Item();
@@ -59,24 +55,26 @@ namespace LecERP
             else
             {
                 // GET DATA
-                Operation<Item> op_item = OperationHandler.GetItem(Id);
+                Operation<Item> op_item = OperationHandler.GetItemById(Id);
                 if (!op_item.Successful)
                 {
                     OnLoadError(op_item.Fail);
                     return;
                 }
                 Item = op_item.Value;
-                txtGroup1.Text = Item.Group1;
-                txtGroup2.Text = Item.Group2;
-                txtGroup3.Text = Item.Group3;
-                txtGroup4.Text = Item.Group4;
-                txtItemCode.Text = Item.ItemCode;
-                txtItemName.Text = Item.ItemName;
-                lookUpItemType.EditValue = Item.ItemTypeId;
                 lookUpItemType.Enabled = false;
-                lookupPriceCalcType.EditValue = Item.PriceCalcTypeId;
-                cmbShortcutKey.Text = Item.ShortcutKey;
             }
+            bindTool.BindControl(txtGroup1, nameof(Item.Group1));
+            bindTool.BindControl(txtGroup2, nameof(Item.Group2));
+            bindTool.BindControl(txtGroup3, nameof(Item.Group3));
+            bindTool.BindControl(txtGroup4, nameof(Item.Group4));
+            bindTool.BindControl(txtItemCode, nameof(Item.ItemCode));
+            bindTool.BindControl(txtItemName, nameof(Item.ItemName));
+            bindTool.BindControl(lookUpItemType, nameof(Item.ItemTypeId));
+            bindTool.BindControl(lookupPriceCalcType, nameof(Item.LineCalcTypeId));
+            bindTool.BindControl(spLength, nameof(Item.Length));
+            bindTool.BindControl(spWidth, nameof(Item.Width));
+            bindTool.DataObject = Item;
 
         }
 
@@ -92,24 +90,12 @@ namespace LecERP
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+            Item = bindTool.DataObject;
             if (Id == 0)
             {
                 Item.CreatedDate = DateTime.Now;
                 Item.CreatedBy = StaticData.CurrentUserId;
             }
-            Item.Group1 = txtGroup1.Text;
-            Item.Group2 = txtGroup2.Text;
-            Item.Group3 = txtGroup3.Text;
-            Item.Group4 = txtGroup4.Text;
-            Item.ItemCode = txtItemCode.Text;
-            Item.ItemName = txtItemName.Text;
-            Item.ItemTypeId = Convert.ToByte(lookUpItemType.EditValue);
-            Item.Height_ = spHeight.Value;
-            Item.Length_ = spLength.Value;
-            Item.Weight_ = spWeight.Value;
-            Item.Width_ = spWidth.Value;
-            Item.PriceCalcTypeId = Convert.ToByte(lookupPriceCalcType.EditValue);
-            Item.ShortcutKey = cmbShortcutKey.Text ?? string.Empty;
             Operation<Item> operation = OperationHandler.PostItem(Item);
             if (operation.Successful) this.Close();
             lblError.Text = operation.Fail;
@@ -119,6 +105,11 @@ namespace LecERP
         private void lblError_MouseDown(object sender, MouseEventArgs e)
         {
             UIFunctions.ReleaseCaptureSendMessage(this.Handle);
+        }
+
+        private void lookUpItemType_EditValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

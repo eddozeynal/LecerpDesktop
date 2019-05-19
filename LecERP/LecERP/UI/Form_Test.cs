@@ -25,18 +25,20 @@ namespace LecERP
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
-            List<Item> lst = new List<LecERP.Item>();
-            lst.Add(new Item { ItemCode = "CODE1", ItemName = "NAME1" });
-            lst.Add(new Item { ItemCode = "CODE2", ItemName = "NAME2" });
-            gcData.DataSource = lst;
-            //TestClass test = new TestClass();
-            //test.Name = "Eldar";
-            //ServiceWorker<TestClass> sw = new ServiceWorker<TestClass>();
-            //Dictionary<string, object> prms = new Dictionary<string, object>();
-            //prms["data"] = test;
-            //Operation<TestClass> ope = sw.Post("PostTest2", prms);
-            //Operation<List<EnumMaster>> enums = OperationHandler.GetEnums(1);
-            //ServiceWorker<String> sw = new ServiceWorker<String>();
+            var v = OperationHandler.PostTest().Value;
+           
+                //List<Item> lst = new List<LecERP.Item>();
+                //lst.Add(new Item { ItemCode = "CODE1", ItemName = "NAME1" });
+                //lst.Add(new Item { ItemCode = "CODE2", ItemName = "NAME2" });
+                //gcData.DataSource = lst;
+                //TestClass test = new TestClass();
+                //test.Name = "Eldar";
+                //ServiceWorker<TestClass> sw = new ServiceWorker<TestClass>();
+                //Dictionary<string, object> prms = new Dictionary<string, object>();
+                //prms["data"] = test;
+                //Operation<TestClass> ope = sw.Post("PostTest2", prms);
+                //Operation<List<EnumMaster>> enums = OperationHandler.GetEnums(1);
+                //ServiceWorker<String> sw = new ServiceWorker<String>();
 
         }
 

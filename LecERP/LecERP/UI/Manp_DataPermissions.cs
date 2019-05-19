@@ -8,36 +8,41 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using LecERP.Models;
 
 namespace LecERP
 {
     public partial class Manp_DataPermissions : DevExpress.XtraEditors.XtraForm
     {
-        int userId = 0;
-        public Manp_DataPermissions( int _userId)
+        public int UserId { get; set; }
+
+        List<CardView> AllCards = new List<CardView> ();
+        
+        List<CardPermission> cardPermissions = new List<CardPermission>();
+        public Manp_DataPermissions( )
         {
             InitializeComponent();
-            userId = _userId;
         }
 
-        void RefreshPermissionsView()
+        List<CardView> PermittedCards
         {
-            var data = OperationHandler.GetUserDataPermissionView(userId);
-            if (data.Successful)
+            get
             {
-                gcLines.DataSource = data.Value;
+                List<CardView> cardViews = AllCards.DeepClone();
+                cardPermissions = OperationHandler.GetCardPermissions(UserId).Value;
+                foreach (var card in cardViews.Reverse<CardView>())
+                {
+                    if (!cardPermissions.Select(x => x.CardId).Contains(card.Id)) cardViews.Remove(card);
+                }
+                return cardViews;
             }
-
-            var op_CardMaster = OperationHandler.GetAllCards();
-            if (op_CardMaster.Successful)
-            {
-                searchLookUpCard.Properties.DataSource = op_CardMaster.Value.Where(x => x.CardType == 4).ToList();
-            }
-
-            searchLookUpCard.Properties.View.AssignGridView(14);;
-
         }
 
+        void refreshLines()
+        {
+            
+            gcLines.DataSource = PermittedCards;
+        }
         private void Manp_DataPermissions_Load(object sender, EventArgs e)
         {
 
@@ -47,37 +52,45 @@ namespace LecERP
         {
             object objValue = searchLookUpCard.EditValue;
             if (objValue == null) return;
-            DataPermission datapermission = new DataPermission();
-            datapermission.CreatedBy = StaticData.CurrentUserId;
-            datapermission.CreatedDate = DateTime.Now;
-            datapermission.SourceType = 1;
-            datapermission.SourceId = userId;
-            datapermission.PermissionType = 1;
-            datapermission.PermissionId = Convert.ToInt32(objValue);
-            Operation<DataPermission> operation = OperationHandler.PostDataPermission(datapermission);
+            CardPermission cardPermission = new CardPermission();
+            cardPermission.CreatedBy = StaticData.CurrentUserId;
+            cardPermission.CreatedDate = DateTime.Now;
+            cardPermission.UserId = UserId;
+            cardPermission.CardId = Convert.ToInt32(objValue);
+            Operation<CardPermission> operation = OperationHandler.PostCardPermission(cardPermission);
             if (!operation.Successful)
             {
                 MessageBox.Show(operation.Fail);
             }
-            RefreshPermissionsView();
+            refreshLines();
         }
 
         private void Manp_DataPermissions_Shown(object sender, EventArgs e)
         {
-            RefreshPermissionsView();
+            var op_CardMaster = OperationHandler.GetCards();
+            if (op_CardMaster.Successful)
+            {
+                AllCards = op_CardMaster.Value.Where(x => x.ByPermission).ToList();
+                searchLookUpCard.Properties.DataSource = AllCards;
+            }
+            User user = OperationHandler.GetUserById(UserId).Value;
+            txtUserName.Text = user.UserName;
+            refreshLines();
+
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
             object objId = gvLines.GetFocusedRow();
             if (objId == null) return;
-            int Id = (objId as DataPermission).Id;
-            Operation<int> operation = OperationHandler.DeleteDataPermission(Id);
+            int cardViewId = (objId as CardView).Id;
+            int cardPermissionId = cardPermissions.Where(x => x.CardId == cardViewId).FirstOrDefault().Id;
+            Operation<string> operation = OperationHandler.DeleObjectById(nameof(CardPermission), cardPermissionId);
             if (!operation.Successful)
             {
                 MessageBox.Show(operation.Fail);
             }
-            RefreshPermissionsView();
+            refreshLines();
         }
     }
 }

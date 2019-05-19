@@ -29,7 +29,7 @@ namespace LecERP
             btnCreateInvoice.Enabled = StaticData.IsPermitted(23);
             tsPrintDocument.Enabled = StaticData.IsPermitted(24);
             tsExecutePayment.Enabled = StaticData.IsPermitted(33);
-            
+            tsProcess.Enabled = StaticData.IsPermitted(35);
         }
 
         private void Form_Fiches_Shown(object sender, EventArgs e)
@@ -135,37 +135,9 @@ namespace LecERP
             int CurrentId = Convert.ToInt32(objCurrentId);
             FicheMasterView fmv = (FicheMasterView)gvData.GetFocusedRow();
             if (fmv.DocTypeId != 2) return;
-            Dialog_DecimalInput decin = new Dialog_DecimalInput();
-            decin.Text = "Məbləği daxil edin";
-            decin.Value = fmv.Total;
-            decin.ShowDialog();
-            if (decin.IsOk)
-            {
-                if (decin.Value <= 0)
-                {
-                    XtraMessageBox.Show("Səhv daxil edildi");
-                    return;
-                }
-                CashTransaction cashTransaction = new CashTransaction();
-                cashTransaction.TransactionType = 3;
-                cashTransaction.ExchangeId = fmv.ExchangeId;
-                cashTransaction.Note = fmv.Ficheno;
-                cashTransaction.CreatedBy = StaticData.CurrentUserId;
-                cashTransaction.CreatedDate = DateTime.Now;
-               
-                cashTransaction.Total = decin.Value;
-                cashTransaction.SourceCardId = fmv.CardId;
-                cashTransaction.DestCardId = Convert.ToInt32(StaticData.BaseSettings.Where(x => x.ParameterKey == "Default.Cash.CardId.ForPayment").First().ParameterValue);
-                Operation<CashTransaction> postedCashTransaction = OperationHandler.PostCashTransaction(cashTransaction);
-                if (postedCashTransaction.Successful)
-                {
-                    XtraMessageBox.Show("Ödəniş qəbul olundu. Kassa Tranzaksiya no : " + postedCashTransaction.Value.Ficheno);
-                }
-                else
-                {
-                    XtraMessageBox.Show(postedCashTransaction.Fail);
-                }
-            }
+            int defaultCashboxId = Convert.ToInt32(StaticData.BaseSettings.Where(x => x.ParameterKey == "Default.Cash.CardId.ForPayment").First().ParameterValue);
+            Manp_CashTransaction _CashTransaction = new Manp_CashTransaction(fmv.CardId, defaultCashboxId, fmv.Total,"Faktura ödənişi " + fmv.Ficheno, fmv.Id,7);
+            _CashTransaction.ShowDialog();
             RefreshData();
         }
 
@@ -181,7 +153,7 @@ namespace LecERP
             int CurrentId = Convert.ToInt32(objCurrentId);
             FicheMasterView fmv = (FicheMasterView)gvData.GetFocusedRow();
             if (fmv.DocTypeId != 1) return;
-            Operation<Fiche> operation = OperationHandler.ChangeFicheStatus(fmv.Id, 2);
+            Operation<FicheMasterView> operation = OperationHandler.ChangeFicheStatus(fmv.Id, 2);
             if (operation.Successful)
             {
                 XtraMessageBox.Show("Proses Başladı");
@@ -200,7 +172,7 @@ namespace LecERP
             int CurrentId = Convert.ToInt32(objCurrentId);
             FicheMasterView fmv = (FicheMasterView)gvData.GetFocusedRow();
             if (fmv.DocTypeId != 1) return;
-            Operation<Fiche> operation = OperationHandler.ChangeFicheStatus(fmv.Id, 3);
+            Operation<FicheMasterView> operation = OperationHandler.ChangeFicheStatus(fmv.Id, 3);
             if (operation.Successful)
             {
                 XtraMessageBox.Show("Proses Tamamlandı");

@@ -10,6 +10,6 @@ namespace LecERP
     {
         public static string CompanyName { get; set; }
         public static int DBVersion { get; set; }
-
+        public static bool FichesManpServiceLinesClearCheckedRowsOnAddLine { get; set; }
     }
 }

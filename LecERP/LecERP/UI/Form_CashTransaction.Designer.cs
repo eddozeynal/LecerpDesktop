@@ -31,10 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.grpTop = new DevExpress.XtraEditors.GroupControl();
             this.btnRefresh = new DevExpress.XtraEditors.SimpleButton();
-            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.dateBegin = new DevExpress.XtraEditors.DateEdit();
-            this.dateEnd = new DevExpress.XtraEditors.DateEdit();
             this.gcData = new DevExpress.XtraGrid.GridControl();
             this.cmsMain = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsAddNew = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,18 +39,37 @@
             this.tsDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.tsExportToExcel = new System.Windows.Forms.ToolStripMenuItem();
             this.tsPrintDocument = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsAcceptCashTran = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsReserveCash = new System.Windows.Forms.ToolStripMenuItem();
             this.gvData = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colFicheno = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSourceCardNumber = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSourceCardName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDestCardNumber = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDestCardName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTotal = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colExchangeName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colStatusName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colUserName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNote = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCreatedDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colConnectedInvoice = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.dateBegin = new DevExpress.XtraEditors.DateEdit();
+            this.dateEnd = new DevExpress.XtraEditors.DateEdit();
             ((System.ComponentModel.ISupportInitialize)(this.grpTop)).BeginInit();
             this.grpTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcData)).BeginInit();
+            this.cmsMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gvData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateBegin.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateBegin.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEnd.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEnd.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcData)).BeginInit();
-            this.cmsMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gvData)).BeginInit();
             this.SuspendLayout();
             // 
             // grpTop
@@ -64,8 +79,8 @@
             this.grpTop.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 10F);
             this.grpTop.AppearanceCaption.Options.UseFont = true;
             this.grpTop.CaptionImageOptions.Image = global::LecERP.Properties.Resources.groupfieldcollection_16x16;
-            this.grpTop.Controls.Add(this.btnRefresh);
             this.grpTop.Controls.Add(this.panelControl2);
+            this.grpTop.Controls.Add(this.btnRefresh);
             this.grpTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.grpTop.Location = new System.Drawing.Point(0, 0);
             this.grpTop.Name = "grpTop";
@@ -85,61 +100,6 @@
             this.btnRefresh.TabIndex = 7;
             this.btnRefresh.Text = "Yenilə";
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
-            // panelControl2
-            // 
-            this.panelControl2.Controls.Add(this.labelControl2);
-            this.panelControl2.Controls.Add(this.dateBegin);
-            this.panelControl2.Controls.Add(this.dateEnd);
-            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelControl2.Location = new System.Drawing.Point(2, 23);
-            this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(402, 33);
-            this.panelControl2.TabIndex = 6;
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(5, 9);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(73, 16);
-            this.labelControl2.TabIndex = 1;
-            this.labelControl2.Text = "Qaimə Tarixi";
-            // 
-            // dateBegin
-            // 
-            this.dateBegin.EditValue = null;
-            this.dateBegin.Location = new System.Drawing.Point(93, 8);
-            this.dateBegin.Name = "dateBegin";
-            this.dateBegin.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateBegin.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateBegin.Properties.DisplayFormat.FormatString = "dd.MM.yyyy HH:mm:ss";
-            this.dateBegin.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.dateBegin.Properties.EditFormat.FormatString = "dd.MM.yyyy HH:mm:ss";
-            this.dateBegin.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.dateBegin.Properties.Mask.EditMask = "dd.MM.yyyy HH:mm:ss";
-            this.dateBegin.Size = new System.Drawing.Size(150, 20);
-            this.dateBegin.TabIndex = 2;
-            // 
-            // dateEnd
-            // 
-            this.dateEnd.EditValue = null;
-            this.dateEnd.Location = new System.Drawing.Point(247, 8);
-            this.dateEnd.Name = "dateEnd";
-            this.dateEnd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEnd.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEnd.Properties.DisplayFormat.FormatString = "dd.MM.yyyy HH:mm:ss";
-            this.dateEnd.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.dateEnd.Properties.EditFormat.FormatString = "dd.MM.yyyy HH:mm:ss";
-            this.dateEnd.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.dateEnd.Properties.Mask.EditMask = "dd.MM.yyyy HH:mm:ss";
-            this.dateEnd.Size = new System.Drawing.Size(150, 20);
-            this.dateEnd.TabIndex = 3;
             // 
             // gcData
             // 
@@ -161,15 +121,17 @@
             this.tsModify,
             this.tsDelete,
             this.tsExportToExcel,
-            this.tsPrintDocument});
+            this.tsPrintDocument,
+            this.tsAcceptCashTran,
+            this.tsReserveCash});
             this.cmsMain.Name = "cmsMain";
-            this.cmsMain.Size = new System.Drawing.Size(153, 158);
+            this.cmsMain.Size = new System.Drawing.Size(139, 180);
             // 
             // tsAddNew
             // 
             this.tsAddNew.Image = global::LecERP.Properties.Resources.newtask_16x16;
             this.tsAddNew.Name = "tsAddNew";
-            this.tsAddNew.Size = new System.Drawing.Size(152, 22);
+            this.tsAddNew.Size = new System.Drawing.Size(138, 22);
             this.tsAddNew.Text = "Yeni...";
             this.tsAddNew.Click += new System.EventHandler(this.tsAddNew_Click);
             // 
@@ -177,7 +139,7 @@
             // 
             this.tsView.Image = global::LecERP.Properties.Resources.show_32x32;
             this.tsView.Name = "tsView";
-            this.tsView.Size = new System.Drawing.Size(152, 22);
+            this.tsView.Size = new System.Drawing.Size(138, 22);
             this.tsView.Text = "Baxış";
             this.tsView.Click += new System.EventHandler(this.tsView_Click);
             // 
@@ -185,7 +147,7 @@
             // 
             this.tsModify.Image = global::LecERP.Properties.Resources.pagesetup_16x16;
             this.tsModify.Name = "tsModify";
-            this.tsModify.Size = new System.Drawing.Size(152, 22);
+            this.tsModify.Size = new System.Drawing.Size(138, 22);
             this.tsModify.Text = "Düzəliş Et";
             this.tsModify.Click += new System.EventHandler(this.tsModify_Click);
             // 
@@ -193,14 +155,15 @@
             // 
             this.tsDelete.Image = global::LecERP.Properties.Resources.deletetable_16x16;
             this.tsDelete.Name = "tsDelete";
-            this.tsDelete.Size = new System.Drawing.Size(152, 22);
+            this.tsDelete.Size = new System.Drawing.Size(138, 22);
             this.tsDelete.Text = "Sil";
+            this.tsDelete.Click += new System.EventHandler(this.tsDelete_Click);
             // 
             // tsExportToExcel
             // 
             this.tsExportToExcel.Image = global::LecERP.Properties.Resources.excel_16x16;
             this.tsExportToExcel.Name = "tsExportToExcel";
-            this.tsExportToExcel.Size = new System.Drawing.Size(152, 22);
+            this.tsExportToExcel.Size = new System.Drawing.Size(138, 22);
             this.tsExportToExcel.Text = "Excel-ə çıxar";
             this.tsExportToExcel.Click += new System.EventHandler(this.tsExportToExcel_Click);
             // 
@@ -208,16 +171,245 @@
             // 
             this.tsPrintDocument.Image = global::LecERP.Properties.Resources.printer_16x16;
             this.tsPrintDocument.Name = "tsPrintDocument";
-            this.tsPrintDocument.Size = new System.Drawing.Size(152, 22);
+            this.tsPrintDocument.Size = new System.Drawing.Size(138, 22);
             this.tsPrintDocument.Text = "Çap Et";
+            // 
+            // tsAcceptCashTran
+            // 
+            this.tsAcceptCashTran.Image = global::LecERP.Properties.Resources.apply_16x161;
+            this.tsAcceptCashTran.Name = "tsAcceptCashTran";
+            this.tsAcceptCashTran.Size = new System.Drawing.Size(138, 22);
+            this.tsAcceptCashTran.Text = "Təhvil Al";
+            this.tsAcceptCashTran.Click += new System.EventHandler(this.tsAcceptCashTran_Click);
+            // 
+            // tsReserveCash
+            // 
+            this.tsReserveCash.Name = "tsReserveCash";
+            this.tsReserveCash.Size = new System.Drawing.Size(138, 22);
+            this.tsReserveCash.Text = "Rezervə Al";
+            this.tsReserveCash.Click += new System.EventHandler(this.tsReserveCash_Click);
             // 
             // gvData
             // 
+            this.gvData.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colId,
+            this.colFicheno,
+            this.colSourceCardNumber,
+            this.colSourceCardName,
+            this.colDestCardNumber,
+            this.colDestCardName,
+            this.colTotal,
+            this.colExchangeName,
+            this.colStatusName,
+            this.colUserName,
+            this.colNote,
+            this.colCreatedDate,
+            this.colConnectedInvoice});
             this.gvData.GridControl = this.gcData;
             this.gvData.Name = "gvData";
             this.gvData.OptionsView.ColumnAutoWidth = false;
             this.gvData.OptionsView.ShowFooter = true;
             this.gvData.OptionsView.ShowGroupPanel = false;
+            // 
+            // colId
+            // 
+            this.colId.Caption = "Id";
+            this.colId.FieldName = "Id";
+            this.colId.Name = "colId";
+            this.colId.OptionsColumn.AllowEdit = false;
+            this.colId.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
+            this.colId.Width = 80;
+            // 
+            // colFicheno
+            // 
+            this.colFicheno.Caption = "Əməliyyat No";
+            this.colFicheno.FieldName = "Ficheno";
+            this.colFicheno.Name = "colFicheno";
+            this.colFicheno.OptionsColumn.AllowEdit = false;
+            this.colFicheno.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
+            this.colFicheno.Visible = true;
+            this.colFicheno.VisibleIndex = 0;
+            this.colFicheno.Width = 80;
+            // 
+            // colSourceCardNumber
+            // 
+            this.colSourceCardNumber.Caption = "Hesab Koddan";
+            this.colSourceCardNumber.FieldName = "SourceCardNumber";
+            this.colSourceCardNumber.Name = "colSourceCardNumber";
+            this.colSourceCardNumber.OptionsColumn.AllowEdit = false;
+            this.colSourceCardNumber.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
+            this.colSourceCardNumber.Visible = true;
+            this.colSourceCardNumber.VisibleIndex = 1;
+            this.colSourceCardNumber.Width = 80;
+            // 
+            // colSourceCardName
+            // 
+            this.colSourceCardName.Caption = "Hesab Addan";
+            this.colSourceCardName.FieldName = "SourceCardName";
+            this.colSourceCardName.Name = "colSourceCardName";
+            this.colSourceCardName.OptionsColumn.AllowEdit = false;
+            this.colSourceCardName.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
+            this.colSourceCardName.Visible = true;
+            this.colSourceCardName.VisibleIndex = 2;
+            this.colSourceCardName.Width = 80;
+            // 
+            // colDestCardNumber
+            // 
+            this.colDestCardNumber.Caption = "Hesab Koda";
+            this.colDestCardNumber.FieldName = "DestCardNumber";
+            this.colDestCardNumber.Name = "colDestCardNumber";
+            this.colDestCardNumber.OptionsColumn.AllowEdit = false;
+            this.colDestCardNumber.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
+            this.colDestCardNumber.Visible = true;
+            this.colDestCardNumber.VisibleIndex = 3;
+            this.colDestCardNumber.Width = 80;
+            // 
+            // colDestCardName
+            // 
+            this.colDestCardName.Caption = "Hesab Ada";
+            this.colDestCardName.FieldName = "DestCardName";
+            this.colDestCardName.Name = "colDestCardName";
+            this.colDestCardName.OptionsColumn.AllowEdit = false;
+            this.colDestCardName.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
+            this.colDestCardName.Visible = true;
+            this.colDestCardName.VisibleIndex = 4;
+            this.colDestCardName.Width = 80;
+            // 
+            // colTotal
+            // 
+            this.colTotal.Caption = "Məbləğ";
+            this.colTotal.FieldName = "Total";
+            this.colTotal.Name = "colTotal";
+            this.colTotal.OptionsColumn.AllowEdit = false;
+            this.colTotal.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
+            this.colTotal.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
+            this.colTotal.Visible = true;
+            this.colTotal.VisibleIndex = 5;
+            this.colTotal.Width = 80;
+            // 
+            // colExchangeName
+            // 
+            this.colExchangeName.Caption = "Məzənnə";
+            this.colExchangeName.FieldName = "ExchangeName";
+            this.colExchangeName.Name = "colExchangeName";
+            this.colExchangeName.OptionsColumn.AllowEdit = false;
+            this.colExchangeName.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
+            this.colExchangeName.Visible = true;
+            this.colExchangeName.VisibleIndex = 6;
+            this.colExchangeName.Width = 50;
+            // 
+            // colStatusName
+            // 
+            this.colStatusName.Caption = "Status";
+            this.colStatusName.FieldName = "StatusName";
+            this.colStatusName.Name = "colStatusName";
+            this.colStatusName.OptionsColumn.AllowEdit = false;
+            this.colStatusName.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
+            this.colStatusName.Visible = true;
+            this.colStatusName.VisibleIndex = 7;
+            this.colStatusName.Width = 80;
+            // 
+            // colUserName
+            // 
+            this.colUserName.Caption = "İstifadəçi";
+            this.colUserName.FieldName = "UserName";
+            this.colUserName.Name = "colUserName";
+            this.colUserName.OptionsColumn.AllowEdit = false;
+            this.colUserName.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
+            this.colUserName.Visible = true;
+            this.colUserName.VisibleIndex = 8;
+            this.colUserName.Width = 80;
+            // 
+            // colNote
+            // 
+            this.colNote.Caption = "Qeyd";
+            this.colNote.FieldName = "Note";
+            this.colNote.Name = "colNote";
+            this.colNote.OptionsColumn.AllowEdit = false;
+            this.colNote.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
+            this.colNote.Visible = true;
+            this.colNote.VisibleIndex = 9;
+            this.colNote.Width = 80;
+            // 
+            // colCreatedDate
+            // 
+            this.colCreatedDate.Caption = "Tarix";
+            this.colCreatedDate.DisplayFormat.FormatString = "dd.MM.yyyy HH:mm:ss";
+            this.colCreatedDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.colCreatedDate.FieldName = "CreatedDate";
+            this.colCreatedDate.Name = "colCreatedDate";
+            this.colCreatedDate.OptionsColumn.AllowEdit = false;
+            this.colCreatedDate.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
+            this.colCreatedDate.Visible = true;
+            this.colCreatedDate.VisibleIndex = 10;
+            this.colCreatedDate.Width = 120;
+            // 
+            // colConnectedInvoice
+            // 
+            this.colConnectedInvoice.Caption = "Əlaqəli Faktura";
+            this.colConnectedInvoice.FieldName = "ConnectedInvoice";
+            this.colConnectedInvoice.Name = "colConnectedInvoice";
+            this.colConnectedInvoice.OptionsColumn.AllowEdit = false;
+            this.colConnectedInvoice.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
+            this.colConnectedInvoice.Visible = true;
+            this.colConnectedInvoice.VisibleIndex = 11;
+            this.colConnectedInvoice.Width = 80;
+            // 
+            // panelControl2
+            // 
+            this.panelControl2.Controls.Add(this.labelControl2);
+            this.panelControl2.Controls.Add(this.dateBegin);
+            this.panelControl2.Controls.Add(this.dateEnd);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelControl2.Location = new System.Drawing.Point(2, 23);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(425, 33);
+            this.panelControl2.TabIndex = 8;
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.labelControl2.Appearance.Options.UseFont = true;
+            this.labelControl2.Location = new System.Drawing.Point(5, 9);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(92, 16);
+            this.labelControl2.TabIndex = 1;
+            this.labelControl2.Text = "Əməliyyat Tarixi";
+            // 
+            // dateBegin
+            // 
+            this.dateBegin.EditValue = null;
+            this.dateBegin.Location = new System.Drawing.Point(110, 8);
+            this.dateBegin.Name = "dateBegin";
+            this.dateBegin.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateBegin.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateBegin.Properties.DisplayFormat.FormatString = "dd.MM.yyyy HH:mm:ss";
+            this.dateBegin.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.dateBegin.Properties.EditFormat.FormatString = "dd.MM.yyyy HH:mm:ss";
+            this.dateBegin.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.dateBegin.Properties.Mask.EditMask = "dd.MM.yyyy HH:mm:ss";
+            this.dateBegin.Size = new System.Drawing.Size(150, 20);
+            this.dateBegin.TabIndex = 2;
+            // 
+            // dateEnd
+            // 
+            this.dateEnd.EditValue = null;
+            this.dateEnd.Location = new System.Drawing.Point(264, 8);
+            this.dateEnd.Name = "dateEnd";
+            this.dateEnd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEnd.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEnd.Properties.DisplayFormat.FormatString = "dd.MM.yyyy HH:mm:ss";
+            this.dateEnd.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.dateEnd.Properties.EditFormat.FormatString = "dd.MM.yyyy HH:mm:ss";
+            this.dateEnd.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.dateEnd.Properties.Mask.EditMask = "dd.MM.yyyy HH:mm:ss";
+            this.dateEnd.Size = new System.Drawing.Size(150, 20);
+            this.dateEnd.TabIndex = 3;
             // 
             // Form_CashTransaction
             // 
@@ -232,6 +424,9 @@
             this.Shown += new System.EventHandler(this.Form_CashTransaction_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.grpTop)).EndInit();
             this.grpTop.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gcData)).EndInit();
+            this.cmsMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gvData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             this.panelControl2.PerformLayout();
@@ -239,9 +434,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateBegin.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEnd.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEnd.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcData)).EndInit();
-            this.cmsMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gvData)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -251,17 +443,32 @@
         private DevExpress.XtraEditors.GroupControl grpTop;
         private DevExpress.XtraGrid.GridControl gcData;
         private DevExpress.XtraGrid.Views.Grid.GridView gvData;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.DateEdit dateEnd;
-        private DevExpress.XtraEditors.DateEdit dateBegin;
         private System.Windows.Forms.ContextMenuStrip cmsMain;
         private System.Windows.Forms.ToolStripMenuItem tsAddNew;
         private System.Windows.Forms.ToolStripMenuItem tsModify;
         private System.Windows.Forms.ToolStripMenuItem tsDelete;
         private System.Windows.Forms.ToolStripMenuItem tsExportToExcel;
-        private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraEditors.SimpleButton btnRefresh;
         private System.Windows.Forms.ToolStripMenuItem tsView;
         private System.Windows.Forms.ToolStripMenuItem tsPrintDocument;
+        private System.Windows.Forms.ToolStripMenuItem tsAcceptCashTran;
+        private DevExpress.XtraGrid.Columns.GridColumn colId;
+        private DevExpress.XtraGrid.Columns.GridColumn colFicheno;
+        private DevExpress.XtraGrid.Columns.GridColumn colSourceCardNumber;
+        private DevExpress.XtraGrid.Columns.GridColumn colSourceCardName;
+        private DevExpress.XtraGrid.Columns.GridColumn colDestCardNumber;
+        private DevExpress.XtraGrid.Columns.GridColumn colDestCardName;
+        private DevExpress.XtraGrid.Columns.GridColumn colTotal;
+        private DevExpress.XtraGrid.Columns.GridColumn colExchangeName;
+        private DevExpress.XtraGrid.Columns.GridColumn colStatusName;
+        private DevExpress.XtraGrid.Columns.GridColumn colUserName;
+        private DevExpress.XtraGrid.Columns.GridColumn colNote;
+        private DevExpress.XtraGrid.Columns.GridColumn colCreatedDate;
+        private DevExpress.XtraGrid.Columns.GridColumn colConnectedInvoice;
+        private System.Windows.Forms.ToolStripMenuItem tsReserveCash;
+        private DevExpress.XtraEditors.PanelControl panelControl2;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.DateEdit dateBegin;
+        private DevExpress.XtraEditors.DateEdit dateEnd;
     }
 }

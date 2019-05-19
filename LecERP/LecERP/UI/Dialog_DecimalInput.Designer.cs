@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.grpMain = new DevExpress.XtraEditors.GroupControl();
+            this.spnValue = new DevExpress.XtraEditors.SpinEdit();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
-            this.spnValue = new DevExpress.XtraEditors.SpinEdit();
             ((System.ComponentModel.ISupportInitialize)(this.grpMain)).BeginInit();
             this.grpMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spnValue.Properties)).BeginInit();
@@ -50,32 +50,6 @@
             this.grpMain.Size = new System.Drawing.Size(196, 112);
             this.grpMain.TabIndex = 1;
             // 
-            // btnOK
-            // 
-            this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOK.Appearance.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.btnOK.Appearance.Options.UseFont = true;
-            this.btnOK.ImageOptions.Image = global::LecERP.Properties.Resources.apply_16x16;
-            this.btnOK.Location = new System.Drawing.Point(12, 80);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(83, 27);
-            this.btnOK.TabIndex = 5;
-            this.btnOK.Text = "Qəbul Et";
-            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.btnCancel.Appearance.Options.UseFont = true;
-            this.btnCancel.ImageOptions.Image = global::LecERP.Properties.Resources.cancel_16x16;
-            this.btnCancel.Location = new System.Drawing.Point(101, 80);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(83, 27);
-            this.btnCancel.TabIndex = 2;
-            this.btnCancel.Text = "İmtina et";
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
             // spnValue
             // 
             this.spnValue.EditValue = new decimal(new int[] {
@@ -91,6 +65,32 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.spnValue.Size = new System.Drawing.Size(121, 26);
             this.spnValue.TabIndex = 6;
+            // 
+            // btnOK
+            // 
+            this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOK.Appearance.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.btnOK.Appearance.Options.UseFont = true;
+            this.btnOK.ImageOptions.Image = global::LecERP.Properties.Resources.apply_16x161;
+            this.btnOK.Location = new System.Drawing.Point(12, 80);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(83, 27);
+            this.btnOK.TabIndex = 5;
+            this.btnOK.Text = "Qəbul Et";
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.btnCancel.Appearance.Options.UseFont = true;
+            this.btnCancel.ImageOptions.Image = global::LecERP.Properties.Resources.cancel_16x161;
+            this.btnCancel.Location = new System.Drawing.Point(101, 80);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(83, 27);
+            this.btnCancel.TabIndex = 2;
+            this.btnCancel.Text = "İmtina et";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // Dialog_DecimalInput
             // 

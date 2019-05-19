@@ -18,15 +18,10 @@ namespace LecERP
         public int Id { get; set; }
         public bool IsEditMode { get; set; }
 
-        Fiche Fiche_ = null;
-        List<FicheLineView> Lines = null;
-        List<ItemView> Items = null;
-        List<ExchangeMaster> Exchanges = null;
-        List<CardMasterView> Cards = null;
-        List<WarehouseMaster> Warehouses = null;
-        List<ItemPrice> ItemPrices = null;
-        List<DocumentMaster> DocumentMasters = null;
-        List<PriceCalcType> PriceCalcTypes = null;
+        FicheMasterView Fiche = null;
+
+        DataHolder dataHolder = null;
+
         DocumentMaster currentDocumentType = null;
         public bool CreateInvoiceFromOrderFiche { get; set; }
 
@@ -39,7 +34,8 @@ namespace LecERP
 
         private void Manp_FichesNew_Load(object sender, EventArgs e)
         {
-            
+            btnAddLine.Enabled = IsEditMode;
+            btnOk.Enabled = IsEditMode;
             gvLines.Columns["Weight_"].Visible = spWeight.Visible = lblWeight.Visible = StaticData.weightVisible;
             gvLines.Columns["Height_"].Visible = spHeight.Visible = lblHeight.Visible = StaticData.heightVisible;
             gvLines.Columns["IsCompleted"].OptionsColumn.AllowEdit = StaticData.IsPermitted(34);
@@ -62,103 +58,67 @@ namespace LecERP
                 lookUpItem.Enabled =
                 cmbItemType.Enabled = btnAddLine.Enabled= IsEditMode;
 
-            List<IBaseOperation> loadOperations = new List<IBaseOperation>();
-            Operation<List<EnumMaster>> op_ItemTypes = OperationHandler.GetEnums(3);
-            loadOperations.Add(op_ItemTypes);
-            Operation<List<ItemView>> op_Items = OperationHandler.GetAllItems();
-            loadOperations.Add(op_Items);
-            Operation<List<ExchangeMaster>> op_ExchangeMaster = OperationHandler.GetAllExchanges();
-            loadOperations.Add(op_ExchangeMaster);
-            Operation<List<CardMasterView>> op_CardMaster = OperationHandler.GetAllCards();
-            loadOperations.Add(op_CardMaster);
-            Operation<List<WarehouseMaster>> op_Warehouses = OperationHandler.GetWarehouses();
-            loadOperations.Add(op_Warehouses);
-            Operation<List<ItemPrice>> op_ItemPrices = OperationHandler.GetItemPricesList();
-            loadOperations.Add(op_ItemPrices);
-            Operation<List<DocumentMaster>> op_DocumentMasters = OperationHandler.GetDocumentMasters();
-            loadOperations.Add(op_DocumentMasters);
-            Operation<List<PriceCalcType>> op_PriceCalcTypes = OperationHandler.GetPriceCalcTypes();
-            loadOperations.Add(op_PriceCalcTypes);
-
-            foreach (IBaseOperation ibop in loadOperations)
+            dataHolder = new DataHolder();
+            IBaseOperation loadOper = dataHolder.LoadMasterData();
+            if (!loadOper.Successful)
             {
-                if (!ibop.Successful)
-                {
-                    SetError(ibop.Fail);
-                    return;
-                }
+                SetError(loadOper.Fail);
+                return;
             }
 
-            Items = op_Items.Value;
-            Exchanges = op_ExchangeMaster.Value;
-            Cards = op_CardMaster.Value;
-            Warehouses = op_Warehouses.Value.Where(x=>x.Number != 0).ToList();
-            ItemPrices = op_ItemPrices.Value;
-            DocumentMasters = op_DocumentMasters.Value;
-            PriceCalcTypes = op_PriceCalcTypes.Value;
+            
 
             searchLookUpCard.Properties.View.AssignGridView(14); 
             
-            lookUpExchange.Properties.DataSource = Exchanges;
+            lookUpExchange.Properties.DataSource = dataHolder.Exchanges;
             
-            LookUpWarehouse.Properties.DataSource = Warehouses;
+            LookUpWarehouse.Properties.DataSource = dataHolder.Warehouses;
             if (DocTypeId != 0)
             {
-                currentDocumentType = DocumentMasters.Where(x => x.Id == DocTypeId).FirstOrDefault();
-                searchLookUpCard.Properties.DataSource = Cards.Where(x => x.CardType == currentDocumentType.CardType).ToList();
+                currentDocumentType = dataHolder.DocumentMasters.Where(x => x.Id == DocTypeId).FirstOrDefault();
+                searchLookUpCard.Properties.DataSource = dataHolder.Cards.Where(x => x.CardTypeId == currentDocumentType.CardType).ToList();
             }
 
             if (Id == 0)
             {
-                Fiche_ = new Fiche();
-                Lines = new List<FicheLineView>();
+                Fiche = new FicheMasterView();
+                Fiche.FicheLines = new List<FicheLineView>();
                 LookUpWarehouse.ItemIndex = 0;
             }
             else
             {
-                Operation<Fiche> op_ExistingFiche = OperationHandler.GetFicheById(Id);
+                Operation<FicheMasterView> op_ExistingFiche = OperationHandler.GetFicheById(Id);
                 if (!op_ExistingFiche.Successful)
                 {
                     SetError(op_ExistingFiche.Fail);
                     return;
                 }
-                Fiche_ = op_ExistingFiche.Value;
-                DocTypeId = Fiche_.FicheMaster.DocTypeId;
+                Fiche = op_ExistingFiche.Value;
+                DocTypeId = Fiche.DocTypeId;
 
-                currentDocumentType = DocumentMasters.Where(x => x.Id == DocTypeId).FirstOrDefault();
-                searchLookUpCard.Properties.DataSource = Cards.Where(x => x.CardType == currentDocumentType.CardType).ToList();
+                currentDocumentType = dataHolder.DocumentMasters.Where(x => x.Id == DocTypeId).FirstOrDefault();
+                searchLookUpCard.Properties.DataSource = dataHolder.Cards.Where(x => x.CardTypeId == currentDocumentType.CardType).ToList();
 
-                searchLookUpCard.EditValue = Fiche_.FicheMaster.CardId;
-                LookUpWarehouse.EditValue = Fiche_.FicheMaster.SourceWarehouse;
-                lookUpExchange.EditValue = Fiche_.FicheMaster.ExchangeId;
-                txtNote1.Text = Fiche_.FicheMaster.Note1;
-                txtNote2.Text = Fiche_.FicheMaster.Note2;
-                txtNote3.Text = Fiche_.FicheMaster.Note3;
-                txtNote4.Text = Fiche_.FicheMaster.Note4;
+                searchLookUpCard.EditValue = Fiche.CardId;
+                LookUpWarehouse.EditValue = Fiche.SourceWarehouse;
+                lookUpExchange.EditValue = Fiche.ExchangeId;
+                txtNote1.Text = Fiche.Note1;
+                txtNote2.Text = Fiche.Note2;
+                txtNote3.Text = Fiche.Note3;
+                txtNote4.Text = Fiche.Note4;
 
                 if (CreateInvoiceFromOrderFiche)
                 {
-                    Fiche_.FicheMaster.SourceDocument = Fiche_.FicheMaster.Ficheno;
-            }
-
-                txtSourceDoc.Text =Fiche_.FicheMaster.SourceDocument;
-
-                Lines = new List<FicheLineView>();
-                foreach (var line_ in Fiche_.FicheLines)
-                {
-                    FicheLineView ficheLineEditMode = line_.GetEligibleOjbect<FicheLineView>();
-                    ficheLineEditMode.ItemCode = Items.Where(x => x.Id == ficheLineEditMode.ItemId).First().ItemCode;
-                    ficheLineEditMode.ItemName = Items.Where(x => x.Id == ficheLineEditMode.ItemId).First().ItemName;
-                    ficheLineEditMode.ItemTypeName = Items.Where(x => x.Id == ficheLineEditMode.ItemId).First().ItemTypeName;
-                    Lines.Add(ficheLineEditMode);
+                    Fiche.SourceDocument = Fiche.Ficheno;
                 }
 
-                gcLines.DataSource = null;
-                gcLines.DataSource = Lines;
+                txtSourceDoc.Text =Fiche.SourceDocument;
+                gvLines.Columns["IsCompleted"].OptionsColumn.AllowEdit = Fiche.Status_ == 2;
             }
-
+            gcLines.DataSource = null;
+            gcLines.DataSource = Fiche.FicheLines;
             cmbItemType.SelectedIndex = 0;
-           
+            RefreshCashTrans();
         }
       
 
@@ -169,7 +129,7 @@ namespace LecERP
 
         void RefreshLines()
         {
-            gcLines.DataSource = Lines;
+            gcLines.DataSource = Fiche.FicheLines;
             gvLines.RefreshData();
         }
 
@@ -206,43 +166,45 @@ namespace LecERP
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            Fiche_.FicheLines = new List<FicheLine>();
-            foreach (var line in Lines) Fiche_.FicheLines.Add(line);
-            Fiche_.FicheLines.ForEach(x => x.Note = x.Note ?? string.Empty );
-            Fiche_.FicheMaster.CardId = Convert.ToInt32(searchLookUpCard.EditValue);
-            Fiche_.FicheMaster.SourceWarehouse = Convert.ToInt32(LookUpWarehouse.EditValue);
-            if ( Id == 0 ) Fiche_.FicheMaster.CreatedBy = StaticData.CurrentUserId;
-            if ( Id == 0 ) Fiche_.FicheMaster.CreatedDate = DateTime.Now;
-            if (Id == 0) Fiche_.FicheMaster.Status_ = 1;
-            Fiche_.FicheMaster.DocTypeId = DocTypeId;
-            Fiche_.FicheMaster.ExchangeId = Convert.ToByte(lookUpExchange.EditValue);
-            Fiche_.FicheMaster.Note1 = txtNote1.Text;
-            Fiche_.FicheMaster.Note2 = txtNote2.Text;
-            Fiche_.FicheMaster.Note3 = txtNote3.Text;
-            Fiche_.FicheMaster.Note4 = txtNote4.Text;
-            Fiche_.FicheMaster.SourceDocument = txtSourceDoc.Text;
+            Fiche.FicheLines.ForEach(x => x.Note = x.Note ?? string.Empty );
+            Fiche.CardId = Convert.ToInt32(searchLookUpCard.EditValue);
+            Fiche.SourceWarehouse = Convert.ToInt32(LookUpWarehouse.EditValue);
+            if ( Id == 0 ) Fiche.CreatedBy = StaticData.CurrentUserId;
+            if ( Id == 0 ) Fiche.CreatedDate = DateTime.Now;
+            if (Id == 0) Fiche.Status_ = 1;
+            Fiche.DocTypeId = DocTypeId;
+            Fiche.ExchangeId = Convert.ToByte(lookUpExchange.EditValue);
+            Fiche.Note1 = txtNote1.Text;
+            Fiche.Note2 = txtNote2.Text;
+            Fiche.Note3 = txtNote3.Text;
+            Fiche.Note4 = txtNote4.Text;
+            Fiche.SourceDocument = txtSourceDoc.Text;
            
             if (CreateInvoiceFromOrderFiche)
             {
-                Fiche_.FicheMaster.DocTypeId = 2;
-                Fiche_.FicheMaster.Id = 0;
+                Fiche.DocTypeId = 2;
+                Fiche.CreatedDate = DateTime.Now;
+                Fiche.CreatedBy = StaticData.CurrentUserId;
+                Fiche.Id = 0;
             }
-            Operation<Fiche> postedFiche = OperationHandler.PostFiche(Fiche_);
+            Operation<FicheMasterView> postedFiche = OperationHandler.PostFiche(Fiche);
 
-            if (postedFiche.Successful) this.Close();
+            if (postedFiche.Successful) Close();
             SetError(postedFiche.Fail,false);
         }
 
         private void searchLookUpCard_EditValueChanged(object sender, EventArgs e)
         {
             if (searchLookUpCard.EditValue == null) return;
-            lookUpExchange.EditValue = Cards.Where(x => x.Id == (int)searchLookUpCard.EditValue).First().ExchangeId;
+            lookUpExchange.EditValue = dataHolder.Cards.Where(x => x.Id == (int)searchLookUpCard.EditValue).First().ExchangeId;
             lookUpItem.Enabled = true;
+            
+            gcServices.DataSource = dataHolder.GetFicheLineServicesView((int)searchLookUpCard.EditValue);
         }
 
         private void cmbItemType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lookUpItem.Properties.DataSource = Items.Where(x => x.ItemTypeId == cmbItemType.SelectedIndex + 1);
+            lookUpItem.Properties.DataSource = dataHolder.Items.Where(x => x.ItemTypeId == cmbItemType.SelectedIndex + 1);
             lookUpItem.Properties.ValueMember = "Id";
             lookUpItem.Properties.DisplayMember = "ItemName";
         }
@@ -250,17 +212,17 @@ namespace LecERP
         private void lookUpItem_EditValueChanged(object sender, EventArgs e)
         {
             if (lookUpItem.EditValue == null) return;
-            ItemView item = Items.Where(x => x.Id == Convert.ToInt32(lookUpItem.EditValue)).FirstOrDefault();
+            ItemView item = dataHolder.Items.Where(x => x.Id == Convert.ToInt32(lookUpItem.EditValue)).FirstOrDefault();
             spHeight.Value = item.Height_;
             spWeight.Value = item.Weight_;
             spLength.Value = item.Length_;
             spWidth.Value = item.Width_;
-            ItemPrice itemPrice = ItemPrices.Where
+            ItemPrice itemPrice = dataHolder.ItemPrices.Where
                 (x => x.ItemId == Convert.ToInt32(lookUpItem.EditValue) && x.PriceTypeId == currentDocumentType.PriceType && x.CardId == Convert.ToInt32(searchLookUpCard.EditValue)
                 ).FirstOrDefault();
             if (itemPrice == null)
             {
-                itemPrice = ItemPrices.Where
+                itemPrice = dataHolder.ItemPrices.Where
                 (x => x.ItemId == Convert.ToInt32(lookUpItem.EditValue) && x.PriceTypeId == currentDocumentType.PriceType
                 ).FirstOrDefault();
             }
@@ -277,7 +239,7 @@ namespace LecERP
         private void btnAddLine_Click(object sender, EventArgs e)
         {
             if (lookUpItem.EditValue == null) return;
-            if (spPrice.Value == 0)
+            if (spPrice.Value == 0 && currentDocumentType.PriceRequired)
             {
                 XtraMessageBox.Show("Məhsulun qiymətini daxil edin");
                 return;
@@ -286,12 +248,22 @@ namespace LecERP
             line.Amount = spAmount.Value;
             line.Height_ = spHeight.Value;
             line.ItemId = Convert.ToInt32(lookUpItem.EditValue);
-            line.ItemName = Items.Where(x => x.Id == Convert.ToInt32(lookUpItem.EditValue)).FirstOrDefault().ItemName;
-            line.ItemTypeName = Items.Where(x => x.Id == Convert.ToInt32(lookUpItem.EditValue)).FirstOrDefault().ItemTypeName;
-            line.ItemCode = Items.Where(x => x.Id == Convert.ToInt32(lookUpItem.EditValue)).FirstOrDefault().ItemCode;
+            line.ItemName = dataHolder.Items.Where(x => x.Id == Convert.ToInt32(lookUpItem.EditValue)).FirstOrDefault().ItemName;
+            line.ItemTypeName = dataHolder.Items.Where(x => x.Id == Convert.ToInt32(lookUpItem.EditValue)).FirstOrDefault().ItemTypeName;
+            line.ItemCode = dataHolder.Items.Where(x => x.Id == Convert.ToInt32(lookUpItem.EditValue)).FirstOrDefault().ItemCode;
             line.ItemTypeId = Convert.ToByte(cmbItemType.SelectedIndex);
-            
-            
+
+            line.Services = gvServices.GetSelectedRows<FicheLineServiceView>().DeepClone();
+
+
+            foreach (var servLine in line.Services)
+            {
+                Item srvItem = dataHolder.Items.Where(x => x.Id == servLine.ServiceItemId).First();
+                servLine.LineTotal = StaticData.CalculateItemTotal(srvItem.PriceCalcTypeId, servLine.ItemPrice, servLine.Amount, line.Width_, line.Length_, line.Height_);
+                servLine.LineNetTotal = StaticData.CalculateItemTotal(srvItem.PriceCalcTypeId, servLine.LinePrice, servLine.Amount, line.Width_, line.Length_, line.Height_);
+            }
+
+
             //line.LineNumber
             line.Weight_ = spWeight.Value;
             line.Width_ = spWidth.Value;
@@ -299,15 +271,17 @@ namespace LecERP
             line.LinePrice = spPrice.Value;
 
             //line.LineNetTotal = line.LinePrice * line.Amount;
-            ItemView item = Items.Where(x => x.Id == line.ItemId).First();
+            ItemView item = dataHolder.Items.Where(x => x.Id == line.ItemId).First();
             line.LineNetTotal = StaticData.CalculateItemTotal(item.PriceCalcTypeId, line.LinePrice, line.Amount, line.Width_, line.Length_, line.Height_);
-
-            Lines.Add(line );
-            Lines.ForEach(x => x.LineNumber = Lines.IndexOf(x) + 1);
-            Lines = Lines.OrderBy(x => x.LineNumber).ToList();
+            line.ServiceLineNetTotalSum = line.Services.Sum(x=>x.LineNetTotal);
+            line.LineFinalSum = line.LineNetTotal + line.LineExpense + line.ServiceLineNetTotalSum;
+            Fiche.FicheLines.Add(line );
+            Fiche.FicheLines.ForEach(x => x.LineNumber = Fiche.FicheLines.IndexOf(x) + 1);
+            Fiche.FicheLines = Fiche.FicheLines.OrderBy(x => x.LineNumber).ToList();
             lookUpItem.EditValue = null;
-            gcLines.DataSource = null;
-            gcLines.DataSource = Lines;
+            RefreshLines();
+            if (AppSettings.FichesManpServiceLinesClearCheckedRowsOnAddLine) gvServices.ClearSelection();
+            
         }
 
         private void gvLines_KeyDown(object sender, KeyEventArgs e)
@@ -320,24 +294,23 @@ namespace LecERP
                 if (del == DialogResult.Yes)
                 {
                     FicheLineView currentLine = gvLines.GetFocusedRow() as FicheLineView;
-                    Lines.Remove(currentLine);
+                    Fiche.FicheLines.Remove(currentLine);
                 }
-                Lines.ForEach(x => x.LineNumber = Lines.IndexOf(x) + 1);
-                Lines = Lines.OrderBy(x => x.LineNumber).ToList();
-                gcLines.DataSource = null;
-                gcLines.DataSource = Lines;
+                Fiche.FicheLines.ForEach(x => x.LineNumber = Fiche.FicheLines.IndexOf(x) + 1);
+                Fiche.FicheLines = Fiche.FicheLines.OrderBy(x => x.LineNumber).ToList();
+                RefreshLines();
             }
             if (e.Shift && e.KeyValue >= (int)Keys.A && e.KeyValue <= (int)Keys.Z)
             {
                 if (gvLines.GetFocusedRow() == null) return;
 
                 string keyString = ((char)(e.KeyValue + 32)).ToString();
-                ItemView newItem = Items.Where(x => x.ShortcutKey.ToLower() == keyString.ToLower()).FirstOrDefault();
+                ItemView newItem = dataHolder.Items.Where(x => x.ShortcutKey.ToLower() == keyString.ToLower()).FirstOrDefault();
                 if (newItem == null) return;
 
 
                 FicheLineView currentLine = gvLines.GetFocusedRow() as FicheLineView;
-                int index = Lines.IndexOf(currentLine);
+                int index = Fiche.FicheLines.IndexOf(currentLine);
 
                 FicheLineView newLine = new FicheLineView();
                
@@ -357,12 +330,12 @@ namespace LecERP
                     newLine.Length_ = currentLine.Length_;
                 }
 
-                ItemPrice itemPrice = ItemPrices.Where
+                ItemPrice itemPrice = dataHolder.ItemPrices.Where
                (x => x.ItemId == newItem.Id && x.PriceTypeId == currentDocumentType.PriceType && x.CardId == Convert.ToInt32(searchLookUpCard.EditValue)
                ).FirstOrDefault();
                 if (itemPrice == null)
                 {
-                    itemPrice = ItemPrices.Where
+                    itemPrice = dataHolder.ItemPrices.Where
                     (x => x.ItemId == newItem.Id && x.PriceTypeId == currentDocumentType.PriceType
                     ).FirstOrDefault();
                 }
@@ -373,12 +346,66 @@ namespace LecERP
                
                 newLine.LineNetTotal = StaticData.CalculateItemTotal(newItem.PriceCalcTypeId, newLine.LinePrice, newLine.Amount, newLine.Width_, newLine.Length_, newLine.Height_);
 
-                Lines.Insert(index + 1, newLine);
-                Lines.ForEach(x => x.LineNumber = Lines.IndexOf(x) + 1);
-                Lines = Lines.OrderBy(x => x.LineNumber).ToList();
-                gcLines.DataSource = null;
-                gcLines.DataSource = Lines;
+                Fiche.FicheLines.Insert(index + 1, newLine);
+                Fiche.FicheLines.ForEach(x => x.LineNumber = Fiche.FicheLines.IndexOf(x) + 1);
+                Fiche.FicheLines = Fiche.FicheLines.OrderBy(x => x.LineNumber).ToList();
+                RefreshLines();
             }
+        }
+
+        private void gvLines_FocusedRowChanged(object sender, FocusedRowChangedEventArgs e)
+        {
+            FicheLineView vw = gvLines.GetFocusedRow() as FicheLineView;
+            if (vw == null)
+            {
+                gcServicesOfLine.DataSource = null;
+                return;
+            }
+            gcServicesOfLine.DataSource = vw.Services;
+        }
+
+        private void tsAddExpenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Dialog_DecimalInput ddi = new Dialog_DecimalInput();
+            //ddi.Caption = "Xərclərin cəmini daxil edin";
+            //ddi.ShowDialog();
+            //if (ddi.IsOk)
+            //{
+            //    decimal acceptedValue = ddi.Value;
+            //    decimal ficheLinesSum = Fiche.FicheLines.Sum(x=>x.LineNetTotal);
+            //    foreach (var line in Fiche.FicheLines)
+            //    {
+            //        var linePerc = line.LineNetTotal / ficheLinesSum;
+            //        line.LineExpense = Math.Round(acceptedValue * linePerc,2);
+            //    }
+            //}
+            List<CashTransactionView> cashes = gcCashTrans.DataSource as List<CashTransactionView>;
+            if (cashes == null) return;
+            decimal acceptedValue = cashes.Sum(x => x.TotalMEx) ;
+            decimal ficheLinesSum = Fiche.FicheLines.Sum(x => x.LineNetTotal);
+            foreach (var line in Fiche.FicheLines)
+            {
+                var linePerc = line.LineNetTotal / ficheLinesSum;
+                line.LineExpense = Math.Round(acceptedValue * linePerc, 2);
+            }
+            gcLines.RefreshDataSource();
+        }
+
+        private void btnAddCashTran_Click(object sender, EventArgs e)
+        {
+            if (Fiche.Id == 0)
+            {
+                XtraMessageBox.Show("Əvvəlcə Yaddaşa Yazın !");
+                return;
+            }
+            Manp_CashTransaction cashTransaction = new Manp_CashTransaction(0,0,0,string.Empty,Fiche.Id,0);
+            cashTransaction.ShowDialog();
+            RefreshCashTrans();
+        }
+
+        private void RefreshCashTrans()
+        {
+            gcCashTrans.DataSource = OperationHandler.GetCashTransactionsViewByFiche(Id).Value;
         }
     }
 }

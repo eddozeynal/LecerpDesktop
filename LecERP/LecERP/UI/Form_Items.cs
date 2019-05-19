@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using LecERP.Models;
 
 namespace LecERP
 {
@@ -43,13 +44,12 @@ namespace LecERP
 
         private void Form_Items_Shown(object sender, EventArgs e)
         {
-            gvData.AssignGridView(10);
             RefreshData();
         }
 
         private void RefreshData()
         {
-            Operation<List<ItemView>> op_Items = OperationHandler.GetAllItems();
+            Operation<List<ItemView>> op_Items = OperationHandler.GetItems();
             if (op_Items.Successful)
             {
                 gcData.DataSource = op_Items.Value;

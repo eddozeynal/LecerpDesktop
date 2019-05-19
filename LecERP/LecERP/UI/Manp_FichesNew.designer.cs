@@ -28,8 +28,41 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Manp_FichesNew));
             this.grpCenter = new DevExpress.XtraEditors.GroupControl();
+            this.tabPane1 = new DevExpress.XtraBars.Navigation.TabPane();
+            this.tabNavigationPage1 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
+            this.gcServices = new DevExpress.XtraGrid.GridControl();
+            this.gvServices = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gcServicesOfLine = new DevExpress.XtraGrid.GridControl();
+            this.gvServicesOfLine = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.tabNavigationPage2 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.gcCashTrans = new DevExpress.XtraGrid.GridControl();
+            this.cmsFicheLines = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsAddExpenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gvCashTrans = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn25 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
+            this.repositoryItemSpinEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
+            this.repositoryItemSpinEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
+            this.repositoryItemSpinEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
+            this.repositoryItemSpinEdit5 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
+            this.repositoryItemSpinEdit6 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
+            this.gridColumn33 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.btnAddCashTran = new DevExpress.XtraEditors.SimpleButton();
             this.txtDate = new DevExpress.XtraEditors.TextEdit();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.lookUpExchange = new DevExpress.XtraEditors.LookUpEdit();
@@ -79,6 +112,9 @@
             this.rse_Price = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn22 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn24 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.txtNote4 = new DevExpress.XtraEditors.TextEdit();
             this.txtNote3 = new DevExpress.XtraEditors.TextEdit();
             this.txtNote2 = new DevExpress.XtraEditors.TextEdit();
@@ -94,6 +130,27 @@
             this.btnOk = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.grpCenter)).BeginInit();
             this.grpCenter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).BeginInit();
+            this.tabPane1.SuspendLayout();
+            this.tabNavigationPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
+            this.splitContainerControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcServices)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvServices)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcServicesOfLine)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvServicesOfLine)).BeginInit();
+            this.tabNavigationPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcCashTrans)).BeginInit();
+            this.cmsFicheLines.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gvCashTrans)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpExchange.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpCard.Properties)).BeginInit();
@@ -133,6 +190,7 @@
             this.grpCenter.Appearance.Options.UseFont = true;
             this.grpCenter.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 10F);
             this.grpCenter.AppearanceCaption.Options.UseFont = true;
+            this.grpCenter.Controls.Add(this.tabPane1);
             this.grpCenter.Controls.Add(this.txtDate);
             this.grpCenter.Controls.Add(this.labelControl10);
             this.grpCenter.Controls.Add(this.lookUpExchange);
@@ -157,9 +215,345 @@
             this.grpCenter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpCenter.Location = new System.Drawing.Point(0, 0);
             this.grpCenter.Name = "grpCenter";
-            this.grpCenter.Size = new System.Drawing.Size(1177, 535);
+            this.grpCenter.Size = new System.Drawing.Size(1282, 548);
             this.grpCenter.TabIndex = 2;
             this.grpCenter.Text = "Qaimə";
+            // 
+            // tabPane1
+            // 
+            this.tabPane1.Controls.Add(this.tabNavigationPage1);
+            this.tabPane1.Controls.Add(this.tabNavigationPage2);
+            this.tabPane1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.tabPane1.Location = new System.Drawing.Point(917, 23);
+            this.tabPane1.Name = "tabPane1";
+            this.tabPane1.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
+            this.tabNavigationPage1,
+            this.tabNavigationPage2});
+            this.tabPane1.RegularSize = new System.Drawing.Size(363, 523);
+            this.tabPane1.SelectedPage = this.tabNavigationPage1;
+            this.tabPane1.Size = new System.Drawing.Size(363, 523);
+            this.tabPane1.TabIndex = 33;
+            this.tabPane1.Text = "tabPane1";
+            // 
+            // tabNavigationPage1
+            // 
+            this.tabNavigationPage1.Caption = "Xidmətlər";
+            this.tabNavigationPage1.Controls.Add(this.splitContainerControl1);
+            this.tabNavigationPage1.Name = "tabNavigationPage1";
+            this.tabNavigationPage1.Size = new System.Drawing.Size(345, 478);
+            // 
+            // splitContainerControl1
+            // 
+            this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerControl1.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.None;
+            this.splitContainerControl1.Horizontal = false;
+            this.splitContainerControl1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerControl1.Name = "splitContainerControl1";
+            this.splitContainerControl1.Panel1.Controls.Add(this.gcServices);
+            this.splitContainerControl1.Panel1.Text = "Panel1";
+            this.splitContainerControl1.Panel2.Controls.Add(this.gcServicesOfLine);
+            this.splitContainerControl1.Panel2.Text = "Panel2";
+            this.splitContainerControl1.Size = new System.Drawing.Size(345, 478);
+            this.splitContainerControl1.SplitterPosition = 231;
+            this.splitContainerControl1.TabIndex = 34;
+            this.splitContainerControl1.Text = "splitContainerControl1";
+            // 
+            // gcServices
+            // 
+            this.gcServices.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcServices.Location = new System.Drawing.Point(0, 0);
+            this.gcServices.MainView = this.gvServices;
+            this.gcServices.Name = "gcServices";
+            this.gcServices.Size = new System.Drawing.Size(345, 231);
+            this.gcServices.TabIndex = 6;
+            this.gcServices.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvServices});
+            // 
+            // gvServices
+            // 
+            this.gvServices.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn17,
+            this.gridColumn18,
+            this.gridColumn19,
+            this.gridColumn20});
+            this.gvServices.GridControl = this.gcServices;
+            this.gvServices.Name = "gvServices";
+            this.gvServices.OptionsSelection.CheckBoxSelectorColumnWidth = 20;
+            this.gvServices.OptionsSelection.MultiSelect = true;
+            this.gvServices.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
+            this.gvServices.OptionsView.ColumnAutoWidth = false;
+            this.gvServices.OptionsView.ShowFooter = true;
+            this.gvServices.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn17
+            // 
+            this.gridColumn17.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn17.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn17.Caption = "Kodu";
+            this.gridColumn17.FieldName = "ItemCode";
+            this.gridColumn17.Name = "gridColumn17";
+            this.gridColumn17.OptionsColumn.AllowEdit = false;
+            this.gridColumn17.Visible = true;
+            this.gridColumn17.VisibleIndex = 1;
+            // 
+            // gridColumn18
+            // 
+            this.gridColumn18.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn18.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn18.Caption = "Adı";
+            this.gridColumn18.FieldName = "ItemName";
+            this.gridColumn18.Name = "gridColumn18";
+            this.gridColumn18.OptionsColumn.AllowEdit = false;
+            this.gridColumn18.Visible = true;
+            this.gridColumn18.VisibleIndex = 2;
+            this.gridColumn18.Width = 83;
+            // 
+            // gridColumn19
+            // 
+            this.gridColumn19.Caption = "Sayı";
+            this.gridColumn19.FieldName = "Amount";
+            this.gridColumn19.Name = "gridColumn19";
+            this.gridColumn19.Visible = true;
+            this.gridColumn19.VisibleIndex = 3;
+            this.gridColumn19.Width = 43;
+            // 
+            // gridColumn20
+            // 
+            this.gridColumn20.Caption = "Qiyməti";
+            this.gridColumn20.FieldName = "LinePrice";
+            this.gridColumn20.Name = "gridColumn20";
+            this.gridColumn20.Visible = true;
+            this.gridColumn20.VisibleIndex = 4;
+            this.gridColumn20.Width = 55;
+            // 
+            // gcServicesOfLine
+            // 
+            this.gcServicesOfLine.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcServicesOfLine.Location = new System.Drawing.Point(0, 0);
+            this.gcServicesOfLine.MainView = this.gvServicesOfLine;
+            this.gcServicesOfLine.Name = "gcServicesOfLine";
+            this.gcServicesOfLine.Size = new System.Drawing.Size(345, 242);
+            this.gcServicesOfLine.TabIndex = 5;
+            this.gcServicesOfLine.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvServicesOfLine});
+            // 
+            // gvServicesOfLine
+            // 
+            this.gvServicesOfLine.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn7,
+            this.gridColumn13,
+            this.gridColumn14,
+            this.gridColumn15,
+            this.gridColumn16});
+            this.gvServicesOfLine.GridControl = this.gcServicesOfLine;
+            this.gvServicesOfLine.Name = "gvServicesOfLine";
+            this.gvServicesOfLine.OptionsBehavior.Editable = false;
+            this.gvServicesOfLine.OptionsSelection.CheckBoxSelectorColumnWidth = 20;
+            this.gvServicesOfLine.OptionsView.ColumnAutoWidth = false;
+            this.gvServicesOfLine.OptionsView.ShowFooter = true;
+            this.gvServicesOfLine.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn7
+            // 
+            this.gridColumn7.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn7.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn7.Caption = "Kodu";
+            this.gridColumn7.FieldName = "ItemCode";
+            this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.OptionsColumn.AllowEdit = false;
+            this.gridColumn7.Visible = true;
+            this.gridColumn7.VisibleIndex = 0;
+            // 
+            // gridColumn13
+            // 
+            this.gridColumn13.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn13.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn13.Caption = "Adı";
+            this.gridColumn13.FieldName = "ItemName";
+            this.gridColumn13.Name = "gridColumn13";
+            this.gridColumn13.OptionsColumn.AllowEdit = false;
+            this.gridColumn13.Visible = true;
+            this.gridColumn13.VisibleIndex = 1;
+            this.gridColumn13.Width = 83;
+            // 
+            // gridColumn14
+            // 
+            this.gridColumn14.Caption = "Sayı";
+            this.gridColumn14.FieldName = "Amount";
+            this.gridColumn14.Name = "gridColumn14";
+            this.gridColumn14.OptionsColumn.AllowEdit = false;
+            this.gridColumn14.Visible = true;
+            this.gridColumn14.VisibleIndex = 2;
+            this.gridColumn14.Width = 43;
+            // 
+            // gridColumn15
+            // 
+            this.gridColumn15.Caption = "Qiyməti";
+            this.gridColumn15.FieldName = "LinePrice";
+            this.gridColumn15.Name = "gridColumn15";
+            this.gridColumn15.Visible = true;
+            this.gridColumn15.VisibleIndex = 3;
+            this.gridColumn15.Width = 55;
+            // 
+            // gridColumn16
+            // 
+            this.gridColumn16.Caption = "Məbləğ";
+            this.gridColumn16.FieldName = "LineNetTotal";
+            this.gridColumn16.Name = "gridColumn16";
+            this.gridColumn16.OptionsColumn.AllowEdit = false;
+            this.gridColumn16.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
+            this.gridColumn16.Visible = true;
+            this.gridColumn16.VisibleIndex = 4;
+            this.gridColumn16.Width = 51;
+            // 
+            // tabNavigationPage2
+            // 
+            this.tabNavigationPage2.Caption = "Ödənişlər";
+            this.tabNavigationPage2.Controls.Add(this.gcCashTrans);
+            this.tabNavigationPage2.Controls.Add(this.panelControl1);
+            this.tabNavigationPage2.Name = "tabNavigationPage2";
+            this.tabNavigationPage2.Size = new System.Drawing.Size(345, 478);
+            // 
+            // gcCashTrans
+            // 
+            this.gcCashTrans.ContextMenuStrip = this.cmsFicheLines;
+            this.gcCashTrans.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcCashTrans.Location = new System.Drawing.Point(0, 51);
+            this.gcCashTrans.MainView = this.gvCashTrans;
+            this.gcCashTrans.Name = "gcCashTrans";
+            this.gcCashTrans.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemSpinEdit1,
+            this.repositoryItemSpinEdit2,
+            this.repositoryItemSpinEdit3,
+            this.repositoryItemSpinEdit4,
+            this.repositoryItemSpinEdit5,
+            this.repositoryItemSpinEdit6});
+            this.gcCashTrans.Size = new System.Drawing.Size(345, 427);
+            this.gcCashTrans.TabIndex = 1;
+            this.gcCashTrans.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvCashTrans});
+            // 
+            // cmsFicheLines
+            // 
+            this.cmsFicheLines.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsAddExpenseToolStripMenuItem});
+            this.cmsFicheLines.Name = "cmsFicheLines";
+            this.cmsFicheLines.Size = new System.Drawing.Size(129, 26);
+            // 
+            // tsAddExpenseToolStripMenuItem
+            // 
+            this.tsAddExpenseToolStripMenuItem.Name = "tsAddExpenseToolStripMenuItem";
+            this.tsAddExpenseToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.tsAddExpenseToolStripMenuItem.Text = "Xərc Payla";
+            this.tsAddExpenseToolStripMenuItem.Click += new System.EventHandler(this.tsAddExpenseToolStripMenuItem_Click);
+            // 
+            // gvCashTrans
+            // 
+            this.gvCashTrans.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn21,
+            this.gridColumn25,
+            this.gridColumn33});
+            this.gvCashTrans.GridControl = this.gcCashTrans;
+            this.gvCashTrans.Name = "gvCashTrans";
+            this.gvCashTrans.OptionsDetail.EnableMasterViewMode = false;
+            this.gvCashTrans.OptionsView.ColumnAutoWidth = false;
+            this.gvCashTrans.OptionsView.ShowFooter = true;
+            this.gvCashTrans.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn21
+            // 
+            this.gridColumn21.Caption = "Növü";
+            this.gridColumn21.FieldName = "CashCategoryName";
+            this.gridColumn21.Name = "gridColumn21";
+            this.gridColumn21.OptionsColumn.AllowEdit = false;
+            this.gridColumn21.Visible = true;
+            this.gridColumn21.VisibleIndex = 0;
+            this.gridColumn21.Width = 81;
+            // 
+            // gridColumn25
+            // 
+            this.gridColumn25.Caption = "Əməliyyat No";
+            this.gridColumn25.FieldName = "Ficheno";
+            this.gridColumn25.Name = "gridColumn25";
+            this.gridColumn25.OptionsColumn.AllowEdit = false;
+            this.gridColumn25.Visible = true;
+            this.gridColumn25.VisibleIndex = 1;
+            this.gridColumn25.Width = 89;
+            // 
+            // repositoryItemSpinEdit1
+            // 
+            this.repositoryItemSpinEdit1.AutoHeight = false;
+            this.repositoryItemSpinEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemSpinEdit1.Name = "repositoryItemSpinEdit1";
+            // 
+            // repositoryItemSpinEdit2
+            // 
+            this.repositoryItemSpinEdit2.AutoHeight = false;
+            this.repositoryItemSpinEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemSpinEdit2.Name = "repositoryItemSpinEdit2";
+            // 
+            // repositoryItemSpinEdit3
+            // 
+            this.repositoryItemSpinEdit3.AutoHeight = false;
+            this.repositoryItemSpinEdit3.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemSpinEdit3.Name = "repositoryItemSpinEdit3";
+            // 
+            // repositoryItemSpinEdit4
+            // 
+            this.repositoryItemSpinEdit4.AutoHeight = false;
+            this.repositoryItemSpinEdit4.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemSpinEdit4.Name = "repositoryItemSpinEdit4";
+            // 
+            // repositoryItemSpinEdit5
+            // 
+            this.repositoryItemSpinEdit5.AutoHeight = false;
+            this.repositoryItemSpinEdit5.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemSpinEdit5.Name = "repositoryItemSpinEdit5";
+            // 
+            // repositoryItemSpinEdit6
+            // 
+            this.repositoryItemSpinEdit6.AutoHeight = false;
+            this.repositoryItemSpinEdit6.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemSpinEdit6.Name = "repositoryItemSpinEdit6";
+            // 
+            // gridColumn33
+            // 
+            this.gridColumn33.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn33.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn33.Caption = "Məbləğ";
+            this.gridColumn33.FieldName = "Total";
+            this.gridColumn33.Name = "gridColumn33";
+            this.gridColumn33.OptionsColumn.AllowEdit = false;
+            this.gridColumn33.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
+            this.gridColumn33.Visible = true;
+            this.gridColumn33.VisibleIndex = 2;
+            this.gridColumn33.Width = 67;
+            // 
+            // panelControl1
+            // 
+            this.panelControl1.Controls.Add(this.btnAddCashTran);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl1.Location = new System.Drawing.Point(0, 0);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(345, 51);
+            this.panelControl1.TabIndex = 2;
+            // 
+            // btnAddCashTran
+            // 
+            this.btnAddCashTran.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAddCashTran.ImageOptions.Image")));
+            this.btnAddCashTran.Location = new System.Drawing.Point(5, 6);
+            this.btnAddCashTran.Name = "btnAddCashTran";
+            this.btnAddCashTran.Size = new System.Drawing.Size(40, 40);
+            this.btnAddCashTran.TabIndex = 41;
+            this.btnAddCashTran.Click += new System.EventHandler(this.btnAddCashTran_Click);
             // 
             // txtDate
             // 
@@ -295,6 +689,8 @@
             // 
             // grpUnits
             // 
+            this.grpUnits.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.grpUnits.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 10F);
             this.grpUnits.AppearanceCaption.Options.UseFont = true;
             this.grpUnits.Controls.Add(this.spPrice);
@@ -315,10 +711,9 @@
             this.grpUnits.Controls.Add(this.lookUpItem);
             this.grpUnits.Controls.Add(this.labelControl11);
             this.grpUnits.Controls.Add(this.gcLines);
-            this.grpUnits.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.grpUnits.Location = new System.Drawing.Point(2, 145);
             this.grpUnits.Name = "grpUnits";
-            this.grpUnits.Size = new System.Drawing.Size(1173, 388);
+            this.grpUnits.Size = new System.Drawing.Size(913, 403);
             this.grpUnits.TabIndex = 17;
             this.grpUnits.Text = "Sətirlər";
             // 
@@ -329,7 +724,7 @@
             0,
             0,
             0});
-            this.spPrice.Location = new System.Drawing.Point(922, 45);
+            this.spPrice.Location = new System.Drawing.Point(791, 45);
             this.spPrice.Name = "spPrice";
             this.spPrice.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -338,7 +733,7 @@
             // 
             // lblPrice
             // 
-            this.lblPrice.Location = new System.Drawing.Point(929, 26);
+            this.lblPrice.Location = new System.Drawing.Point(798, 26);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(34, 13);
             this.lblPrice.TabIndex = 49;
@@ -351,7 +746,7 @@
             0,
             0,
             0});
-            this.spWeight.Location = new System.Drawing.Point(852, 45);
+            this.spWeight.Location = new System.Drawing.Point(721, 45);
             this.spWeight.Name = "spWeight";
             this.spWeight.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -360,7 +755,7 @@
             // 
             // lblWeight
             // 
-            this.lblWeight.Location = new System.Drawing.Point(859, 26);
+            this.lblWeight.Location = new System.Drawing.Point(728, 26);
             this.lblWeight.Name = "lblWeight";
             this.lblWeight.Size = new System.Drawing.Size(20, 13);
             this.lblWeight.TabIndex = 47;
@@ -373,7 +768,7 @@
             0,
             0,
             0});
-            this.spHeight.Location = new System.Drawing.Point(774, 45);
+            this.spHeight.Location = new System.Drawing.Point(643, 45);
             this.spHeight.Name = "spHeight";
             this.spHeight.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -382,7 +777,7 @@
             // 
             // lblHeight
             // 
-            this.lblHeight.Location = new System.Drawing.Point(781, 26);
+            this.lblHeight.Location = new System.Drawing.Point(650, 26);
             this.lblHeight.Name = "lblHeight";
             this.lblHeight.Size = new System.Drawing.Size(48, 13);
             this.lblHeight.TabIndex = 45;
@@ -395,7 +790,7 @@
             0,
             0,
             0});
-            this.spWidth.Location = new System.Drawing.Point(699, 45);
+            this.spWidth.Location = new System.Drawing.Point(568, 45);
             this.spWidth.Name = "spWidth";
             this.spWidth.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -404,7 +799,7 @@
             // 
             // labelControl16
             // 
-            this.labelControl16.Location = new System.Drawing.Point(705, 26);
+            this.labelControl16.Location = new System.Drawing.Point(574, 26);
             this.labelControl16.Name = "labelControl16";
             this.labelControl16.Size = new System.Drawing.Size(12, 13);
             this.labelControl16.TabIndex = 43;
@@ -417,7 +812,7 @@
             0,
             0,
             0});
-            this.spLength.Location = new System.Drawing.Point(628, 45);
+            this.spLength.Location = new System.Drawing.Point(497, 45);
             this.spLength.Name = "spLength";
             this.spLength.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -426,7 +821,7 @@
             // 
             // labelControl15
             // 
-            this.labelControl15.Location = new System.Drawing.Point(629, 26);
+            this.labelControl15.Location = new System.Drawing.Point(498, 26);
             this.labelControl15.Name = "labelControl15";
             this.labelControl15.Size = new System.Drawing.Size(38, 13);
             this.labelControl15.TabIndex = 41;
@@ -435,7 +830,7 @@
             // btnAddLine
             // 
             this.btnAddLine.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAddLine.ImageOptions.Image")));
-            this.btnAddLine.Location = new System.Drawing.Point(1079, 26);
+            this.btnAddLine.Location = new System.Drawing.Point(861, 27);
             this.btnAddLine.Name = "btnAddLine";
             this.btnAddLine.Size = new System.Drawing.Size(40, 40);
             this.btnAddLine.TabIndex = 40;
@@ -451,7 +846,7 @@
             "Ticari Mal",
             "Xidmət"});
             this.cmbItemType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cmbItemType.Size = new System.Drawing.Size(100, 20);
+            this.cmbItemType.Size = new System.Drawing.Size(83, 20);
             this.cmbItemType.TabIndex = 32;
             this.cmbItemType.SelectedIndexChanged += new System.EventHandler(this.cmbItemType_SelectedIndexChanged);
             // 
@@ -462,7 +857,7 @@
             0,
             0,
             0});
-            this.spAmount.Location = new System.Drawing.Point(533, 45);
+            this.spAmount.Location = new System.Drawing.Point(402, 45);
             this.spAmount.Name = "spAmount";
             this.spAmount.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -471,7 +866,7 @@
             // 
             // labelControl13
             // 
-            this.labelControl13.Location = new System.Drawing.Point(533, 26);
+            this.labelControl13.Location = new System.Drawing.Point(402, 26);
             this.labelControl13.Name = "labelControl13";
             this.labelControl13.Size = new System.Drawing.Size(32, 13);
             this.labelControl13.TabIndex = 36;
@@ -488,7 +883,7 @@
             // lookUpItem
             // 
             this.lookUpItem.Enabled = false;
-            this.lookUpItem.Location = new System.Drawing.Point(120, 45);
+            this.lookUpItem.Location = new System.Drawing.Point(99, 45);
             this.lookUpItem.Name = "lookUpItem";
             this.lookUpItem.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -496,7 +891,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ItemCode", "Kodu"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ItemName", 90, "Adı")});
             this.lookUpItem.Properties.NullText = "Seçin";
-            this.lookUpItem.Size = new System.Drawing.Size(407, 20);
+            this.lookUpItem.Size = new System.Drawing.Size(296, 20);
             this.lookUpItem.TabIndex = 33;
             this.lookUpItem.EditValueChanged += new System.EventHandler(this.lookUpItem_EditValueChanged);
             // 
@@ -510,7 +905,10 @@
             // 
             // gcLines
             // 
-            this.gcLines.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.gcLines.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gcLines.ContextMenuStrip = this.cmsFicheLines;
             this.gcLines.Location = new System.Drawing.Point(2, 71);
             this.gcLines.MainView = this.gvLines;
             this.gcLines.Name = "gcLines";
@@ -521,7 +919,7 @@
             this.rse_Heigt,
             this.rse_Weight,
             this.rse_Price});
-            this.gcLines.Size = new System.Drawing.Size(1169, 315);
+            this.gcLines.Size = new System.Drawing.Size(906, 329);
             this.gcLines.TabIndex = 0;
             this.gcLines.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvLines});
@@ -539,12 +937,17 @@
             this.gridColumn11,
             this.gridColumn12,
             this.gridColumn4,
-            this.gridColumn5});
+            this.gridColumn5,
+            this.gridColumn22,
+            this.gridColumn23,
+            this.gridColumn24});
             this.gvLines.GridControl = this.gcLines;
             this.gvLines.Name = "gvLines";
+            this.gvLines.OptionsDetail.EnableMasterViewMode = false;
             this.gvLines.OptionsView.ColumnAutoWidth = false;
             this.gvLines.OptionsView.ShowFooter = true;
             this.gvLines.OptionsView.ShowGroupPanel = false;
+            this.gvLines.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvLines_FocusedRowChanged);
             this.gvLines.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gvLines_KeyDown);
             // 
             // gridColumn1
@@ -555,7 +958,7 @@
             this.gridColumn1.OptionsColumn.AllowEdit = false;
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
-            this.gridColumn1.Width = 77;
+            this.gridColumn1.Width = 70;
             // 
             // gridColumn2
             // 
@@ -565,7 +968,6 @@
             this.gridColumn2.OptionsColumn.AllowEdit = false;
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 1;
-            this.gridColumn2.Width = 102;
             // 
             // gridColumn3
             // 
@@ -576,7 +978,7 @@
             this.gridColumn3.OptionsColumn.ReadOnly = true;
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 2;
-            this.gridColumn3.Width = 339;
+            this.gridColumn3.Width = 143;
             // 
             // gridColumn6
             // 
@@ -587,7 +989,7 @@
             this.gridColumn6.OptionsColumn.AllowEdit = false;
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 3;
-            this.gridColumn6.Width = 85;
+            this.gridColumn6.Width = 53;
             // 
             // rsp_Amount
             // 
@@ -607,6 +1009,7 @@
             this.gridColumn8.OptionsColumn.AllowEdit = false;
             this.gridColumn8.Visible = true;
             this.gridColumn8.VisibleIndex = 4;
+            this.gridColumn8.Width = 52;
             // 
             // rse_Lenth
             // 
@@ -626,6 +1029,7 @@
             this.gridColumn9.OptionsColumn.AllowEdit = false;
             this.gridColumn9.Visible = true;
             this.gridColumn9.VisibleIndex = 5;
+            this.gridColumn9.Width = 51;
             // 
             // rse_Width
             // 
@@ -645,6 +1049,7 @@
             this.gridColumn10.OptionsColumn.AllowEdit = false;
             this.gridColumn10.Visible = true;
             this.gridColumn10.VisibleIndex = 6;
+            this.gridColumn10.Width = 53;
             // 
             // rse_Heigt
             // 
@@ -664,6 +1069,7 @@
             this.gridColumn11.OptionsColumn.AllowEdit = false;
             this.gridColumn11.Visible = true;
             this.gridColumn11.VisibleIndex = 7;
+            this.gridColumn11.Width = 51;
             // 
             // rse_Weight
             // 
@@ -683,6 +1089,7 @@
             this.gridColumn12.OptionsColumn.AllowEdit = false;
             this.gridColumn12.Visible = true;
             this.gridColumn12.VisibleIndex = 8;
+            this.gridColumn12.Width = 55;
             // 
             // rse_Price
             // 
@@ -695,7 +1102,7 @@
             // 
             this.gridColumn4.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn4.Caption = "Cəmi";
+            this.gridColumn4.Caption = "Məbləğ";
             this.gridColumn4.FieldName = "LineNetTotal";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.OptionsColumn.AllowEdit = false;
@@ -703,6 +1110,7 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 9;
+            this.gridColumn4.Width = 55;
             // 
             // gridColumn5
             // 
@@ -711,6 +1119,48 @@
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 10;
+            this.gridColumn5.Width = 36;
+            // 
+            // gridColumn22
+            // 
+            this.gridColumn22.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn22.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn22.Caption = "Yekun";
+            this.gridColumn22.FieldName = "LineFinalSum";
+            this.gridColumn22.Name = "gridColumn22";
+            this.gridColumn22.OptionsColumn.AllowEdit = false;
+            this.gridColumn22.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
+            this.gridColumn22.Visible = true;
+            this.gridColumn22.VisibleIndex = 13;
+            this.gridColumn22.Width = 55;
+            // 
+            // gridColumn23
+            // 
+            this.gridColumn23.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn23.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn23.Caption = "Xərc";
+            this.gridColumn23.FieldName = "LineExpense";
+            this.gridColumn23.Name = "gridColumn23";
+            this.gridColumn23.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
+            this.gridColumn23.Visible = true;
+            this.gridColumn23.VisibleIndex = 11;
+            this.gridColumn23.Width = 54;
+            // 
+            // gridColumn24
+            // 
+            this.gridColumn24.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn24.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn24.Caption = "Xid.";
+            this.gridColumn24.FieldName = "ServiceLineNetTotalSum";
+            this.gridColumn24.Name = "gridColumn24";
+            this.gridColumn24.OptionsColumn.AllowEdit = false;
+            this.gridColumn24.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
+            this.gridColumn24.Visible = true;
+            this.gridColumn24.VisibleIndex = 12;
+            this.gridColumn24.Width = 50;
             // 
             // txtNote4
             // 
@@ -814,9 +1264,9 @@
             this.pnlExecution.Controls.Add(this.btnCancel);
             this.pnlExecution.Controls.Add(this.btnOk);
             this.pnlExecution.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlExecution.Location = new System.Drawing.Point(0, 535);
+            this.pnlExecution.Location = new System.Drawing.Point(0, 548);
             this.pnlExecution.Name = "pnlExecution";
-            this.pnlExecution.Size = new System.Drawing.Size(1177, 43);
+            this.pnlExecution.Size = new System.Drawing.Size(1282, 43);
             this.pnlExecution.TabIndex = 3;
             // 
             // lblError
@@ -826,7 +1276,7 @@
             this.lblError.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lblError.Location = new System.Drawing.Point(12, 15);
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(922, 16);
+            this.lblError.Size = new System.Drawing.Size(1024, 16);
             this.lblError.TabIndex = 2;
             this.lblError.Text = "Error :";
             // 
@@ -835,8 +1285,8 @@
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.btnCancel.Appearance.Options.UseFont = true;
-            this.btnCancel.ImageOptions.Image = global::LecERP.Properties.Resources.cancel_16x16;
-            this.btnCancel.Location = new System.Drawing.Point(1059, 5);
+            this.btnCancel.ImageOptions.Image = global::LecERP.Properties.Resources.cancel_16x161;
+            this.btnCancel.Location = new System.Drawing.Point(1161, 5);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(113, 32);
             this.btnCancel.TabIndex = 1;
@@ -848,8 +1298,8 @@
             this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOk.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.btnOk.Appearance.Options.UseFont = true;
-            this.btnOk.ImageOptions.Image = global::LecERP.Properties.Resources.apply_16x16;
-            this.btnOk.Location = new System.Drawing.Point(940, 5);
+            this.btnOk.ImageOptions.Image = global::LecERP.Properties.Resources.apply_16x161;
+            this.btnOk.Location = new System.Drawing.Point(1042, 5);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(113, 32);
             this.btnOk.TabIndex = 0;
@@ -860,7 +1310,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1177, 578);
+            this.ClientSize = new System.Drawing.Size(1282, 591);
             this.Controls.Add(this.grpCenter);
             this.Controls.Add(this.pnlExecution);
             this.Name = "Manp_FichesNew";
@@ -870,6 +1320,27 @@
             ((System.ComponentModel.ISupportInitialize)(this.grpCenter)).EndInit();
             this.grpCenter.ResumeLayout(false);
             this.grpCenter.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).EndInit();
+            this.tabPane1.ResumeLayout(false);
+            this.tabNavigationPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
+            this.splitContainerControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gcServices)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvServices)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcServicesOfLine)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvServicesOfLine)).EndInit();
+            this.tabNavigationPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gcCashTrans)).EndInit();
+            this.cmsFicheLines.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gvCashTrans)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpExchange.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpCard.Properties)).EndInit();
@@ -971,5 +1442,40 @@
         private DevExpress.XtraEditors.LabelControl lblPrice;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn22;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn23;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn24;
+        private System.Windows.Forms.ContextMenuStrip cmsFicheLines;
+        private System.Windows.Forms.ToolStripMenuItem tsAddExpenseToolStripMenuItem;
+        private DevExpress.XtraBars.Navigation.TabPane tabPane1;
+        private DevExpress.XtraBars.Navigation.TabNavigationPage tabNavigationPage1;
+        private DevExpress.XtraBars.Navigation.TabNavigationPage tabNavigationPage2;
+        private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
+        private DevExpress.XtraGrid.GridControl gcServices;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvServices;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn17;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn18;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn19;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn20;
+        private DevExpress.XtraGrid.GridControl gcServicesOfLine;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvServicesOfLine;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn14;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn16;
+        private DevExpress.XtraGrid.GridControl gcCashTrans;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvCashTrans;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn21;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn25;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit2;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit3;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit4;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit5;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit6;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn33;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.SimpleButton btnAddCashTran;
     }
 }
