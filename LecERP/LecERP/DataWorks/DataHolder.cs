@@ -37,6 +37,9 @@ namespace LecERP
             loadOperations.Add(op_CashTypes);
             Operation<List<DocumentStatusType>> op_DocumentStatusTypes = OperationHandler.GetDocumentStatusTypes();
             loadOperations.Add(op_DocumentStatusTypes);
+            Operation<List<DocumentMaster>> op_DocumentMasters = OperationHandler.GetDocumentMasters();
+            loadOperations.Add(op_DocumentMasters);
+
             foreach (IBaseOperation ibop in loadOperations)
             {
                 if (!ibop.Successful)
@@ -52,6 +55,7 @@ namespace LecERP
             Currencies = op_Currencies.Value;
             CashTypes = op_CashTypes.Value;
             DocumentStatusTypes = op_DocumentStatusTypes.Value;
+            DocumentMasters = op_DocumentMasters.Value;
             return new BaseOperation { Successful = true };
         }
 
@@ -66,6 +70,9 @@ namespace LecERP
             //loadOperations.Add(op_ExchangeMaster);
             Operation<List<CardView>> op_CardMaster = OperationHandler.GetCards();
             loadOperations.Add(op_CardMaster);
+            Operation<List<Warehouse>> op_Warehouses = OperationHandler.GetWarehouses();
+            loadOperations.Add(op_Warehouses);
+
             //Operation<List<WarehouseMaster>> op_Warehouses = OperationHandler.GetWarehouses();
             //loadOperations.Add(op_Warehouses);
             //Operation<List<ItemPrice>> op_ItemPrices = OperationHandler.GetItemPricesList();
@@ -84,7 +91,7 @@ namespace LecERP
 
             Items = op_Items.Value;
             Cards = op_CardMaster.Value;
-            //Warehouses = op_Warehouses.Value.Where(x => x.Number != 0).ToList();
+            Warehouses = op_Warehouses.Value;
             //ItemPrices = op_ItemPrices.Value;
             //DocumentMasters = op_DocumentMasters.Value;
             //PriceCalcTypes = op_PriceCalcTypes.Value;

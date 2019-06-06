@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.grpCenter = new DevExpress.XtraEditors.GroupControl();
+            this.grpMeasure = new DevExpress.XtraEditors.GroupControl();
             this.lookupPriceCalcType = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.grpMeasure = new DevExpress.XtraEditors.GroupControl();
             this.spWidth = new DevExpress.XtraEditors.SpinEdit();
             this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
             this.spLength = new DevExpress.XtraEditors.SpinEdit();
@@ -54,11 +54,12 @@
             this.lblError = new DevExpress.XtraEditors.LabelControl();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnOk = new DevExpress.XtraEditors.SimpleButton();
+            this.chkIsLineService = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.grpCenter)).BeginInit();
             this.grpCenter.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lookupPriceCalcType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grpMeasure)).BeginInit();
             this.grpMeasure.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lookupPriceCalcType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spWidth.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spLength.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGroup4.Properties)).BeginInit();
@@ -70,6 +71,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lookUpItemType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlExecution)).BeginInit();
             this.pnlExecution.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkIsLineService.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // grpCenter
@@ -100,6 +102,24 @@
             this.grpCenter.TabIndex = 0;
             this.grpCenter.Text = "Məhsullar";
             // 
+            // grpMeasure
+            // 
+            this.grpMeasure.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.grpMeasure.AppearanceCaption.Options.UseFont = true;
+            this.grpMeasure.Controls.Add(this.chkIsLineService);
+            this.grpMeasure.Controls.Add(this.lookupPriceCalcType);
+            this.grpMeasure.Controls.Add(this.labelControl4);
+            this.grpMeasure.Controls.Add(this.spWidth);
+            this.grpMeasure.Controls.Add(this.labelControl16);
+            this.grpMeasure.Controls.Add(this.spLength);
+            this.grpMeasure.Controls.Add(this.labelControl15);
+            this.grpMeasure.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.grpMeasure.Location = new System.Drawing.Point(2, 155);
+            this.grpMeasure.Name = "grpMeasure";
+            this.grpMeasure.Size = new System.Drawing.Size(662, 95);
+            this.grpMeasure.TabIndex = 17;
+            this.grpMeasure.Text = "Parametrlər";
+            // 
             // lookupPriceCalcType
             // 
             this.lookupPriceCalcType.Location = new System.Drawing.Point(172, 54);
@@ -125,23 +145,6 @@
             this.labelControl4.Size = new System.Drawing.Size(107, 16);
             this.labelControl4.TabIndex = 18;
             this.labelControl4.Text = "Qiymət Hesablama";
-            // 
-            // grpMeasure
-            // 
-            this.grpMeasure.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.grpMeasure.AppearanceCaption.Options.UseFont = true;
-            this.grpMeasure.Controls.Add(this.lookupPriceCalcType);
-            this.grpMeasure.Controls.Add(this.labelControl4);
-            this.grpMeasure.Controls.Add(this.spWidth);
-            this.grpMeasure.Controls.Add(this.labelControl16);
-            this.grpMeasure.Controls.Add(this.spLength);
-            this.grpMeasure.Controls.Add(this.labelControl15);
-            this.grpMeasure.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.grpMeasure.Location = new System.Drawing.Point(2, 155);
-            this.grpMeasure.Name = "grpMeasure";
-            this.grpMeasure.Size = new System.Drawing.Size(662, 95);
-            this.grpMeasure.TabIndex = 17;
-            this.grpMeasure.Text = "Parametrlər";
             // 
             // spWidth
             // 
@@ -382,6 +385,14 @@
             this.btnOk.Text = "Yaddaşa Yaz";
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
+            // chkIsLineService
+            // 
+            this.chkIsLineService.Location = new System.Drawing.Point(339, 31);
+            this.chkIsLineService.Name = "chkIsLineService";
+            this.chkIsLineService.Properties.Caption = "Xidmətlər Listində Görünsün";
+            this.chkIsLineService.Size = new System.Drawing.Size(154, 19);
+            this.chkIsLineService.TabIndex = 53;
+            // 
             // Manp_Items
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -397,10 +408,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.grpCenter)).EndInit();
             this.grpCenter.ResumeLayout(false);
             this.grpCenter.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lookupPriceCalcType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grpMeasure)).EndInit();
             this.grpMeasure.ResumeLayout(false);
             this.grpMeasure.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lookupPriceCalcType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spWidth.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spLength.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGroup4.Properties)).EndInit();
@@ -412,6 +423,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lookUpItemType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlExecution)).EndInit();
             this.pnlExecution.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chkIsLineService.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -444,5 +456,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl15;
         private DevExpress.XtraEditors.LookUpEdit lookupPriceCalcType;
         private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.CheckEdit chkIsLineService;
     }
 }

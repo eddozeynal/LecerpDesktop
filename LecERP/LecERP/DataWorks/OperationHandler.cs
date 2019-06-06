@@ -11,13 +11,13 @@ namespace LecERP
 {
     public static class OperationHandler
     {
-        public static Operation<string> DeleObjectById(string TableName, int Id)
+        public static Operation<string> DeleteObjectById(string TableName, int Id)
         {
             ServiceClient client = new ServiceClient();
             Dictionary<string, object> prms = new Dictionary<string, object>();
             prms["TableName"] = TableName;
             prms["Id"] = Id;
-            Operation<string> operation = client.Post<string>("DeleObjectById", prms);
+            Operation<string> operation = client.Post<string>("DeleteObjectById", prms);
             return operation;
         }
         public static Operation<string> PostUserPermissions(int UserId, List<PermissionDetail> Details)
@@ -101,6 +101,13 @@ namespace LecERP
             Operation<List<ItemPrice>> operation = client.Get<List<ItemPrice>>(method);
             return operation;
         }
+        public static Operation<List<ItemPrice>> GetItemPricesByCard(int CardId)
+        {
+            ServiceClient client = new ServiceClient();
+            string method = "GetItemPricesByCard/" + CardId.ToString();
+            Operation<List<ItemPrice>> operation = client.Get<List<ItemPrice>>(method);
+            return operation;
+        }
         public static Operation<List<CardPermission>> GetCardPermissions(int UserId)
         {
             ServiceClient client = new ServiceClient();
@@ -161,6 +168,13 @@ namespace LecERP
             Operation<List<CashType>> operation = client.Get<List<CashType>>(method);
             return operation;
         }
+        public static Operation<List<Warehouse>> GetWarehouses()
+        {
+            ServiceClient client = new ServiceClient();
+            string method = "GetWarehouses";
+            Operation<List<Warehouse>> operation = client.Get<List<Warehouse>>(method);
+            return operation;
+        }
         public static Operation<Item> GetItemById(int Id)
         {
             string method = "GetItemById/{0}";
@@ -202,12 +216,12 @@ namespace LecERP
         //    Operation<List<EnumMaster>> op_item = sw.Get("GetEnums/"+ EnumNumber.ToString());
         //    return op_item;
         //}
-        //public static Operation<List<Parameter>> GetParameters()
-        //{
-        //    IServiceGate<List<Parameter>> sw = GateHandler.GetServiceGate<List<Parameter>>();
-        //    Operation<List<Parameter>> op_item = sw.Get("GetParameters");
-        //    return op_item;
-        //}
+        public static Operation<List<Parameter>> GetParameters()
+        {
+            ServiceClient client = new ServiceClient();
+            Operation<List<Parameter>> operation = client.Get<List<Parameter>>("GetParameters");
+            return operation;
+        }
         //public static GridViewInfo GetGridViewInfo(int Id)
         //{
         //    IServiceGate<GridViewInfo> sw = GateHandler.GetServiceGate<GridViewInfo>();
@@ -285,12 +299,12 @@ namespace LecERP
         //    Operation<CashTransaction> op_ = sw.Post("AcceptCashTransaction", prms);
         //    return op_;
         //}
-        //public static Operation<List<DocumentMaster>> GetDocumentMasters()
-        //{
-        //    IServiceGate<List<DocumentMaster>> sw = GateHandler.GetServiceGate<List<DocumentMaster>>();
-        //    Operation<List<DocumentMaster>> op_ = sw.Get("GetDocumentMasters");
-        //    return op_;
-        //}
+        public static Operation<List<DocumentMaster>> GetDocumentMasters()
+        {
+            ServiceClient client = new ServiceClient();
+            Operation<List<DocumentMaster>> operation = client.Get<List<DocumentMaster>>("GetDocumentMasters");
+            return operation;
+        }
         //public static Operation<List<WarehouseMaster>> GetWarehouses()
         //{
         //    IServiceGate<List<WarehouseMaster>> sw = GateHandler.GetServiceGate<List<WarehouseMaster>>();

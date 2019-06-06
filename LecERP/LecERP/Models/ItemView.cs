@@ -57,6 +57,7 @@ namespace LecERP.Models
     	
 		public decimal DefaultPurchasePrice { get; set; }
 
+        public bool IsLineService { get; set; }
     }
             }
             

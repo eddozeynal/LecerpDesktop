@@ -51,20 +51,24 @@ namespace LecERP
         public static string LogDataFolder { get { return System.Windows.Forms.Application.UserAppDataPath; } }
         public static string LogDataFileName { get { return LogDataFolder + @"erpconfig.ini"; } }
         public static List<Parameter> BaseSettings { get; set; }
+
+
+
+
         public static void RetrieveAppSettings()
         {
             try
             {
-                //BaseSettings = OperationHandler.GetParameters().Value;
-                //if (BaseSettings == null) return;
-                //AppSettings.CompanyName = BaseSettings.Where(x => x.ParameterKey == "Company.Name").First().ParameterValue;
-                //AppSettings.DBVersion = Convert.ToInt32(BaseSettings.Where(x => x.ParameterKey == "DB.Version").First().ParameterValue);
+                BaseSettings = OperationHandler.GetParameters().Value;
+                if (BaseSettings == null) return;
+                AppSettings.CompanyName = BaseSettings.Where(x => x.ParameterKey == "C19F97").First().ParameterValue;
+                AppSettings.DBVersion = Convert.ToInt32(BaseSettings.Where(x => x.ParameterKey == "CB4EAA").First().ParameterValue);
                 //AppSettings.FichesManpServiceLinesClearCheckedRowsOnAddLine = Convert.ToBoolean(BaseSettings.Where(x => x.ParameterKey == "Fiches.Manp.ServiceLines.ClearCheckedRowsOnAddLine").First().ParameterValue);
             }
             catch { }
         }
 
-        public static decimal CalculateItemTotal(byte PriceCalType, decimal ItemPrice, decimal Quantity, decimal Width, decimal Lenght, decimal Height)
+        public static decimal CalculateItemTotal(byte PriceCalType, decimal ItemPrice, decimal Quantity, decimal Width, decimal Lenght)
         {
             if (PriceCalType == 1) return ItemPrice * Quantity;
             if (PriceCalType == 2)
@@ -73,10 +77,11 @@ namespace LecERP
             }
             if (PriceCalType == 2)
             {
-                return ItemPrice * Quantity * Width * Lenght * Height / 1000000000;
+                return ItemPrice * Quantity * Width * Lenght / 1000000000;
             }
             return ItemPrice * Quantity;
         }
+        
 
         public static UserView CurrentUser { get; set; } = new UserView();
 
@@ -104,7 +109,6 @@ namespace LecERP
             }
         }
 
-        public static bool weightVisible { get { return Convert.ToBoolean(BaseSettings.Where(x => x.ParameterKey == "Fiches.Manp.Weight.Visible").First().ParameterValue); } }
-        public static bool heightVisible { get { return Convert.ToBoolean(BaseSettings.Where(x => x.ParameterKey == "Fiches.Manp.Height.Visible").First().ParameterValue); } }
+      
     }
 }

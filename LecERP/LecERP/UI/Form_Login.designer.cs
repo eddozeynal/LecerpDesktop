@@ -153,7 +153,7 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.EditValue = "";
+            this.txtPassword.EditValue = "000";
             this.txtPassword.Location = new System.Drawing.Point(81, 115);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 13F);

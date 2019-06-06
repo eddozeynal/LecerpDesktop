@@ -44,7 +44,11 @@ namespace LecERP.Models
 
     	public decimal LineTotalAcc { get; set; }
 
-    	public bool IsCompleted { get; set; }
+        public bool IsCustomerItem { get; set; }
+
+        public bool IsSketched { get; set; }
+
+        public bool IsTemplated { get; set; }
 
     }
             }

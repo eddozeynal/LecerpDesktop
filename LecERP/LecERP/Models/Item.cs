@@ -33,6 +33,8 @@ namespace LecERP.Models
 
     	public byte LineCalcTypeId { get; set; }
 
+        public bool IsLineService { get; set; }
+
     }
             }
             

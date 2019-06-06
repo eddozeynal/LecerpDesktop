@@ -40,32 +40,33 @@
       <HintPath>..\packages\Costura.Fody.1.6.2\lib\dotnet\Costura.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.BonusSkins.v17.1" />
-    <Reference Include="DevExpress.Charts.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Data.v17.1" />
-    <Reference Include="DevExpress.DataAccess.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Office.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Pdf.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.PivotGrid.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.RichEdit.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.RichEdit.v17.1.Export, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Printing.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Utils.v17.1" />
-    <Reference Include="DevExpress.Sparkline.v17.1.Core" />
-    <Reference Include="DevExpress.Utils.v17.1.UI, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Xpo.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraBars.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraCharts.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraEditors.v17.1" />
-    <Reference Include="DevExpress.XtraGauges.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraGrid.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraLayout.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraNavBar.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraPivotGrid.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraPrinting.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraReports.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraReports.v17.1.Extensions, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraTreeList.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.BonusSkins.v18.2" />
+    <Reference Include="DevExpress.Charts.v18.2.Core, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v18.2" />
+    <Reference Include="DevExpress.DataAccess.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v18.2.Core, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v18.2.Core, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v18.2.Core, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v18.2.Core, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v18.2.Export, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v18.2.Core, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v18.2" />
+    <Reference Include="DevExpress.Sparkline.v18.2.Core" />
+    <Reference Include="DevExpress.Utils.v18.2.UI, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v18.2" />
+    <Reference Include="DevExpress.XtraGauges.v18.2.Core, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraNavBar.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.CodeParser.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2.Extensions, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -109,10 +110,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppSettings.cs" />
+    <Compile Include="DataWorks\Calculation.cs" />
+    <Compile Include="DataWorks\AppSettings.cs" />
     <Compile Include="Configuration\ConnectionConfiguration.cs" />
-    <Compile Include="DataHolder.cs" />
-    <Compile Include="DataObjectBindTool.cs" />
+    <Compile Include="DataWorks\DataHolder.cs" />
+    <Compile Include="DataWorks\DataObjectBindTool.cs" />
+    <Compile Include="Models\FicheLineServiceView.cs" />
+    <Compile Include="UI\Form_Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form_Settings.Designer.cs">
+      <DependentUpon>Form_Settings.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Form_CurrencyByDate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,7 +134,7 @@
     <Compile Include="UI\Form_CompanyParameters.Designer.cs">
       <DependentUpon>Form_CompanyParameters.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginData.cs" />
+    <Compile Include="ViewModels\LoginData.cs" />
     <Compile Include="Models\Card.cs" />
     <Compile Include="Models\CardView.cs" />
     <Compile Include="Models\CardPermission.cs" />
@@ -157,19 +166,19 @@
     <Compile Include="Models\PermissionMaster.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Warehouse.cs" />
-    <Compile Include="ServiceClient.cs" />
+    <Compile Include="ServiceGates\ServiceClient.cs" />
     <Compile Include="UI\Dialog_DecimalInput.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Dialog_DecimalInput.Designer.cs">
       <DependentUpon>Dialog_DecimalInput.cs</DependentUpon>
     </Compile>
-    <Compile Include="ExtensionMethods.cs" />
+    <Compile Include="DataWorks\ExtensionMethods.cs" />
     <Compile Include="ServiceGates\AESCryptor.cs" />
     <Compile Include="ServiceGates\RijndaelCrypt.cs" />
     <Compile Include="UIHelpers\FormHolder.cs" />
     <Compile Include="ServiceGates\NewtonsoftJsonSerializerForRestSharp.cs" />
-    <Compile Include="Operation.cs" />
+    <Compile Include="ViewModels\Operation.cs" />
     <Compile Include="Configuration\ConfigFileManager.cs" />
     <Compile Include="UI\Form_Cards.cs">
       <SubType>Form</SubType>
@@ -188,6 +197,12 @@
     </Compile>
     <Compile Include="UI\Form_CurrencyExchange.designer.cs">
       <DependentUpon>Form_CurrencyExchange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Form_Fiches.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form_Fiches.Designer.cs">
+      <DependentUpon>Form_Fiches.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Form_Items.cs">
       <SubType>Form</SubType>
@@ -208,11 +223,11 @@
       <DependentUpon>Form_Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Configuration\IConfigManager.cs" />
-    <Compile Include="OperationHandler.cs" />
+    <Compile Include="DataWorks\OperationHandler.cs" />
     <Compile Include="Configuration\PrivateProfileStringHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StaticData.cs" />
+    <Compile Include="DataWorks\StaticData.cs" />
     <Compile Include="UIHelpers\UIFunctions.cs" />
     <Compile Include="UIHelpers\XtraEditorsLocalizer.cs" />
     <Compile Include="UIHelpers\XtraGridLocalizer.cs" />
@@ -252,6 +267,12 @@
     <Compile Include="UI\Manp_DataPermissions.Designer.cs">
       <DependentUpon>Manp_DataPermissions.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Manp_FichesNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Manp_FichesNew.designer.cs">
+      <DependentUpon>Manp_FichesNew.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Manp_ItemPrice.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -276,9 +297,14 @@
     <Compile Include="UI\Manp_Users.Designer.cs">
       <DependentUpon>Manp_Users.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\FicheLineCollection.cs" />
+    <Compile Include="ViewModels\FicheLineView.cs" />
     <Compile Include="ViewModels\ItemPriceView.cs" />
     <Compile Include="ViewModels\PermissionMasterView.cs" />
     <Compile Include="ViewModels\UserView.cs" />
+    <EmbeddedResource Include="UI\Form_Settings.resx">
+      <DependentUpon>Form_Settings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Form_CurrencyByDate.resx">
       <DependentUpon>Form_CurrencyByDate.cs</DependentUpon>
     </EmbeddedResource>
@@ -296,6 +322,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Form_CurrencyExchange.resx">
       <DependentUpon>Form_CurrencyExchange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Form_Fiches.resx">
+      <DependentUpon>Form_Fiches.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Form_Items.resx">
       <DependentUpon>Form_Items.cs</DependentUpon>
@@ -334,6 +363,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Manp_DataPermissions.resx">
       <DependentUpon>Manp_DataPermissions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Manp_FichesNew.resx">
+      <DependentUpon>Manp_FichesNew.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Manp_ItemPrice.resx">
       <DependentUpon>Manp_ItemPrice.cs</DependentUpon>

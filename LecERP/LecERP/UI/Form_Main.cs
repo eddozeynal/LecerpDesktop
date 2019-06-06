@@ -68,7 +68,7 @@ namespace LecERP
 
         private void nvFiches_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            //FormHolder.Populate(typeof(Form_Fiches), e.Link.Caption);
+            FormHolder.Populate(typeof(Form_Fiches), e.Link.Caption);
         }
 
         private void nvUsers_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
@@ -94,6 +94,11 @@ namespace LecERP
         private void nvCurrencyExchanges_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
             FormHolder.Populate(typeof(Form_CurrencyExchange), e.Link.Caption);
+        }
+
+        private void nvSettings_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            FormHolder.Populate(typeof(Form_Settings), e.Link.Caption);
         }
     }
 }

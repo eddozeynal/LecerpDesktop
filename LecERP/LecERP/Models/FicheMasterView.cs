@@ -1,3 +1,4 @@
+using LecERP.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
@@ -67,6 +68,8 @@ namespace LecERP.Models
     	public string CardName { get; set; }
 
     	public string StatusName { get; set; }
+
+        public List<FicheLineView> Lines { get; set; }
 
     }
             }

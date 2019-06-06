@@ -85,7 +85,7 @@ namespace LecERP
             if (objId == null) return;
             int cardViewId = (objId as CardView).Id;
             int cardPermissionId = cardPermissions.Where(x => x.CardId == cardViewId).FirstOrDefault().Id;
-            Operation<string> operation = OperationHandler.DeleObjectById(nameof(CardPermission), cardPermissionId);
+            Operation<string> operation = OperationHandler.DeleteObjectById(nameof(CardPermission), cardPermissionId);
             if (!operation.Successful)
             {
                 MessageBox.Show(operation.Fail);

@@ -74,6 +74,7 @@ namespace LecERP
             bindTool.BindControl(lookupPriceCalcType, nameof(Item.LineCalcTypeId));
             bindTool.BindControl(spLength, nameof(Item.Length));
             bindTool.BindControl(spWidth, nameof(Item.Width));
+            bindTool.BindControl(chkIsLineService, nameof(Item.IsLineService));
             bindTool.DataObject = Item;
 
         }
