@@ -71,6 +71,8 @@ namespace LecERP.Models
 
         public List<FicheLineView> Lines { get; set; }
 
+        public int ProcessId { get; set; }
+
     }
             }
             

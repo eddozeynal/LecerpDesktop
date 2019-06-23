@@ -57,8 +57,11 @@ namespace LecERP
             nvFiches.Enabled = StaticData.IsPermitted(12);
             nvCashTransaction.Enabled = StaticData.IsPermitted(13);
             nv_CardDebtReport.Enabled = StaticData.IsPermitted(15);
+            nvWarehouseProcesses.Enabled = StaticData.IsPermitted(42);
+            nv_ItemReport.Enabled = StaticData.IsPermitted(43);
+            nvFicheReportLineView.Enabled = StaticData.IsPermitted(44);
             nvUsers.Enabled = StaticData.CurrentUser.IsAdmin;
-            nvUsers.Enabled = StaticData.CurrentUser.IsAdmin; 
+            
         }
 
         private void nvPrices_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
@@ -83,7 +86,7 @@ namespace LecERP
 
         private void nv_CardDebtReport_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            //FormHolder.Populate(typeof(Form_CardDebtReport), e.Link.Caption);
+            FormHolder.Populate(typeof(Form_CardDebtReport), e.Link.Caption);
         }
 
         private void nv_ItemReport_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
@@ -99,6 +102,26 @@ namespace LecERP
         private void nvSettings_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
             FormHolder.Populate(typeof(Form_Settings), e.Link.Caption);
+        }
+
+        private void nvCurrencyByDate_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            FormHolder.Populate(typeof(Form_CurrencyByDate), e.Link.Caption);
+        }
+
+        private void nvWarehouseProcesses_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            FormHolder.Populate(typeof(Form_WarehouseProcess), e.Link.Caption);
+        }
+
+        private void nvFicheReportLineView_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            FormHolder.Populate(typeof(Form_FicheReportLineView), e.Link.Caption);
+        }
+
+        private void nvWorkStateView_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            FormHolder.Populate(typeof(Form_WorkStateView), e.Link.Caption);
         }
     }
 }

@@ -17,5 +17,27 @@ namespace LecERP
         {
             InitializeComponent();
         }
+
+        private void Form_CurrencyByDate_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        void refreshData()
+        {
+            gcData.DataSource = null;
+            gcData.DataSource = OperationHandler.GetCurrenciesByDate().Value;
+        }
+
+        private void tsAddNew_Click(object sender, EventArgs e)
+        {
+            new Manp_CurrencyByDate().ShowDialog();
+            refreshData();
+        }
+
+        private void Form_CurrencyByDate_Shown(object sender, EventArgs e)
+        {
+            refreshData();
+        }
     }
 }

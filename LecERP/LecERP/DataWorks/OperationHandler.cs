@@ -38,6 +38,15 @@ namespace LecERP
             Operation<UserView> operation = client.Post<UserView>("LoginUser", prms);
             return operation;
         }
+        public static Operation<WarehouseProcessDetail> CompleteWarehouseProcessDetail(int Id)
+        {
+            ServiceClient client = new ServiceClient();
+            Dictionary<string, object> prms = new Dictionary<string, object>();
+            prms["Id"] = Id;
+            prms["UserId"] = StaticData.CurrentUserId;
+            Operation<WarehouseProcessDetail> operation = client.Post<WarehouseProcessDetail>("CompleteWarehouseProcessDetail", prms);
+            return operation;
+        }
         public static Operation<List<User>> GetUsers()
         {
             ServiceClient client = new ServiceClient();
@@ -61,6 +70,15 @@ namespace LecERP
             return operation;
         }
 
+        internal static Operation<WarehouseProcessView> PostWarehouseProcess(WarehouseProcessView warehouseProcess)
+        {
+            ServiceClient client = new ServiceClient();
+            Dictionary<string, object> prms = new Dictionary<string, object>();
+            prms["warehouseProcess"] = warehouseProcess;
+            Operation<WarehouseProcessView> operation = client.Post<WarehouseProcessView>("PostWarehouseProcess", prms);
+            return operation;
+        }
+
         public static Operation<Card> GetCardById(int cardId)
         {
             string method = "GetCardById/{0}";
@@ -77,7 +95,22 @@ namespace LecERP
             Operation<User> operation = client.Post<User>("PostUser", prms);
             return operation;
         }
-
+        public static Operation<WarehouseProcessView> WarehouseProcessBegin(int ProcessId)
+        {
+            ServiceClient client = new ServiceClient();
+            Dictionary<string, object> prms = new Dictionary<string, object>();
+            prms["ProcessId"] = ProcessId;
+            Operation<WarehouseProcessView> operation = client.Post<WarehouseProcessView>("WarehouseProcessBegin", prms);
+            return operation;
+        }
+        public static Operation<WarehouseProcessView> WarehouseProcessEnd(int ProcessId)
+        {
+            ServiceClient client = new ServiceClient();
+            Dictionary<string, object> prms = new Dictionary<string, object>();
+            prms["ProcessId"] = ProcessId;
+            Operation<WarehouseProcessView> operation = client.Post<WarehouseProcessView>("WarehouseProcessEnd", prms);
+            return operation;
+        }
         public static Operation<Card> PostCard(Card card)
         {
             ServiceClient client = new ServiceClient();
@@ -106,6 +139,13 @@ namespace LecERP
             ServiceClient client = new ServiceClient();
             string method = "GetItemPricesByCard/" + CardId.ToString();
             Operation<List<ItemPrice>> operation = client.Get<List<ItemPrice>>(method);
+            return operation;
+        }
+        public static Operation<List<WarehouseProcessDetailView>> GetWarehouseProcessDetails(int ProcessId)
+        {
+            ServiceClient client = new ServiceClient();
+            string method = "GetWarehouseProcessDetails/" + ProcessId.ToString();
+            Operation<List<WarehouseProcessDetailView>> operation = client.Get<List<WarehouseProcessDetailView>>(method);
             return operation;
         }
         public static Operation<List<CardPermission>> GetCardPermissions(int UserId)
@@ -168,6 +208,20 @@ namespace LecERP
             Operation<List<CashType>> operation = client.Get<List<CashType>>(method);
             return operation;
         }
+        public static Operation<List<WorkStateView>> GetWorkStates()
+        {
+            ServiceClient client = new ServiceClient();
+            string method = "GetWorkStates";
+            Operation<List<WorkStateView>> operation = client.Get<List<WorkStateView>>(method);
+            return operation;
+        }
+        public static Operation<List<CurrencyByDateView>> GetCurrenciesByDate()
+        {
+            ServiceClient client = new ServiceClient();
+            string method = "GetCurrenciesByDate";
+            Operation<List<CurrencyByDateView>> operation = client.Get<List<CurrencyByDateView>>(method);
+            return operation;
+        }
         public static Operation<List<Warehouse>> GetWarehouses()
         {
             ServiceClient client = new ServiceClient();
@@ -208,6 +262,15 @@ namespace LecERP
             prms["ItemId"] = ItemId;
             prms["Details"] = Details;
             Operation<string> operation = client.Post<string>("PostItemPrices", prms);
+            return operation;
+        }
+
+        public static Operation<CurrencyByDate> GetCurrencyLastValue(int Id)
+        {
+            string method = "GetCurrencyLastValue/{0}";
+            method = string.Format(method, Id);
+            ServiceClient client = new ServiceClient();
+            Operation<CurrencyByDate> operation = client.Get<CurrencyByDate>(method);
             return operation;
         }
         //public static Operation<List<EnumMaster>> GetEnums(byte EnumNumber)
@@ -317,14 +380,22 @@ namespace LecERP
         //    Operation<List<ItemPrice>> op_ = sw.Get("GetItemPricesList");
         //    return op_;
         //}
-        //public static Operation<FicheMasterView> PostFiche(FicheMasterView fiche)
-        //{
-        //    IServiceGate<FicheMasterView> sw = GateHandler.GetServiceGate<FicheMasterView>();
-        //    Dictionary<string, object> prms = new Dictionary<string, object>();
-        //    prms["fiche"] = fiche;
-        //    Operation<FicheMasterView> op_ = sw.Post("PostFiche", prms);
-        //    return op_;
-        //}
+        public static Operation<FicheMasterView> PostFiche(FicheMasterView fiche)
+        {
+            ServiceClient client = new ServiceClient();
+            Dictionary<string, object> prms = new Dictionary<string, object>();
+            prms["fiche"] = fiche;
+            Operation<FicheMasterView> operation = client.Post<FicheMasterView>("PostFiche", prms);
+            return operation;
+        }
+        public static Operation<CurrencyByDate> PostCurrencyByDate(CurrencyByDate currencyByDate)
+        {
+            ServiceClient client = new ServiceClient();
+            Dictionary<string, object> prms = new Dictionary<string, object>();
+            prms["currencyByDate"] = currencyByDate;
+            Operation<CurrencyByDate> operation = client.Post<CurrencyByDate>("PostCurrencyByDate", prms);
+            return operation;
+        }
         //public static Operation<FicheMasterView> PostFiche2(FicheMasterView fiche)
         //{
         //    IServiceGate<FicheMasterView> sw = GateHandler.GetServiceGate<FicheMasterView>();
@@ -341,14 +412,38 @@ namespace LecERP
         //    Operation<TestClassView> op_ = sw.Post("PostTest2", prms);
         //    return op_;
         //}
-        //public static Operation<List<FicheMasterView>> GetFiches(byte DocType, DateTime dateBegin, DateTime dateEnd)
-        //{
-        //    IServiceGate<List<FicheMasterView>> sw = GateHandler.GetServiceGate<List<FicheMasterView>>();
-        //    string method = "GetFiches/{0}/{1}/{2}";
-        //    method = string.Format(method, DocType, dateBegin.GetFormattedStringFromDate(), dateEnd.GetFormattedStringFromDate());
-        //    Operation<List<FicheMasterView>> op_ = sw.Get(method);
-        //    return op_;
-        //}
+        public static Operation<List<FicheMasterView>> GetFiches(byte DocType, DateTime dateBegin, DateTime dateEnd)
+        {
+            ServiceClient client = new ServiceClient();
+            string method = "GetFiches/{0}/{1}/{2}";
+            method = string.Format(method, DocType, dateBegin.GetFormattedStringFromDate(), dateEnd.GetFormattedStringFromDate());
+            Operation<List<FicheMasterView>> operation = client.Get<List<FicheMasterView>>(method);
+            return operation;
+        }
+        public static Operation<List<FicheReportLineViewLC>> GetFicheReportLines(DateTime dateBegin, DateTime dateEnd)
+        {
+            ServiceClient client = new ServiceClient();
+            string method = "GetFicheReportLines/{0}/{1}";
+            method = string.Format(method, dateBegin.GetFormattedStringFromDate(), dateEnd.GetFormattedStringFromDate());
+            Operation<List<FicheReportLineViewLC>> operation = client.Get<List<FicheReportLineViewLC>>(method);
+            return operation;
+        }
+        public static Operation<List<FicheMasterView>> GetFichesByProcessId(int ProcessId)
+        {
+            ServiceClient client = new ServiceClient();
+            string method = "GetFichesByProcessId/{0}";
+            method = string.Format(method, ProcessId);
+            Operation<List<FicheMasterView>> operation = client.Get<List<FicheMasterView>>(method);
+            return operation;
+        }
+        public static Operation<List<WarehouseProcessView>> GetWarehouseProcesses(DateTime dateBegin, DateTime dateEnd)
+        {
+            ServiceClient client = new ServiceClient();
+            string method = "GetWarehouseProcesses/{0}/{1}";
+            method = string.Format(method, dateBegin.GetFormattedStringFromDate(), dateEnd.GetFormattedStringFromDate());
+            Operation<List<WarehouseProcessView>> operation = client.Get<List<WarehouseProcessView>>(method);
+            return operation;
+        }
         //public static Operation<List<PriceCalcType>> GetPriceCalcTypes()
         //{
         //    IServiceGate<List<PriceCalcType>> sw = GateHandler.GetServiceGate<List<PriceCalcType>>();
@@ -356,14 +451,14 @@ namespace LecERP
         //    Operation<List<PriceCalcType>> op_ = sw.Get(method);
         //    return op_;
         //}
-        //public static Operation<FicheMasterView> GetFicheById(int Id)
-        //{
-        //    IServiceGate<FicheMasterView> sw = GateHandler.GetServiceGate<FicheMasterView>();
-        //    string method = "GetFicheById/{0}";
-        //    method = string.Format(method, Id);
-        //    Operation<FicheMasterView> op_ = sw.Get(method);
-        //    return op_;
-        //}
+        public static Operation<FicheMasterView> GetFicheById(int Id)
+        {
+            ServiceClient client = new ServiceClient();
+            string method = "GetFicheById/{0}";
+            method = string.Format(method, Id);
+            Operation<FicheMasterView> operation = client.Get<FicheMasterView>(method);
+            return operation;
+        }
         //public static Operation<List<PermissionMaster>> GetPermissionMasters()
         //{
         //    IServiceGate<List<PermissionMaster>> sw = GateHandler.GetServiceGate<List<PermissionMaster>>();
@@ -435,14 +530,14 @@ namespace LecERP
         //    Operation<List<CardTransactionView>> op_ = sw.Get(method);
         //    return op_;
         //}
-        //public static Operation<List<CardTotalByIntervalView>> GetCardTotalsByInterval(int userId, DateTime dateBegin, DateTime dateEnd)
-        //{
-        //    IServiceGate<List<CardTotalByIntervalView>> sw = GateHandler.GetServiceGate<List<CardTotalByIntervalView>>();
-        //    string method = "GetCardTotalsByInterval/{0}/{1}/{2}";
-        //    method = string.Format(method, userId, dateBegin.GetFormattedStringFromDate(), dateEnd.GetFormattedStringFromDate());
-        //    Operation<List<CardTotalByIntervalView>> op_ = sw.Get(method);
-        //    return op_;
-        //}
+        public static Operation<List<CardTotalByIntervalView>> GetCardTotalsByInterval(int userId, DateTime dateBegin, DateTime dateEnd)
+        {
+            ServiceClient client = new ServiceClient();
+            string method = "GetCardTotalsByInterval/{0}/{1}/{2}";
+            method = string.Format(method, userId, dateBegin.GetFormattedStringFromDate(), dateEnd.GetFormattedStringFromDate());
+            Operation<List<CardTotalByIntervalView>> operation = client.Get<List<CardTotalByIntervalView>>(method);
+            return operation;
+        }
 
         //public static Operation<List<UserDataPermissionView>> GetUserDataPermissionView(int userId)
         //{
@@ -497,13 +592,13 @@ namespace LecERP
         //    return op_;
         //}
 
-        //public static Operation<List<CashTransactionView>> GetCashTransactionsViewByFiche(int FicheId)
-        //{
-        //    IServiceGate<List<CashTransactionView>> sw = GateHandler.GetServiceGate<List<CashTransactionView>>();
-        //    string method = "GetCashTransactionsViewByFiche/{0}";
-        //    method = string.Format(method, FicheId);
-        //    Operation<List<CashTransactionView>> op_ = sw.Get(method);
-        //    return op_;
-        //}
+        public static Operation<List<CashTransactionView>> GetCashTransactionsViewByFiche(int FicheId)
+        {
+            ServiceClient client = new ServiceClient();
+            string method = "GetCashTransactionsViewByFiche/{0}";
+            method = string.Format(method, FicheId);
+            Operation<List<CashTransactionView>> op_ = client.Get<List<CashTransactionView>>(method);
+            return op_;
+        }
     }
 }

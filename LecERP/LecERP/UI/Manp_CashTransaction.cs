@@ -117,12 +117,12 @@ namespace LecERP
                 
                 
                 CardView sourceCard = Cards.Where(x => x.Id == sourceCardId).FirstOrDefault();
-                lookUpCurrency.EditValue = sourceCard.CurrencyId;
-                searchLookUpSourceCard.EditValue = sourceCard.Id;
+                lookUpCurrency.EditValue = sourceCard?.CurrencyId;
+                searchLookUpSourceCard.EditValue = sourceCard?.Id;
                 searchLookUpDestCard.EditValue = destCardId;
                 spAmount.EditValue = amount;
                 txtNote.Text = note;
-                lookUpCurrency.ReadOnly = true;
+                //lookUpCurrency.ReadOnly = true;
                 cashTransaction.ConnectedFicheId = connectedInvoiceId;
             }
         }

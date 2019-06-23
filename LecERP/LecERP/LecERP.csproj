@@ -115,7 +115,55 @@
     <Compile Include="Configuration\ConnectionConfiguration.cs" />
     <Compile Include="DataWorks\DataHolder.cs" />
     <Compile Include="DataWorks\DataObjectBindTool.cs" />
+    <Compile Include="UI\Form_WorkStateView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form_WorkStateView.Designer.cs">
+      <DependentUpon>Form_WorkStateView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FicheReportLineView.cs" />
+    <Compile Include="Models\FicheReportLineViewLC.cs" />
+    <Compile Include="Models\Personnel.cs" />
+    <Compile Include="Models\PersonnelJobMaster.cs" />
+    <Compile Include="Models\WorkState.cs" />
+    <Compile Include="Models\WorkStateView.cs" />
+    <Compile Include="UI\Form_FicheReportLineView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form_FicheReportLineView.Designer.cs">
+      <DependentUpon>Form_FicheReportLineView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WarehouseProcessDetailView.cs" />
+    <Compile Include="Models\WarehouseProcessFiche.cs" />
+    <Compile Include="Models\WarehouseProcessView.cs" />
+    <Compile Include="Printing\DocumentPrintHandler.cs" />
+    <Compile Include="Printing\SaleInvoiceDesign.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Printing\SaleInvoiceDesign.designer.cs">
+      <DependentUpon>SaleInvoiceDesign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Form_CardDebtReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form_CardDebtReport.Designer.cs">
+      <DependentUpon>Form_CardDebtReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Form_WarehouseProcess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form_WarehouseProcess.designer.cs">
+      <DependentUpon>Form_WarehouseProcess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Manp_CurrencyByDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Manp_CurrencyByDate.Designer.cs">
+      <DependentUpon>Manp_CurrencyByDate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\FicheLineServiceView.cs" />
+    <Compile Include="Models\WarehouseProcess.cs" />
+    <Compile Include="Models\WarehouseProcessDetail.cs" />
     <Compile Include="UI\Form_Settings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +182,20 @@
     <Compile Include="UI\Form_CompanyParameters.Designer.cs">
       <DependentUpon>Form_CompanyParameters.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Manp_WarehouseProcess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Manp_WarehouseProcess.designer.cs">
+      <DependentUpon>Manp_WarehouseProcess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Manp_WarehouseProcessDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Manp_WarehouseProcessDetail.designer.cs">
+      <DependentUpon>Manp_WarehouseProcessDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\CardTotalByIntervalView.cs" />
+    <Compile Include="ViewModels\CurrencyByDateView.cs" />
     <Compile Include="ViewModels\LoginData.cs" />
     <Compile Include="Models\Card.cs" />
     <Compile Include="Models\CardView.cs" />
@@ -302,6 +364,24 @@
     <Compile Include="ViewModels\ItemPriceView.cs" />
     <Compile Include="ViewModels\PermissionMasterView.cs" />
     <Compile Include="ViewModels\UserView.cs" />
+    <EmbeddedResource Include="UI\Form_WorkStateView.resx">
+      <DependentUpon>Form_WorkStateView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Printing\SaleInvoiceDesign.resx">
+      <DependentUpon>SaleInvoiceDesign.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Form_CardDebtReport.resx">
+      <DependentUpon>Form_CardDebtReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Form_FicheReportLineView.resx">
+      <DependentUpon>Form_FicheReportLineView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Form_WarehouseProcess.resx">
+      <DependentUpon>Form_WarehouseProcess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Manp_CurrencyByDate.resx">
+      <DependentUpon>Manp_CurrencyByDate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Form_Settings.resx">
       <DependentUpon>Form_Settings.cs</DependentUpon>
     </EmbeddedResource>
@@ -378,6 +458,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Manp_Users.resx">
       <DependentUpon>Manp_Users.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Manp_WarehouseProcess.resx">
+      <DependentUpon>Manp_WarehouseProcess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Manp_WarehouseProcessDetail.resx">
+      <DependentUpon>Manp_WarehouseProcessDetail.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="packages.config" />
@@ -513,6 +599,63 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\solidlightbluedatabar_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rsz_whproc_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rzs_thunder_24.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\next.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\next_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stop_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\recurrence_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\down_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\linktoprevious_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\linktoprevious_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\legendtop_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\legendtop_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\convert_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\convert_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clearformatting_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clearformatting_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clusteredbar3d_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clusteredbar3d_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\expandfieldpivottable_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\expandfieldpivottable_16x16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

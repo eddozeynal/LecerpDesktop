@@ -48,9 +48,6 @@
             this.btnCreateInvoice = new System.Windows.Forms.ToolStripMenuItem();
             this.tsExecutePayment = new System.Windows.Forms.ToolStripMenuItem();
             this.tsPrintDocument = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsProcess = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsBeginProcess = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsCompleteProcess = new System.Windows.Forms.ToolStripMenuItem();
             this.gvData = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDocTypeId = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -73,8 +70,6 @@
             this.colNote3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNote4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSourceWarehouse = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colLineCount = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colWorksCompleted = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colStatusName = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grpTop)).BeginInit();
             this.grpTop.SuspendLayout();
@@ -236,16 +231,15 @@
             this.tsExportToExcel,
             this.btnCreateInvoice,
             this.tsExecutePayment,
-            this.tsPrintDocument,
-            this.tsProcess});
+            this.tsPrintDocument});
             this.cmsMain.Name = "cmsMain";
-            this.cmsMain.Size = new System.Drawing.Size(140, 202);
+            this.cmsMain.Size = new System.Drawing.Size(181, 202);
             // 
             // tsAddNew
             // 
             this.tsAddNew.Image = global::LecERP.Properties.Resources.newtask_16x16;
             this.tsAddNew.Name = "tsAddNew";
-            this.tsAddNew.Size = new System.Drawing.Size(139, 22);
+            this.tsAddNew.Size = new System.Drawing.Size(180, 22);
             this.tsAddNew.Text = "Yeni...";
             this.tsAddNew.Click += new System.EventHandler(this.tsAddNew_Click);
             // 
@@ -253,7 +247,7 @@
             // 
             this.tsView.Image = global::LecERP.Properties.Resources.show_32x32;
             this.tsView.Name = "tsView";
-            this.tsView.Size = new System.Drawing.Size(139, 22);
+            this.tsView.Size = new System.Drawing.Size(180, 22);
             this.tsView.Text = "Baxış";
             this.tsView.Click += new System.EventHandler(this.tsView_Click);
             // 
@@ -261,7 +255,7 @@
             // 
             this.tsModify.Image = global::LecERP.Properties.Resources.pagesetup_16x16;
             this.tsModify.Name = "tsModify";
-            this.tsModify.Size = new System.Drawing.Size(139, 22);
+            this.tsModify.Size = new System.Drawing.Size(180, 22);
             this.tsModify.Text = "Düzəliş Et";
             this.tsModify.Click += new System.EventHandler(this.tsModify_Click);
             // 
@@ -269,14 +263,14 @@
             // 
             this.tsDelete.Image = global::LecERP.Properties.Resources.deletetable_16x16;
             this.tsDelete.Name = "tsDelete";
-            this.tsDelete.Size = new System.Drawing.Size(139, 22);
+            this.tsDelete.Size = new System.Drawing.Size(180, 22);
             this.tsDelete.Text = "Sil";
             // 
             // tsExportToExcel
             // 
             this.tsExportToExcel.Image = global::LecERP.Properties.Resources.excel_16x16;
             this.tsExportToExcel.Name = "tsExportToExcel";
-            this.tsExportToExcel.Size = new System.Drawing.Size(139, 22);
+            this.tsExportToExcel.Size = new System.Drawing.Size(180, 22);
             this.tsExportToExcel.Text = "Excel-ə çıxar";
             this.tsExportToExcel.Click += new System.EventHandler(this.tsExportToExcel_Click);
             // 
@@ -284,7 +278,7 @@
             // 
             this.btnCreateInvoice.Image = global::LecERP.Properties.Resources.newtablestyle_32x32;
             this.btnCreateInvoice.Name = "btnCreateInvoice";
-            this.btnCreateInvoice.Size = new System.Drawing.Size(139, 22);
+            this.btnCreateInvoice.Size = new System.Drawing.Size(180, 22);
             this.btnCreateInvoice.Text = "Fakturalama";
             this.btnCreateInvoice.Click += new System.EventHandler(this.btnCreateInvoice_Click);
             // 
@@ -292,7 +286,7 @@
             // 
             this.tsExecutePayment.Image = global::LecERP.Properties.Resources.bosale_32x32;
             this.tsExecutePayment.Name = "tsExecutePayment";
-            this.tsExecutePayment.Size = new System.Drawing.Size(139, 22);
+            this.tsExecutePayment.Size = new System.Drawing.Size(180, 22);
             this.tsExecutePayment.Text = "Ödəmə Et...";
             this.tsExecutePayment.Click += new System.EventHandler(this.tsExecutePayment_Click);
             // 
@@ -300,33 +294,9 @@
             // 
             this.tsPrintDocument.Image = global::LecERP.Properties.Resources.printer_16x16;
             this.tsPrintDocument.Name = "tsPrintDocument";
-            this.tsPrintDocument.Size = new System.Drawing.Size(139, 22);
+            this.tsPrintDocument.Size = new System.Drawing.Size(180, 22);
             this.tsPrintDocument.Text = "Çap Et";
             this.tsPrintDocument.Click += new System.EventHandler(this.tsPrintDocument_Click);
-            // 
-            // tsProcess
-            // 
-            this.tsProcess.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsBeginProcess,
-            this.tsCompleteProcess});
-            this.tsProcess.Image = global::LecERP.Properties.Resources.project_32x32;
-            this.tsProcess.Name = "tsProcess";
-            this.tsProcess.Size = new System.Drawing.Size(139, 22);
-            this.tsProcess.Text = "Proses";
-            // 
-            // tsBeginProcess
-            // 
-            this.tsBeginProcess.Name = "tsBeginProcess";
-            this.tsBeginProcess.Size = new System.Drawing.Size(123, 22);
-            this.tsBeginProcess.Text = "Başlat";
-            this.tsBeginProcess.Click += new System.EventHandler(this.tsBeginProcess_Click);
-            // 
-            // tsCompleteProcess
-            // 
-            this.tsCompleteProcess.Name = "tsCompleteProcess";
-            this.tsCompleteProcess.Size = new System.Drawing.Size(123, 22);
-            this.tsCompleteProcess.Text = "Tamamla";
-            this.tsCompleteProcess.Click += new System.EventHandler(this.tsCompleteProcess_Click);
             // 
             // gvData
             // 
@@ -352,8 +322,6 @@
             this.colNote3,
             this.colNote4,
             this.colSourceWarehouse,
-            this.colLineCount,
-            this.colWorksCompleted,
             this.colStatusName});
             this.gvData.GridControl = this.gcData;
             this.gvData.Name = "gvData";
@@ -486,7 +454,7 @@
             // colTotal
             // 
             this.colTotal.Caption = "Məbləğ";
-            this.colTotal.FieldName = "Total";
+            this.colTotal.FieldName = "FicheNetTotal";
             this.colTotal.Name = "colTotal";
             this.colTotal.OptionsColumn.AllowEdit = false;
             this.colTotal.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
@@ -499,7 +467,7 @@
             // colExchangeName
             // 
             this.colExchangeName.Caption = "Məzənnə";
-            this.colExchangeName.FieldName = "ExchangeName";
+            this.colExchangeName.FieldName = "CurrencyName";
             this.colExchangeName.Name = "colExchangeName";
             this.colExchangeName.OptionsColumn.AllowEdit = false;
             this.colExchangeName.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
@@ -573,30 +541,6 @@
             this.colSourceWarehouse.VisibleIndex = 11;
             this.colSourceWarehouse.Width = 80;
             // 
-            // colLineCount
-            // 
-            this.colLineCount.Caption = "Sətir Sayı";
-            this.colLineCount.FieldName = "LineCount";
-            this.colLineCount.Name = "colLineCount";
-            this.colLineCount.OptionsColumn.AllowEdit = false;
-            this.colLineCount.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
-            this.colLineCount.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
-            this.colLineCount.Visible = true;
-            this.colLineCount.VisibleIndex = 12;
-            this.colLineCount.Width = 50;
-            // 
-            // colWorksCompleted
-            // 
-            this.colWorksCompleted.Caption = "İşlər bitib";
-            this.colWorksCompleted.FieldName = "WorksCompleted";
-            this.colWorksCompleted.Name = "colWorksCompleted";
-            this.colWorksCompleted.OptionsColumn.AllowEdit = false;
-            this.colWorksCompleted.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
-            this.colWorksCompleted.Visible = true;
-            this.colWorksCompleted.VisibleIndex = 13;
-            this.colWorksCompleted.Width = 30;
-            // 
             // colStatusName
             // 
             this.colStatusName.Caption = "Status";
@@ -605,7 +549,7 @@
             this.colStatusName.OptionsColumn.AllowEdit = false;
             this.colStatusName.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
             this.colStatusName.Visible = true;
-            this.colStatusName.VisibleIndex = 14;
+            this.colStatusName.VisibleIndex = 12;
             this.colStatusName.Width = 50;
             // 
             // Form_Fiches
@@ -661,9 +605,6 @@
         private System.Windows.Forms.ToolStripMenuItem btnCreateInvoice;
         private System.Windows.Forms.ToolStripMenuItem tsPrintDocument;
         private System.Windows.Forms.ToolStripMenuItem tsExecutePayment;
-        private System.Windows.Forms.ToolStripMenuItem tsProcess;
-        private System.Windows.Forms.ToolStripMenuItem tsBeginProcess;
-        private System.Windows.Forms.ToolStripMenuItem tsCompleteProcess;
         private DevExpress.XtraGrid.Columns.GridColumn colId;
         private DevExpress.XtraGrid.Columns.GridColumn colDocTypeId;
         private DevExpress.XtraGrid.Columns.GridColumn colCardId;
@@ -685,8 +626,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colNote3;
         private DevExpress.XtraGrid.Columns.GridColumn colNote4;
         private DevExpress.XtraGrid.Columns.GridColumn colSourceWarehouse;
-        private DevExpress.XtraGrid.Columns.GridColumn colLineCount;
-        private DevExpress.XtraGrid.Columns.GridColumn colWorksCompleted;
         private DevExpress.XtraGrid.Columns.GridColumn colStatusName;
     }
 }

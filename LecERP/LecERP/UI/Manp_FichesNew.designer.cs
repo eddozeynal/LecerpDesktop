@@ -34,12 +34,15 @@
             this.splitConMain = new DevExpress.XtraEditors.SplitContainerControl();
             this.tabPane2 = new DevExpress.XtraBars.Navigation.TabPane();
             this.tabNavigationPage3 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.lookUpWarehouse = new DevExpress.XtraEditors.LookUpEdit();
+            this.lblCurrencyName = new DevExpress.XtraEditors.LabelControl();
+            this.spCurrencyRate = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.searchLookUpCard = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.LookUpWarehouse = new DevExpress.XtraEditors.LookUpEdit();
             this.txtDate = new DevExpress.XtraEditors.TextEdit();
             this.txtFicheno = new DevExpress.XtraEditors.TextEdit();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
@@ -57,19 +60,19 @@
             this.txtNote2 = new DevExpress.XtraEditors.TextEdit();
             this.txtNote3 = new DevExpress.XtraEditors.TextEdit();
             this.txtNote4 = new DevExpress.XtraEditors.TextEdit();
-            this.tabNavigationPage5 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
-            this.btnAddCashTran = new DevExpress.XtraEditors.SimpleButton();
+            this.tabNavigationExpencesPage = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.btnDistributeExpences = new DevExpress.XtraEditors.SimpleButton();
             this.gcCashTrans = new DevExpress.XtraGrid.GridControl();
-            this.gvCashTrans = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn25 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn33 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
-            this.repositoryItemSpinEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
-            this.repositoryItemSpinEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
-            this.repositoryItemSpinEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
-            this.repositoryItemSpinEdit5 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
-            this.repositoryItemSpinEdit6 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
+            this.gvData = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colFicheno = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSourceCardName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDestCardName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTotal = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colExchangeName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNote = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCreatedDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnAddCashTran = new DevExpress.XtraEditors.SimpleButton();
             this.grpLines = new DevExpress.XtraEditors.GroupControl();
             this.chkStoreLinePrice = new DevExpress.XtraEditors.CheckEdit();
             this.chkStoreSizes = new DevExpress.XtraEditors.CheckEdit();
@@ -95,6 +98,7 @@
             this.tsIsTemplated = new System.Windows.Forms.ToolStripMenuItem();
             this.tsIsTemplated_True = new System.Windows.Forms.ToolStripMenuItem();
             this.tsIsTemplated_False = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsBulkAddServices = new System.Windows.Forms.ToolStripMenuItem();
             this.gvLines = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -118,7 +122,6 @@
             this.lblError = new DevExpress.XtraEditors.LabelControl();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnOk = new DevExpress.XtraEditors.SimpleButton();
-            this.tsBulkAddServices = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.grpCenter)).BeginInit();
             this.grpCenter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitConMain)).BeginInit();
@@ -126,9 +129,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.tabPane2)).BeginInit();
             this.tabPane2.SuspendLayout();
             this.tabNavigationPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpWarehouse.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spCurrencyRate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpCard.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LookUpWarehouse.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFicheno.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSourceDoc.Properties)).BeginInit();
@@ -137,15 +141,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtNote2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNote3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNote4.Properties)).BeginInit();
-            this.tabNavigationPage5.SuspendLayout();
+            this.tabNavigationExpencesPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcCashTrans)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvCashTrans)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grpLines)).BeginInit();
             this.grpLines.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chkStoreLinePrice.Properties)).BeginInit();
@@ -178,7 +176,7 @@
             this.grpCenter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpCenter.Location = new System.Drawing.Point(0, 0);
             this.grpCenter.Name = "grpCenter";
-            this.grpCenter.Size = new System.Drawing.Size(1135, 547);
+            this.grpCenter.Size = new System.Drawing.Size(1131, 513);
             this.grpCenter.TabIndex = 2;
             this.grpCenter.Text = "Qaimə";
             // 
@@ -192,7 +190,7 @@
             this.splitConMain.Panel1.Text = "Panel1";
             this.splitConMain.Panel2.Controls.Add(this.grpLines);
             this.splitConMain.Panel2.Text = "Panel2";
-            this.splitConMain.Size = new System.Drawing.Size(1131, 522);
+            this.splitConMain.Size = new System.Drawing.Size(1127, 488);
             this.splitConMain.SplitterPosition = 167;
             this.splitConMain.TabIndex = 35;
             this.splitConMain.Text = "splitContainerControl1";
@@ -201,26 +199,29 @@
             // 
             this.tabPane2.Controls.Add(this.tabNavigationPage3);
             this.tabPane2.Controls.Add(this.tabNavigationPage4);
-            this.tabPane2.Controls.Add(this.tabNavigationPage5);
+            this.tabPane2.Controls.Add(this.tabNavigationExpencesPage);
             this.tabPane2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabPane2.Location = new System.Drawing.Point(0, 0);
             this.tabPane2.Name = "tabPane2";
             this.tabPane2.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
             this.tabNavigationPage3,
             this.tabNavigationPage4,
-            this.tabNavigationPage5});
-            this.tabPane2.RegularSize = new System.Drawing.Size(1131, 167);
+            this.tabNavigationExpencesPage});
+            this.tabPane2.RegularSize = new System.Drawing.Size(1127, 167);
             this.tabPane2.SelectedPage = this.tabNavigationPage3;
-            this.tabPane2.Size = new System.Drawing.Size(1131, 167);
+            this.tabPane2.Size = new System.Drawing.Size(1127, 167);
             this.tabPane2.TabIndex = 34;
             this.tabPane2.Text = "tabPane2";
             // 
             // tabNavigationPage3
             // 
             this.tabNavigationPage3.Caption = "Başlıq";
+            this.tabNavigationPage3.Controls.Add(this.lookUpWarehouse);
+            this.tabNavigationPage3.Controls.Add(this.lblCurrencyName);
+            this.tabNavigationPage3.Controls.Add(this.spCurrencyRate);
+            this.tabNavigationPage3.Controls.Add(this.labelControl11);
             this.tabNavigationPage3.Controls.Add(this.searchLookUpCard);
             this.tabNavigationPage3.Controls.Add(this.labelControl1);
-            this.tabNavigationPage3.Controls.Add(this.LookUpWarehouse);
             this.tabNavigationPage3.Controls.Add(this.txtDate);
             this.tabNavigationPage3.Controls.Add(this.txtFicheno);
             this.tabNavigationPage3.Controls.Add(this.labelControl10);
@@ -230,7 +231,56 @@
             this.tabNavigationPage3.Controls.Add(this.labelControl9);
             this.tabNavigationPage3.Controls.Add(this.labelControl4);
             this.tabNavigationPage3.Name = "tabNavigationPage3";
-            this.tabNavigationPage3.Size = new System.Drawing.Size(1131, 140);
+            this.tabNavigationPage3.Size = new System.Drawing.Size(1127, 140);
+            // 
+            // lookUpWarehouse
+            // 
+            this.lookUpWarehouse.Location = new System.Drawing.Point(76, 95);
+            this.lookUpWarehouse.Name = "lookUpWarehouse";
+            this.lookUpWarehouse.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpWarehouse.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("WarehouseName", "Anbar")});
+            this.lookUpWarehouse.Properties.DisplayMember = "WarehouseName";
+            this.lookUpWarehouse.Properties.ValueMember = "Number";
+            this.lookUpWarehouse.Size = new System.Drawing.Size(229, 20);
+            this.lookUpWarehouse.TabIndex = 47;
+            // 
+            // lblCurrencyName
+            // 
+            this.lblCurrencyName.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lblCurrencyName.Appearance.Options.UseFont = true;
+            this.lblCurrencyName.Location = new System.Drawing.Point(353, 40);
+            this.lblCurrencyName.Name = "lblCurrencyName";
+            this.lblCurrencyName.Size = new System.Drawing.Size(23, 16);
+            this.lblCurrencyName.TabIndex = 46;
+            this.lblCurrencyName.Text = "AZN";
+            // 
+            // spCurrencyRate
+            // 
+            this.spCurrencyRate.EditValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.spCurrencyRate.Location = new System.Drawing.Point(437, 37);
+            this.spCurrencyRate.Name = "spCurrencyRate";
+            this.spCurrencyRate.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.spCurrencyRate.Properties.Appearance.Options.UseFont = true;
+            this.spCurrencyRate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.spCurrencyRate.Size = new System.Drawing.Size(78, 22);
+            this.spCurrencyRate.TabIndex = 45;
+            // 
+            // labelControl11
+            // 
+            this.labelControl11.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.labelControl11.Appearance.Options.UseFont = true;
+            this.labelControl11.Location = new System.Drawing.Point(393, 40);
+            this.labelControl11.Name = "labelControl11";
+            this.labelControl11.Size = new System.Drawing.Size(38, 16);
+            this.labelControl11.TabIndex = 44;
+            this.labelControl11.Text = "Nisbəti";
             // 
             // searchLookUpCard
             // 
@@ -244,7 +294,7 @@
             this.searchLookUpCard.Properties.NullText = "Seçin";
             this.searchLookUpCard.Properties.PopupView = this.gridView1;
             this.searchLookUpCard.Properties.ValueMember = "Id";
-            this.searchLookUpCard.Size = new System.Drawing.Size(420, 22);
+            this.searchLookUpCard.Size = new System.Drawing.Size(439, 22);
             this.searchLookUpCard.TabIndex = 32;
             this.searchLookUpCard.EditValueChanged += new System.EventHandler(this.searchLookUpCard_EditValueChanged);
             // 
@@ -285,22 +335,6 @@
             this.labelControl1.Size = new System.Drawing.Size(38, 16);
             this.labelControl1.TabIndex = 19;
             this.labelControl1.Text = "Nömrə";
-            // 
-            // LookUpWarehouse
-            // 
-            this.LookUpWarehouse.Location = new System.Drawing.Point(76, 95);
-            this.LookUpWarehouse.Name = "LookUpWarehouse";
-            this.LookUpWarehouse.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.LookUpWarehouse.Properties.Appearance.Options.UseFont = true;
-            this.LookUpWarehouse.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.LookUpWarehouse.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("WarehouseName", "Seçin")});
-            this.LookUpWarehouse.Properties.DisplayMember = "WarehouseName";
-            this.LookUpWarehouse.Properties.NullText = "Seçin";
-            this.LookUpWarehouse.Properties.ValueMember = "Number";
-            this.LookUpWarehouse.Size = new System.Drawing.Size(143, 22);
-            this.LookUpWarehouse.TabIndex = 28;
             // 
             // txtDate
             // 
@@ -361,7 +395,7 @@
             this.txtSourceDoc.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtSourceDoc.Properties.Appearance.Options.UseFont = true;
             this.txtSourceDoc.Properties.MaxLength = 50;
-            this.txtSourceDoc.Size = new System.Drawing.Size(143, 22);
+            this.txtSourceDoc.Size = new System.Drawing.Size(162, 22);
             this.txtSourceDoc.TabIndex = 24;
             // 
             // labelControl9
@@ -396,7 +430,7 @@
             this.tabNavigationPage4.Controls.Add(this.txtNote3);
             this.tabNavigationPage4.Controls.Add(this.txtNote4);
             this.tabNavigationPage4.Name = "tabNavigationPage4";
-            this.tabNavigationPage4.Size = new System.Drawing.Size(1131, 140);
+            this.tabNavigationPage4.Size = new System.Drawing.Size(1127, 140);
             // 
             // txtNote1
             // 
@@ -478,129 +512,165 @@
             this.txtNote4.Size = new System.Drawing.Size(216, 22);
             this.txtNote4.TabIndex = 15;
             // 
-            // tabNavigationPage5
+            // tabNavigationExpencesPage
             // 
-            this.tabNavigationPage5.Caption = "Xərclər";
-            this.tabNavigationPage5.Controls.Add(this.btnAddCashTran);
-            this.tabNavigationPage5.Controls.Add(this.gcCashTrans);
-            this.tabNavigationPage5.Name = "tabNavigationPage5";
-            this.tabNavigationPage5.Size = new System.Drawing.Size(1131, 140);
+            this.tabNavigationExpencesPage.Caption = "Xərclər";
+            this.tabNavigationExpencesPage.Controls.Add(this.btnDistributeExpences);
+            this.tabNavigationExpencesPage.Controls.Add(this.gcCashTrans);
+            this.tabNavigationExpencesPage.Controls.Add(this.btnAddCashTran);
+            this.tabNavigationExpencesPage.Name = "tabNavigationExpencesPage";
+            this.tabNavigationExpencesPage.Size = new System.Drawing.Size(1127, 140);
             // 
-            // btnAddCashTran
+            // btnDistributeExpences
             // 
-            this.btnAddCashTran.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAddCashTran.ImageOptions.Image")));
-            this.btnAddCashTran.Location = new System.Drawing.Point(351, 6);
-            this.btnAddCashTran.Name = "btnAddCashTran";
-            this.btnAddCashTran.Size = new System.Drawing.Size(40, 40);
-            this.btnAddCashTran.TabIndex = 41;
-            this.btnAddCashTran.Click += new System.EventHandler(this.btnAddCashTran_Click);
+            this.btnDistributeExpences.ImageOptions.Image = global::LecERP.Properties.Resources.down_32x32;
+            this.btnDistributeExpences.Location = new System.Drawing.Point(602, 68);
+            this.btnDistributeExpences.Name = "btnDistributeExpences";
+            this.btnDistributeExpences.Size = new System.Drawing.Size(40, 40);
+            this.btnDistributeExpences.TabIndex = 43;
+            this.btnDistributeExpences.Click += new System.EventHandler(this.btnDistributeExpences_Click);
             // 
             // gcCashTrans
             // 
             this.gcCashTrans.Dock = System.Windows.Forms.DockStyle.Left;
             this.gcCashTrans.Location = new System.Drawing.Point(0, 0);
-            this.gcCashTrans.MainView = this.gvCashTrans;
+            this.gcCashTrans.MainView = this.gvData;
             this.gcCashTrans.Name = "gcCashTrans";
-            this.gcCashTrans.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemSpinEdit1,
-            this.repositoryItemSpinEdit2,
-            this.repositoryItemSpinEdit3,
-            this.repositoryItemSpinEdit4,
-            this.repositoryItemSpinEdit5,
-            this.repositoryItemSpinEdit6});
-            this.gcCashTrans.Size = new System.Drawing.Size(345, 140);
-            this.gcCashTrans.TabIndex = 1;
+            this.gcCashTrans.Size = new System.Drawing.Size(596, 140);
+            this.gcCashTrans.TabIndex = 42;
             this.gcCashTrans.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvCashTrans});
+            this.gvData});
             // 
-            // gvCashTrans
+            // gvData
             // 
-            this.gvCashTrans.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn21,
-            this.gridColumn25,
-            this.gridColumn33});
-            this.gvCashTrans.GridControl = this.gcCashTrans;
-            this.gvCashTrans.Name = "gvCashTrans";
-            this.gvCashTrans.OptionsDetail.EnableMasterViewMode = false;
-            this.gvCashTrans.OptionsView.ColumnAutoWidth = false;
-            this.gvCashTrans.OptionsView.ShowFooter = true;
-            this.gvCashTrans.OptionsView.ShowGroupPanel = false;
+            this.gvData.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colId,
+            this.colFicheno,
+            this.colSourceCardName,
+            this.colDestCardName,
+            this.colTotal,
+            this.colExchangeName,
+            this.colNote,
+            this.colCreatedDate});
+            this.gvData.GridControl = this.gcCashTrans;
+            this.gvData.Name = "gvData";
+            this.gvData.OptionsView.ColumnAutoWidth = false;
+            this.gvData.OptionsView.ShowFooter = true;
+            this.gvData.OptionsView.ShowGroupPanel = false;
             // 
-            // gridColumn21
+            // colId
             // 
-            this.gridColumn21.Caption = "Növü";
-            this.gridColumn21.FieldName = "CashCategoryName";
-            this.gridColumn21.Name = "gridColumn21";
-            this.gridColumn21.OptionsColumn.AllowEdit = false;
-            this.gridColumn21.Visible = true;
-            this.gridColumn21.VisibleIndex = 0;
-            this.gridColumn21.Width = 81;
+            this.colId.AppearanceHeader.Options.UseTextOptions = true;
+            this.colId.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colId.Caption = "Id";
+            this.colId.FieldName = "Id";
+            this.colId.Name = "colId";
+            this.colId.OptionsColumn.AllowEdit = false;
+            this.colId.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
+            this.colId.Width = 80;
             // 
-            // gridColumn25
+            // colFicheno
             // 
-            this.gridColumn25.Caption = "Əməliyyat No";
-            this.gridColumn25.FieldName = "Ficheno";
-            this.gridColumn25.Name = "gridColumn25";
-            this.gridColumn25.OptionsColumn.AllowEdit = false;
-            this.gridColumn25.Visible = true;
-            this.gridColumn25.VisibleIndex = 1;
-            this.gridColumn25.Width = 89;
+            this.colFicheno.AppearanceHeader.Options.UseTextOptions = true;
+            this.colFicheno.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colFicheno.Caption = "Əməliyyat No";
+            this.colFicheno.FieldName = "Ficheno";
+            this.colFicheno.Name = "colFicheno";
+            this.colFicheno.OptionsColumn.AllowEdit = false;
+            this.colFicheno.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
+            this.colFicheno.Visible = true;
+            this.colFicheno.VisibleIndex = 0;
+            this.colFicheno.Width = 80;
             // 
-            // gridColumn33
+            // colSourceCardName
             // 
-            this.gridColumn33.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumn33.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn33.Caption = "Məbləğ";
-            this.gridColumn33.FieldName = "Total";
-            this.gridColumn33.Name = "gridColumn33";
-            this.gridColumn33.OptionsColumn.AllowEdit = false;
-            this.gridColumn33.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            this.colSourceCardName.AppearanceHeader.Options.UseTextOptions = true;
+            this.colSourceCardName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colSourceCardName.Caption = "Hesab Addan";
+            this.colSourceCardName.FieldName = "SourceCardName";
+            this.colSourceCardName.Name = "colSourceCardName";
+            this.colSourceCardName.OptionsColumn.AllowEdit = false;
+            this.colSourceCardName.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
+            this.colSourceCardName.Visible = true;
+            this.colSourceCardName.VisibleIndex = 1;
+            this.colSourceCardName.Width = 80;
+            // 
+            // colDestCardName
+            // 
+            this.colDestCardName.AppearanceHeader.Options.UseTextOptions = true;
+            this.colDestCardName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colDestCardName.Caption = "Hesab Ada";
+            this.colDestCardName.FieldName = "DestCardName";
+            this.colDestCardName.Name = "colDestCardName";
+            this.colDestCardName.OptionsColumn.AllowEdit = false;
+            this.colDestCardName.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
+            this.colDestCardName.Visible = true;
+            this.colDestCardName.VisibleIndex = 2;
+            this.colDestCardName.Width = 80;
+            // 
+            // colTotal
+            // 
+            this.colTotal.AppearanceHeader.Options.UseTextOptions = true;
+            this.colTotal.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colTotal.Caption = "Məbləğ";
+            this.colTotal.FieldName = "Total";
+            this.colTotal.Name = "colTotal";
+            this.colTotal.OptionsColumn.AllowEdit = false;
+            this.colTotal.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
+            this.colTotal.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
-            this.gridColumn33.Visible = true;
-            this.gridColumn33.VisibleIndex = 2;
-            this.gridColumn33.Width = 67;
+            this.colTotal.Visible = true;
+            this.colTotal.VisibleIndex = 3;
+            this.colTotal.Width = 80;
             // 
-            // repositoryItemSpinEdit1
+            // colExchangeName
             // 
-            this.repositoryItemSpinEdit1.AutoHeight = false;
-            this.repositoryItemSpinEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemSpinEdit1.Name = "repositoryItemSpinEdit1";
+            this.colExchangeName.AppearanceHeader.Options.UseTextOptions = true;
+            this.colExchangeName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colExchangeName.Caption = "Məzənnə";
+            this.colExchangeName.FieldName = "CurrencyName";
+            this.colExchangeName.Name = "colExchangeName";
+            this.colExchangeName.OptionsColumn.AllowEdit = false;
+            this.colExchangeName.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
+            this.colExchangeName.Visible = true;
+            this.colExchangeName.VisibleIndex = 4;
+            this.colExchangeName.Width = 50;
             // 
-            // repositoryItemSpinEdit2
+            // colNote
             // 
-            this.repositoryItemSpinEdit2.AutoHeight = false;
-            this.repositoryItemSpinEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemSpinEdit2.Name = "repositoryItemSpinEdit2";
+            this.colNote.AppearanceHeader.Options.UseTextOptions = true;
+            this.colNote.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colNote.Caption = "Məbləğ YM";
+            this.colNote.FieldName = "DmTotal";
+            this.colNote.Name = "colNote";
+            this.colNote.OptionsColumn.AllowEdit = false;
+            this.colNote.Visible = true;
+            this.colNote.VisibleIndex = 5;
+            this.colNote.Width = 80;
             // 
-            // repositoryItemSpinEdit3
+            // colCreatedDate
             // 
-            this.repositoryItemSpinEdit3.AutoHeight = false;
-            this.repositoryItemSpinEdit3.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemSpinEdit3.Name = "repositoryItemSpinEdit3";
+            this.colCreatedDate.AppearanceHeader.Options.UseTextOptions = true;
+            this.colCreatedDate.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colCreatedDate.Caption = "Tarix";
+            this.colCreatedDate.DisplayFormat.FormatString = "dd.MM.yyyy HH:mm:ss";
+            this.colCreatedDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.colCreatedDate.FieldName = "CreatedDate";
+            this.colCreatedDate.Name = "colCreatedDate";
+            this.colCreatedDate.OptionsColumn.AllowEdit = false;
+            this.colCreatedDate.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
+            this.colCreatedDate.Visible = true;
+            this.colCreatedDate.VisibleIndex = 6;
+            this.colCreatedDate.Width = 120;
             // 
-            // repositoryItemSpinEdit4
+            // btnAddCashTran
             // 
-            this.repositoryItemSpinEdit4.AutoHeight = false;
-            this.repositoryItemSpinEdit4.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemSpinEdit4.Name = "repositoryItemSpinEdit4";
-            // 
-            // repositoryItemSpinEdit5
-            // 
-            this.repositoryItemSpinEdit5.AutoHeight = false;
-            this.repositoryItemSpinEdit5.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemSpinEdit5.Name = "repositoryItemSpinEdit5";
-            // 
-            // repositoryItemSpinEdit6
-            // 
-            this.repositoryItemSpinEdit6.AutoHeight = false;
-            this.repositoryItemSpinEdit6.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemSpinEdit6.Name = "repositoryItemSpinEdit6";
+            this.btnAddCashTran.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAddCashTran.ImageOptions.Image")));
+            this.btnAddCashTran.Location = new System.Drawing.Point(602, 22);
+            this.btnAddCashTran.Name = "btnAddCashTran";
+            this.btnAddCashTran.Size = new System.Drawing.Size(40, 40);
+            this.btnAddCashTran.TabIndex = 41;
+            this.btnAddCashTran.Click += new System.EventHandler(this.btnAddCashTran_Click);
             // 
             // grpLines
             // 
@@ -616,7 +686,7 @@
             this.grpLines.Enabled = false;
             this.grpLines.Location = new System.Drawing.Point(0, 0);
             this.grpLines.Name = "grpLines";
-            this.grpLines.Size = new System.Drawing.Size(1131, 350);
+            this.grpLines.Size = new System.Drawing.Size(1127, 316);
             this.grpLines.TabIndex = 17;
             this.grpLines.Text = "Sətirlər";
             // 
@@ -655,13 +725,13 @@
             // gcServicesOfLine
             // 
             this.gcServicesOfLine.Dock = System.Windows.Forms.DockStyle.Right;
-            this.gcServicesOfLine.Location = new System.Drawing.Point(784, 23);
+            this.gcServicesOfLine.Location = new System.Drawing.Point(780, 23);
             this.gcServicesOfLine.MainView = this.gvServicesOfLine;
             this.gcServicesOfLine.Name = "gcServicesOfLine";
             this.gcServicesOfLine.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.spinSrvLinePrice,
             this.spinSrvLineQuantity});
-            this.gcServicesOfLine.Size = new System.Drawing.Size(345, 325);
+            this.gcServicesOfLine.Size = new System.Drawing.Size(345, 291);
             this.gcServicesOfLine.TabIndex = 51;
             this.gcServicesOfLine.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvServicesOfLine});
@@ -769,7 +839,7 @@
             this.rse_Width,
             this.rse_Price,
             this.rpLookupItem});
-            this.gcLines.Size = new System.Drawing.Size(771, 294);
+            this.gcLines.Size = new System.Drawing.Size(767, 260);
             this.gcLines.TabIndex = 0;
             this.gcLines.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvLines});
@@ -852,6 +922,12 @@
             this.tsIsTemplated_False.Size = new System.Drawing.Size(127, 22);
             this.tsIsTemplated_False.Text = "Şablonsuz";
             this.tsIsTemplated_False.Click += new System.EventHandler(this.tsIsTemplated_False_Click);
+            // 
+            // tsBulkAddServices
+            // 
+            this.tsBulkAddServices.Name = "tsBulkAddServices";
+            this.tsBulkAddServices.Size = new System.Drawing.Size(182, 22);
+            this.tsBulkAddServices.Text = "Xidmət Təyin Et";
             // 
             // gvLines
             // 
@@ -1024,7 +1100,7 @@
             this.gridColumn23.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.gridColumn23.Visible = true;
-            this.gridColumn23.VisibleIndex = 9;
+            this.gridColumn23.VisibleIndex = 8;
             this.gridColumn23.Width = 54;
             // 
             // gridColumn24
@@ -1052,7 +1128,7 @@
             this.gridColumn2.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 8;
+            this.gridColumn2.VisibleIndex = 9;
             this.gridColumn2.Width = 52;
             // 
             // gridColumn5
@@ -1097,9 +1173,9 @@
             this.pnlExecution.Controls.Add(this.btnCancel);
             this.pnlExecution.Controls.Add(this.btnOk);
             this.pnlExecution.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlExecution.Location = new System.Drawing.Point(0, 547);
+            this.pnlExecution.Location = new System.Drawing.Point(0, 513);
             this.pnlExecution.Name = "pnlExecution";
-            this.pnlExecution.Size = new System.Drawing.Size(1135, 43);
+            this.pnlExecution.Size = new System.Drawing.Size(1131, 43);
             this.pnlExecution.TabIndex = 3;
             // 
             // lblError
@@ -1109,7 +1185,7 @@
             this.lblError.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lblError.Location = new System.Drawing.Point(12, 15);
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(877, 16);
+            this.lblError.Size = new System.Drawing.Size(873, 16);
             this.lblError.TabIndex = 2;
             this.lblError.Text = "Error :";
             // 
@@ -1119,7 +1195,7 @@
             this.btnCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.btnCancel.Appearance.Options.UseFont = true;
             this.btnCancel.ImageOptions.Image = global::LecERP.Properties.Resources.cancel_16x161;
-            this.btnCancel.Location = new System.Drawing.Point(1014, 5);
+            this.btnCancel.Location = new System.Drawing.Point(1010, 5);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(113, 32);
             this.btnCancel.TabIndex = 1;
@@ -1132,24 +1208,18 @@
             this.btnOk.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.btnOk.Appearance.Options.UseFont = true;
             this.btnOk.ImageOptions.Image = global::LecERP.Properties.Resources.apply_16x161;
-            this.btnOk.Location = new System.Drawing.Point(895, 5);
+            this.btnOk.Location = new System.Drawing.Point(891, 5);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(113, 32);
             this.btnOk.TabIndex = 0;
             this.btnOk.Text = "Yaddaşa Yaz";
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
-            // tsBulkAddServices
-            // 
-            this.tsBulkAddServices.Name = "tsBulkAddServices";
-            this.tsBulkAddServices.Size = new System.Drawing.Size(182, 22);
-            this.tsBulkAddServices.Text = "Xidmət Təyin Et";
-            // 
             // Manp_FichesNew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1135, 590);
+            this.ClientSize = new System.Drawing.Size(1131, 556);
             this.Controls.Add(this.grpCenter);
             this.Controls.Add(this.pnlExecution);
             this.KeyPreview = true;
@@ -1166,9 +1236,10 @@
             this.tabPane2.ResumeLayout(false);
             this.tabNavigationPage3.ResumeLayout(false);
             this.tabNavigationPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpWarehouse.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spCurrencyRate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpCard.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LookUpWarehouse.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFicheno.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSourceDoc.Properties)).EndInit();
@@ -1178,15 +1249,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtNote2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNote3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNote4.Properties)).EndInit();
-            this.tabNavigationPage5.ResumeLayout(false);
+            this.tabNavigationExpencesPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcCashTrans)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvCashTrans)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grpLines)).EndInit();
             this.grpLines.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chkStoreLinePrice.Properties)).EndInit();
@@ -1245,29 +1310,17 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit rse_Lenth;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit rse_Width;
-        private DevExpress.XtraEditors.LookUpEdit LookUpWarehouse;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit rse_Price;
         private DevExpress.XtraEditors.TextEdit txtDate;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn23;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn24;
-        private DevExpress.XtraGrid.GridControl gcCashTrans;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvCashTrans;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn21;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn25;
-        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit1;
-        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit2;
-        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit3;
-        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit4;
-        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit5;
-        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit6;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn33;
         private DevExpress.XtraEditors.SimpleButton btnAddCashTran;
         private DevExpress.XtraBars.Navigation.TabPane tabPane2;
         private DevExpress.XtraBars.Navigation.TabNavigationPage tabNavigationPage3;
         private DevExpress.XtraBars.Navigation.TabNavigationPage tabNavigationPage4;
-        private DevExpress.XtraBars.Navigation.TabNavigationPage tabNavigationPage5;
+        private DevExpress.XtraBars.Navigation.TabNavigationPage tabNavigationExpencesPage;
         private DevExpress.XtraGrid.GridControl gcServicesOfLine;
         private DevExpress.XtraGrid.Views.Grid.GridView gvServicesOfLine;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
@@ -1302,5 +1355,20 @@
         private System.Windows.Forms.ToolStripMenuItem tsIsTemplated_True;
         private System.Windows.Forms.ToolStripMenuItem tsIsTemplated_False;
         private System.Windows.Forms.ToolStripMenuItem tsBulkAddServices;
+        private DevExpress.XtraEditors.LabelControl lblCurrencyName;
+        private DevExpress.XtraEditors.SpinEdit spCurrencyRate;
+        private DevExpress.XtraEditors.LabelControl labelControl11;
+        private DevExpress.XtraEditors.LookUpEdit lookUpWarehouse;
+        private DevExpress.XtraGrid.GridControl gcCashTrans;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvData;
+        private DevExpress.XtraGrid.Columns.GridColumn colId;
+        private DevExpress.XtraGrid.Columns.GridColumn colFicheno;
+        private DevExpress.XtraGrid.Columns.GridColumn colSourceCardName;
+        private DevExpress.XtraGrid.Columns.GridColumn colDestCardName;
+        private DevExpress.XtraGrid.Columns.GridColumn colTotal;
+        private DevExpress.XtraGrid.Columns.GridColumn colExchangeName;
+        private DevExpress.XtraGrid.Columns.GridColumn colNote;
+        private DevExpress.XtraGrid.Columns.GridColumn colCreatedDate;
+        private DevExpress.XtraEditors.SimpleButton btnDistributeExpences;
     }
 }

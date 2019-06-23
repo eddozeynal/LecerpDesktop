@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using LecERP.Models;
+using LecERP.Printing;
 //using LecERP.PrintDesign;
 
 namespace LecERP
@@ -30,7 +31,7 @@ namespace LecERP
             btnCreateInvoice.Enabled = StaticData.IsPermitted(23);
             tsPrintDocument.Enabled = StaticData.IsPermitted(24);
             tsExecutePayment.Enabled = StaticData.IsPermitted(33);
-            tsProcess.Enabled = StaticData.IsPermitted(35);
+            
         }
 
         private void Form_Fiches_Shown(object sender, EventArgs e)
@@ -39,7 +40,7 @@ namespace LecERP
 
             if (op_DocumentMasters.Successful)
             {
-                lookUpFicheType.Properties.DataSource = op_DocumentMasters.Value;
+                lookUpFicheType.Properties.DataSource = op_DocumentMasters.Value.Where(x=>x.Category1).ToList();
                 if (op_DocumentMasters.Value.Count > 0) lookUpFicheType.ItemIndex = 0;
             }
 
@@ -73,37 +74,37 @@ namespace LecERP
 
         void RefreshData()
         {
-            //if (lookUpFicheType.EditValue == null) return;
-            //Operation<List<FicheMasterView>> op_Fiches = OperationHandler.GetFiches(Convert.ToByte(lookUpFicheType.EditValue), dateBegin.DateTime, dateEnd.DateTime);
-            //gcData.DataSource = op_Fiches.Value;
+            if (lookUpFicheType.EditValue == null) return;
+            Operation<List<FicheMasterView>> op_Fiches = OperationHandler.GetFiches(Convert.ToByte(lookUpFicheType.EditValue), dateBegin.DateTime, dateEnd.DateTime);
+            gcData.DataSource = op_Fiches.Value;
         }
 
         private void lookUpFicheType_EditValueChanged(object sender, EventArgs e)
         {
-            gcData.DataSource = null;
+            RefreshData();
         }
 
         private void tsModify_Click(object sender, EventArgs e)
         {
-            //object objCurrentId = gvData.GetFocusedRowCellValue("Id");
-            //if (objCurrentId == null) return;
-            //int CurrentId = Convert.ToInt32(objCurrentId);
-            //Manp_FichesNew manp = new Manp_FichesNew();
-            //manp.Id = CurrentId;
-            //manp.IsEditMode = true;
-            //manp.ShowDialog();
-            //RefreshData();
+            object objCurrentId = gvData.GetFocusedRowCellValue("Id");
+            if (objCurrentId == null) return;
+            int CurrentId = Convert.ToInt32(objCurrentId);
+            Manp_FichesNew manp = new Manp_FichesNew();
+            manp.Id = CurrentId;
+            manp.IsEditMode = true;
+            manp.ShowDialog();
+            RefreshData();
         }
 
         void openForViewOnly()
         {
-            //object objCurrentId = gvData.GetFocusedRowCellValue("Id");
-            //if (objCurrentId == null) return;
-            //int CurrentId = Convert.ToInt32(objCurrentId);
-            //Manp_FichesNew manp = new Manp_FichesNew();
-            //manp.Id = CurrentId;
-            //manp.ShowDialog();
-            //RefreshData();
+            object objCurrentId = gvData.GetFocusedRowCellValue("Id");
+            if (objCurrentId == null) return;
+            int CurrentId = Convert.ToInt32(objCurrentId);
+            Manp_FichesNew manp = new Manp_FichesNew();
+            manp.Id = CurrentId;
+            manp.ShowDialog();
+            RefreshData();
         }
 
         private void tsView_Click(object sender, EventArgs e)
@@ -128,10 +129,10 @@ namespace LecERP
 
         private void tsPrintDocument_Click(object sender, EventArgs e)
         {
-            //object objCurrentId = gvData.GetFocusedRowCellValue("Id");
-            //if (objCurrentId == null) return;
-            //int CurrentId = Convert.ToInt32(objCurrentId);
-            //DocumentPrintHandler.PrintSaleInvoice(CurrentId);
+            object objCurrentId = gvData.GetFocusedRowCellValue("Id");
+            if (objCurrentId == null) return;
+            int CurrentId = Convert.ToInt32(objCurrentId);
+            DocumentPrintHandler.PrintSaleInvoice(CurrentId);
         }
 
         private void tsExecutePayment_Click(object sender, EventArgs e)

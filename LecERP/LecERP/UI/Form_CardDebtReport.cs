@@ -26,35 +26,32 @@ namespace LecERP
 
         private void Form_CardDebtReport_Shown(object sender, EventArgs e)
         {
-            gvData.AssignGridView(18);
+            
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             var list = OperationHandler.GetCardTotalsByInterval(StaticData.CurrentUserId, dateBegin.DateTime, dateEnd.DateTime).Value;
-            var extList = new List<CardTotalByIntervalViewAcc>();
-            foreach (var item in list)
-            {
-                CardTotalByIntervalViewAcc accItem = item.GetEligibleOjbect<CardTotalByIntervalViewAcc>();
-                if (accItem.RemByBegDate > 0)
-                {
-                    accItem.RemDebitByBegDate = accItem.RemByBegDate;
-                }
-                else
-                {
-                    accItem.RemCreditByBegDate = Math.Abs(accItem.RemByBegDate);
-                }
-                if (accItem.RemByEndDate > 0)
-                {
-                    accItem.RemDebitByEndDate = accItem.RemByEndDate;
-                }
-                else
-                {
-                    accItem.RemCreditByEndDate = Math.Abs(accItem.RemByEndDate);
-                }
-                extList.Add(accItem);
-            }
-            gcData.DataSource = extList;
+            //foreach (var accItem in list)
+            //{
+            //    if (accItem.RemByBegDate > 0)
+            //    {
+            //        accItem.RemDebitByBegDate = accItem.RemByBegDate;
+            //    }
+            //    else
+            //    {
+            //        accItem.RemCreditByBegDate = Math.Abs(accItem.RemByBegDate);
+            //    }
+            //    if (accItem.RemByEndDate > 0)
+            //    {
+            //        accItem.RemDebitByEndDate = accItem.RemByEndDate;
+            //    }
+            //    else
+            //    {
+            //        accItem.RemCreditByEndDate = Math.Abs(accItem.RemByEndDate);
+            //    }
+            //}
+            gcData.DataSource = list;
         }
 
         private void btnExcel_Click(object sender, EventArgs e)
@@ -69,12 +66,12 @@ namespace LecERP
 
         private void showCurrentCardHistory()
         {
-            object objCardId = gvData.GetFocusedRowCellValue("Id");
-            if (objCardId == null) return;
-            int CardId = Convert.ToInt32(objCardId);
-            Form_CardHistory cardHistoryFm = new Form_CardHistory();
-            cardHistoryFm.CardId = CardId;
-            cardHistoryFm.ShowDialog();
+            //object objCardId = gvData.GetFocusedRowCellValue("Id");
+            //if (objCardId == null) return;
+            //int CardId = Convert.ToInt32(objCardId);
+            //Form_CardHistory cardHistoryFm = new Form_CardHistory();
+            //cardHistoryFm.CardId = CardId;
+            //cardHistoryFm.ShowDialog();
         }
 
         private void gcData_KeyDown(object sender, KeyEventArgs e)

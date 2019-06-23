@@ -19,5 +19,5 @@ namespace LecERP.Models
     	public decimal Rate { get; set; }
 
     }
-            }
+}
             

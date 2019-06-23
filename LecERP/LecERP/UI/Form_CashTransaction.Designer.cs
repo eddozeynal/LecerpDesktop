@@ -30,6 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.grpTop = new DevExpress.XtraEditors.GroupControl();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.dateBegin = new DevExpress.XtraEditors.DateEdit();
+            this.dateEnd = new DevExpress.XtraEditors.DateEdit();
             this.btnRefresh = new DevExpress.XtraEditors.SimpleButton();
             this.gcData = new DevExpress.XtraGrid.GridControl();
             this.cmsMain = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -55,21 +59,17 @@
             this.colNote = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCreatedDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colConnectedInvoice = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.dateBegin = new DevExpress.XtraEditors.DateEdit();
-            this.dateEnd = new DevExpress.XtraEditors.DateEdit();
             ((System.ComponentModel.ISupportInitialize)(this.grpTop)).BeginInit();
             this.grpTop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gcData)).BeginInit();
-            this.cmsMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gvData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateBegin.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateBegin.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEnd.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEnd.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcData)).BeginInit();
+            this.cmsMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gvData)).BeginInit();
             this.SuspendLayout();
             // 
             // grpTop
@@ -87,6 +87,61 @@
             this.grpTop.Size = new System.Drawing.Size(1068, 58);
             this.grpTop.TabIndex = 0;
             this.grpTop.Text = "Seçimlər";
+            // 
+            // panelControl2
+            // 
+            this.panelControl2.Controls.Add(this.labelControl2);
+            this.panelControl2.Controls.Add(this.dateBegin);
+            this.panelControl2.Controls.Add(this.dateEnd);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelControl2.Location = new System.Drawing.Point(2, 23);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(425, 33);
+            this.panelControl2.TabIndex = 8;
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.labelControl2.Appearance.Options.UseFont = true;
+            this.labelControl2.Location = new System.Drawing.Point(5, 9);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(92, 16);
+            this.labelControl2.TabIndex = 1;
+            this.labelControl2.Text = "Əməliyyat Tarixi";
+            // 
+            // dateBegin
+            // 
+            this.dateBegin.EditValue = null;
+            this.dateBegin.Location = new System.Drawing.Point(110, 8);
+            this.dateBegin.Name = "dateBegin";
+            this.dateBegin.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateBegin.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateBegin.Properties.DisplayFormat.FormatString = "dd.MM.yyyy HH:mm:ss";
+            this.dateBegin.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.dateBegin.Properties.EditFormat.FormatString = "dd.MM.yyyy HH:mm:ss";
+            this.dateBegin.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.dateBegin.Properties.Mask.EditMask = "dd.MM.yyyy HH:mm:ss";
+            this.dateBegin.Size = new System.Drawing.Size(150, 20);
+            this.dateBegin.TabIndex = 2;
+            // 
+            // dateEnd
+            // 
+            this.dateEnd.EditValue = null;
+            this.dateEnd.Location = new System.Drawing.Point(264, 8);
+            this.dateEnd.Name = "dateEnd";
+            this.dateEnd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEnd.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEnd.Properties.DisplayFormat.FormatString = "dd.MM.yyyy HH:mm:ss";
+            this.dateEnd.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.dateEnd.Properties.EditFormat.FormatString = "dd.MM.yyyy HH:mm:ss";
+            this.dateEnd.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.dateEnd.Properties.Mask.EditMask = "dd.MM.yyyy HH:mm:ss";
+            this.dateEnd.Size = new System.Drawing.Size(150, 20);
+            this.dateEnd.TabIndex = 3;
             // 
             // btnRefresh
             // 
@@ -291,7 +346,7 @@
             // colExchangeName
             // 
             this.colExchangeName.Caption = "Məzənnə";
-            this.colExchangeName.FieldName = "ExchangeName";
+            this.colExchangeName.FieldName = "CurrencyName";
             this.colExchangeName.Name = "colExchangeName";
             this.colExchangeName.OptionsColumn.AllowEdit = false;
             this.colExchangeName.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
@@ -356,61 +411,6 @@
             this.colConnectedInvoice.VisibleIndex = 11;
             this.colConnectedInvoice.Width = 80;
             // 
-            // panelControl2
-            // 
-            this.panelControl2.Controls.Add(this.labelControl2);
-            this.panelControl2.Controls.Add(this.dateBegin);
-            this.panelControl2.Controls.Add(this.dateEnd);
-            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelControl2.Location = new System.Drawing.Point(2, 23);
-            this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(425, 33);
-            this.panelControl2.TabIndex = 8;
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(5, 9);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(92, 16);
-            this.labelControl2.TabIndex = 1;
-            this.labelControl2.Text = "Əməliyyat Tarixi";
-            // 
-            // dateBegin
-            // 
-            this.dateBegin.EditValue = null;
-            this.dateBegin.Location = new System.Drawing.Point(110, 8);
-            this.dateBegin.Name = "dateBegin";
-            this.dateBegin.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateBegin.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateBegin.Properties.DisplayFormat.FormatString = "dd.MM.yyyy HH:mm:ss";
-            this.dateBegin.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.dateBegin.Properties.EditFormat.FormatString = "dd.MM.yyyy HH:mm:ss";
-            this.dateBegin.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.dateBegin.Properties.Mask.EditMask = "dd.MM.yyyy HH:mm:ss";
-            this.dateBegin.Size = new System.Drawing.Size(150, 20);
-            this.dateBegin.TabIndex = 2;
-            // 
-            // dateEnd
-            // 
-            this.dateEnd.EditValue = null;
-            this.dateEnd.Location = new System.Drawing.Point(264, 8);
-            this.dateEnd.Name = "dateEnd";
-            this.dateEnd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEnd.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEnd.Properties.DisplayFormat.FormatString = "dd.MM.yyyy HH:mm:ss";
-            this.dateEnd.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.dateEnd.Properties.EditFormat.FormatString = "dd.MM.yyyy HH:mm:ss";
-            this.dateEnd.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.dateEnd.Properties.Mask.EditMask = "dd.MM.yyyy HH:mm:ss";
-            this.dateEnd.Size = new System.Drawing.Size(150, 20);
-            this.dateEnd.TabIndex = 3;
-            // 
             // Form_CashTransaction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -424,9 +424,6 @@
             this.Shown += new System.EventHandler(this.Form_CashTransaction_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.grpTop)).EndInit();
             this.grpTop.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gcData)).EndInit();
-            this.cmsMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gvData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             this.panelControl2.PerformLayout();
@@ -434,6 +431,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateBegin.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEnd.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEnd.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcData)).EndInit();
+            this.cmsMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gvData)).EndInit();
             this.ResumeLayout(false);
 
         }

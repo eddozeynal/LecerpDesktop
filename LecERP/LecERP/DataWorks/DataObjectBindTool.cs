@@ -55,6 +55,7 @@ namespace LecERP
                     if (control is GridLookUpEdit) (control as GridLookUpEdit).EditValue = value;
                     if (control is SearchLookUpEdit) (control as SearchLookUpEdit).EditValue = value;
                     if (control is SpinEdit) (control as SpinEdit).EditValue = value;
+                    if (control is DateEdit) (control as DateEdit).EditValue = value;
                     //object value = p.GetValue(_dataObject);
                     //controls[i].Text = value.ToString();
                 }
@@ -78,6 +79,7 @@ namespace LecERP
                     if (control is GridLookUpEdit) { p.SetValue(_dataObject, (control as GridLookUpEdit).EditValue); continue; }
                     if (control is SearchLookUpEdit) { p.SetValue(_dataObject, (control as SearchLookUpEdit).EditValue); continue; }
                     if (control is SpinEdit) { p.SetValue(_dataObject, (control as SpinEdit).EditValue); continue; }
+                    if (control is DateEdit) { p.SetValue(_dataObject, (control as DateEdit).EditValue); continue; }
                     p.SetValue(_dataObject, control.Text);
                     //object value = p.GetValue(_dataObject);
                     //controls[i].Text = value.ToString();

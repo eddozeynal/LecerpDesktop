@@ -4,7 +4,7 @@ using System.Collections;
 using System.ComponentModel;
 using DevExpress.XtraReports.UI;
 
-namespace LecERP.PrintDesign
+namespace LecERP.Printing
 {
     public partial class SaleInvoiceDesign : DevExpress.XtraReports.UI.XtraReport
     {

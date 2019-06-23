@@ -14,7 +14,7 @@ namespace LecERP
         public List<CardView> Cards {get; private set;}
         public List<Warehouse> Warehouses {get; private set;}
         public List<ItemPrice> ItemPrices {get; private set;}
-        public List<DocumentMaster> DocumentMasters {get; private set;}
+        public List<DocumentMaster> DocumentTypes {get; private set;}
         public List<LineCalcType> LineCalcTypes {get; private set;}
         public List<ItemType> ItemTypes { get; private set; }
         public List<CardType> CardTypes { get; private set; }
@@ -55,7 +55,7 @@ namespace LecERP
             Currencies = op_Currencies.Value;
             CashTypes = op_CashTypes.Value;
             DocumentStatusTypes = op_DocumentStatusTypes.Value;
-            DocumentMasters = op_DocumentMasters.Value;
+            DocumentTypes = op_DocumentMasters.Value;
             return new BaseOperation { Successful = true };
         }
 
