@@ -1,5 +1,4 @@
-﻿using ERPService.Models;
-using LecERP.Models;
+﻿using LecERP.Models;
 using LecERP.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -459,6 +458,15 @@ namespace LecERP
             Operation<FicheMasterView> operation = client.Get<FicheMasterView>(method);
             return operation;
         }
+
+        public static Operation<CardFiche> GetCardFicheById(int Id)
+        {
+            ServiceClient client = new ServiceClient();
+            string method = "GetCardFicheById/{0}";
+            method = string.Format(method, Id);
+            Operation<CardFiche> operation = client.Get<CardFiche>(method);
+            return operation;
+        }
         //public static Operation<List<PermissionMaster>> GetPermissionMasters()
         //{
         //    IServiceGate<List<PermissionMaster>> sw = GateHandler.GetServiceGate<List<PermissionMaster>>();
@@ -474,52 +482,30 @@ namespace LecERP
         //    Operation<List<PermissionDetail>> op_ = sw.Get(method);
         //    return op_;
         //}
-        public static Operation<CashTransaction> GetCashTransactionById(int CashTransactionId)
-        {
-            ServiceClient client = new ServiceClient();
-            string method = "GetCashTransactionById/{0}";
-            method = string.Format(method, CashTransactionId);
-            Operation<CashTransaction> operation = client.Get<CashTransaction>(method);
-            return operation;
-        }
-        public static Operation<ExchangeTransaction> GetExchangeTransactionById(int CashTransactionId)
-        {
-            ServiceClient client = new ServiceClient();
-            string method = "GetExchangeTransactionById/{0}";
-            method = string.Format(method, CashTransactionId);
-            Operation<ExchangeTransaction> operation = client.Get<ExchangeTransaction>(method);
-            return operation;
-        }
-        public static Operation<CashTransaction> PostCashTransaction(CashTransaction cashTransaction)
+      
+        public static Operation<CardFiche> PostCardFiche(CardFiche cardFiche)
         {
             ServiceClient client = new ServiceClient();
             Dictionary<string, object> prms = new Dictionary<string, object>();
-            prms["cashTransaction"] = cashTransaction;
-            Operation<CashTransaction> operation = client.Post<CashTransaction>("PostCashTransaction", prms);
+            prms["cardFiche"] = cardFiche;
+            Operation<CardFiche> operation = client.Post<CardFiche>("PostCardFiche", prms);
             return operation;
         }
-        public static Operation<ExchangeTransaction> PostExchangeTransaction(ExchangeTransaction exchangeTransaction)
+      
+        public static Operation<List<CardFicheLineView>> GetCardFicheLinesView(DateTime dateBegin, DateTime dateEnd, int userId)
         {
             ServiceClient client = new ServiceClient();
-            Dictionary<string, object> prms = new Dictionary<string, object>();
-            prms["exchangeTransaction"] = exchangeTransaction;
-            Operation<ExchangeTransaction> operation = client.Post<ExchangeTransaction>("PostExchangeTransaction", prms);
-            return operation;
-        }
-        public static Operation<List<CashTransactionView>> GetCashTransactionsView(DateTime dateBegin, DateTime dateEnd, int userId)
-        {
-            ServiceClient client = new ServiceClient();
-            string method = "GetCashTransactionsView/{0}/{1}/{2}";
+            string method = "GetCardFicheLinesView/{0}/{1}/{2}";
             method = string.Format(method, dateBegin.GetFormattedStringFromDate(), dateEnd.GetFormattedStringFromDate(), userId);
-            Operation<List<CashTransactionView>> operation = client.Get<List<CashTransactionView>>(method);
+            Operation<List<CardFicheLineView>> operation = client.Get<List<CardFicheLineView>>(method);
             return operation;
         }
-        public static Operation<List<ExchangeTransactionView>> GetExchangeTransactionsView(DateTime dateBegin, DateTime dateEnd, int userId)
+         public static Operation<List<CardView>> GetCardsByUserId(int userId)
         {
             ServiceClient client = new ServiceClient();
-            string method = "GetExchangeTransactionsView/{0}/{1}/{2}";
-            method = string.Format(method, dateBegin.GetFormattedStringFromDate(), dateEnd.GetFormattedStringFromDate(), userId);
-            Operation<List<ExchangeTransactionView>> operation = client.Get<List<ExchangeTransactionView>>(method);
+            string method = "GetCardsByUserId/{0}";
+            method = string.Format(method, userId);
+            Operation<List<CardView>> operation = client.Get<List<CardView>>(method);
             return operation;
         }
         //public static Operation<List<CardTransactionView>> GetCardTransactionViewByCardId(int cardId, DateTime dateBegin, DateTime dateEnd)
@@ -592,13 +578,6 @@ namespace LecERP
         //    return op_;
         //}
 
-        public static Operation<List<CashTransactionView>> GetCashTransactionsViewByFiche(int FicheId)
-        {
-            ServiceClient client = new ServiceClient();
-            string method = "GetCashTransactionsViewByFiche/{0}";
-            method = string.Format(method, FicheId);
-            Operation<List<CashTransactionView>> op_ = client.Get<List<CashTransactionView>>(method);
-            return op_;
-        }
+       
     }
 }

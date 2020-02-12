@@ -47,15 +47,16 @@ namespace LecERP
                 if (p != null)
                 {
                     object value = p.GetValue(_dataObject);
-                    if (value == null) return;
+                    if (value == null) continue;
                     Control control = controls[i];
-                    if (control is TextEdit) control.Text = value.ToString();
-                    if (control is CheckEdit) (control as CheckEdit).Checked = Convert.ToBoolean(value);
-                    if (control is LookUpEdit) (control as LookUpEdit).EditValue = value;
-                    if (control is GridLookUpEdit) (control as GridLookUpEdit).EditValue = value;
-                    if (control is SearchLookUpEdit) (control as SearchLookUpEdit).EditValue = value;
-                    if (control is SpinEdit) (control as SpinEdit).EditValue = value;
-                    if (control is DateEdit) (control as DateEdit).EditValue = value;
+                    if (control is BaseEdit) (control as BaseEdit).EditValue = value;
+                    //if (control is TextEdit) control.Text = value.ToString();
+                    //if (control is CheckEdit) (control as CheckEdit).Checked = Convert.ToBoolean(value);
+                    //if (control is LookUpEdit) (control as LookUpEdit).EditValue = value;
+                    //if (control is GridLookUpEdit) (control as GridLookUpEdit).EditValue = value;
+                    //if (control is SearchLookUpEdit) (control as SearchLookUpEdit).EditValue = value;
+                    //if (control is SpinEdit) (control as SpinEdit).EditValue = value;
+                    //if (control is DateEdit) (control as DateEdit).EditValue = value;
                     //object value = p.GetValue(_dataObject);
                     //controls[i].Text = value.ToString();
                 }

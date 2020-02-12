@@ -21,5 +21,4 @@ namespace LecERP.Models
     	public bool TransactionCalculated { get; set; }
 
     }
-            }
-            
+}

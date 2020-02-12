@@ -23,5 +23,5 @@ namespace LecERP.Models
     	public bool IsAdmin { get; set; }
 
     }
-            }
+}
             

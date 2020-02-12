@@ -53,6 +53,7 @@ namespace LecERP
         public static List<Parameter> BaseSettings { get; set; }
 
 
+        public static Currency MainCurrency { get { return new Currency { Id = 1, CurrencyName = "AZN" }; } }
 
 
         public static void RetrieveAppSettings()

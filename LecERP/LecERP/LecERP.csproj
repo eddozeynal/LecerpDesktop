@@ -115,6 +115,10 @@
     <Compile Include="Configuration\ConnectionConfiguration.cs" />
     <Compile Include="DataWorks\DataHolder.cs" />
     <Compile Include="DataWorks\DataObjectBindTool.cs" />
+    <Compile Include="Models\CardFiche.cs" />
+    <Compile Include="Models\CardFicheLine.cs" />
+    <Compile Include="Models\CardFicheLineView.cs" />
+    <Compile Include="Models\FicheExpence.cs" />
     <Compile Include="UI\Form_WorkStateView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,8 +205,6 @@
     <Compile Include="Models\CardView.cs" />
     <Compile Include="Models\CardPermission.cs" />
     <Compile Include="Models\CardType.cs" />
-    <Compile Include="Models\CashTransaction.cs" />
-    <Compile Include="Models\CashTransactionView.cs" />
     <Compile Include="Models\CashType.cs" />
     <Compile Include="Models\CompanyParameter.cs" />
     <Compile Include="Models\Currency.cs" />
@@ -210,8 +212,6 @@
     <Compile Include="Models\DataLog.cs" />
     <Compile Include="Models\DocumentMaster.cs" />
     <Compile Include="Models\DocumentStatusType.cs" />
-    <Compile Include="Models\ExchangeTransaction.cs" />
-    <Compile Include="Models\ExchangeTransactionView.cs" />
     <Compile Include="Models\FicheLine.cs" />
     <Compile Include="Models\FicheLineService.cs" />
     <Compile Include="Models\FicheMaster.cs" />
@@ -248,17 +248,11 @@
     <Compile Include="UI\Form_Cards.Designer.cs">
       <DependentUpon>Form_Cards.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form_CashTransaction.cs">
+    <Compile Include="UI\Form_CardTransaction.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Form_CashTransaction.Designer.cs">
-      <DependentUpon>Form_CashTransaction.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Form_CurrencyExchange.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Form_CurrencyExchange.designer.cs">
-      <DependentUpon>Form_CurrencyExchange.cs</DependentUpon>
+    <Compile Include="UI\Form_CardTransaction.Designer.cs">
+      <DependentUpon>Form_CardTransaction.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Form_Fiches.cs">
       <SubType>Form</SubType>
@@ -311,17 +305,11 @@
     <Compile Include="UI\Manp_Cards.designer.cs">
       <DependentUpon>Manp_Cards.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Manp_CashTransaction.cs">
+    <Compile Include="UI\Manp_CardTransaction.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Manp_CashTransaction.designer.cs">
-      <DependentUpon>Manp_CashTransaction.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Manp_CurrencyExchange.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Manp_CurrencyExchange.designer.cs">
-      <DependentUpon>Manp_CurrencyExchange.cs</DependentUpon>
+    <Compile Include="UI\Manp_CardTransaction.designer.cs">
+      <DependentUpon>Manp_CardTransaction.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Manp_DataPermissions.cs">
       <SubType>Form</SubType>
@@ -397,11 +385,8 @@
     <EmbeddedResource Include="UI\Form_Cards.resx">
       <DependentUpon>Form_Cards.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Form_CashTransaction.resx">
-      <DependentUpon>Form_CashTransaction.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Form_CurrencyExchange.resx">
-      <DependentUpon>Form_CurrencyExchange.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Form_CardTransaction.resx">
+      <DependentUpon>Form_CardTransaction.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Form_Fiches.resx">
       <DependentUpon>Form_Fiches.cs</DependentUpon>
@@ -435,11 +420,8 @@
     <EmbeddedResource Include="UI\Manp_Cards.resx">
       <DependentUpon>Manp_Cards.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Manp_CashTransaction.resx">
-      <DependentUpon>Manp_CashTransaction.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Manp_CurrencyExchange.resx">
-      <DependentUpon>Manp_CurrencyExchange.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Manp_CardTransaction.resx">
+      <DependentUpon>Manp_CardTransaction.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Manp_DataPermissions.resx">
       <DependentUpon>Manp_DataPermissions.cs</DependentUpon>

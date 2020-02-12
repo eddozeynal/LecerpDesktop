@@ -10,7 +10,7 @@ namespace LecERP
 {
     class NewtonsoftJsonSerializerForRestSharp : RestSharp.Serializers.ISerializer, RestSharp.Deserializers.IDeserializer
     {
-        private Newtonsoft.Json.JsonSerializer serializer;
+        private JsonSerializer serializer;
 
         public NewtonsoftJsonSerializerForRestSharp(Newtonsoft.Json.JsonSerializer serializer)
         {

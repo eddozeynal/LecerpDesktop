@@ -31,24 +31,23 @@
             this.components = new System.ComponentModel.Container();
             this.xtraTDMain = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.navbarMain = new DevExpress.XtraNavBar.NavBarControl();
-            this.nvAdministration = new DevExpress.XtraNavBar.NavBarGroup();
-            this.nvUsers = new DevExpress.XtraNavBar.NavBarItem();
-            this.nvSettings = new DevExpress.XtraNavBar.NavBarItem();
-            this.nvWorkStateView = new DevExpress.XtraNavBar.NavBarItem();
+            this.nvProcesses = new DevExpress.XtraNavBar.NavBarGroup();
+            this.nvFiches = new DevExpress.XtraNavBar.NavBarItem();
+            this.nvCashTransaction = new DevExpress.XtraNavBar.NavBarItem();
+            this.nvWarehouseProcesses = new DevExpress.XtraNavBar.NavBarItem();
             this.nvDeclarations = new DevExpress.XtraNavBar.NavBarGroup();
             this.nvItems = new DevExpress.XtraNavBar.NavBarItem();
             this.nvCards = new DevExpress.XtraNavBar.NavBarItem();
             this.nvPrices = new DevExpress.XtraNavBar.NavBarItem();
             this.nvCurrencyByDate = new DevExpress.XtraNavBar.NavBarItem();
-            this.nvProcesses = new DevExpress.XtraNavBar.NavBarGroup();
-            this.nvFiches = new DevExpress.XtraNavBar.NavBarItem();
-            this.nvCashTransaction = new DevExpress.XtraNavBar.NavBarItem();
-            this.nvCurrencyExchanges = new DevExpress.XtraNavBar.NavBarItem();
-            this.nvWarehouseProcesses = new DevExpress.XtraNavBar.NavBarItem();
             this.nvReports = new DevExpress.XtraNavBar.NavBarGroup();
             this.nv_CardDebtReport = new DevExpress.XtraNavBar.NavBarItem();
             this.nv_ItemReport = new DevExpress.XtraNavBar.NavBarItem();
             this.nvFicheReportLineView = new DevExpress.XtraNavBar.NavBarItem();
+            this.nvAdministration = new DevExpress.XtraNavBar.NavBarGroup();
+            this.nvUsers = new DevExpress.XtraNavBar.NavBarItem();
+            this.nvSettings = new DevExpress.XtraNavBar.NavBarItem();
+            this.nvWorkStateView = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTDMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navbarMain)).BeginInit();
             this.SuspendLayout();
@@ -60,7 +59,7 @@
             // 
             // navbarMain
             // 
-            this.navbarMain.ActiveGroup = this.nvAdministration;
+            this.navbarMain.ActiveGroup = this.nvProcesses;
             this.navbarMain.Dock = System.Windows.Forms.DockStyle.Left;
             this.navbarMain.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
             this.nvDeclarations,
@@ -77,7 +76,6 @@
             this.nv_CardDebtReport,
             this.nvSettings,
             this.nv_ItemReport,
-            this.nvCurrencyExchanges,
             this.nvCurrencyByDate,
             this.nvWarehouseProcesses,
             this.nvFicheReportLineView,
@@ -86,42 +84,41 @@
             this.navbarMain.Name = "navbarMain";
             this.navbarMain.OptionsNavPane.ExpandedWidth = 173;
             this.navbarMain.PaintStyleKind = DevExpress.XtraNavBar.NavBarViewKind.NavigationPane;
-            this.navbarMain.Size = new System.Drawing.Size(173, 447);
+            this.navbarMain.Size = new System.Drawing.Size(173, 735);
             this.navbarMain.TabIndex = 1;
             this.navbarMain.Text = "navBarControl1";
             // 
-            // nvAdministration
+            // nvProcesses
             // 
-            this.nvAdministration.Caption = "Administrasiya";
-            this.nvAdministration.Expanded = true;
-            this.nvAdministration.ImageOptions.SmallImage = global::LecERP.Properties.Resources.bouser_16x16;
-            this.nvAdministration.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nvUsers),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nvSettings),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nvWorkStateView)});
-            this.nvAdministration.Name = "nvAdministration";
+            this.nvProcesses.Caption = "Proseslər";
+            this.nvProcesses.Expanded = true;
+            this.nvProcesses.ImageOptions.SmallImage = global::LecERP.Properties.Resources.properties_16x16;
+            this.nvProcesses.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nvFiches),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nvCashTransaction),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nvWarehouseProcesses)});
+            this.nvProcesses.Name = "nvProcesses";
             // 
-            // nvUsers
+            // nvFiches
             // 
-            this.nvUsers.Caption = "İstifadəçilər";
-            this.nvUsers.ImageOptions.SmallImage = global::LecERP.Properties.Resources.bouser_32x32;
-            this.nvUsers.Name = "nvUsers";
-            this.nvUsers.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nvUsers_LinkClicked);
+            this.nvFiches.Caption = "Qaimələr";
+            this.nvFiches.ImageOptions.SmallImage = global::LecERP.Properties.Resources.invoiceee2424;
+            this.nvFiches.Name = "nvFiches";
+            this.nvFiches.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nvFiches_LinkClicked);
             // 
-            // nvSettings
+            // nvCashTransaction
             // 
-            this.nvSettings.Caption = "Parametrlər";
-            this.nvSettings.ImageOptions.SmallImage = global::LecERP.Properties.Resources.technology_32x32;
-            this.nvSettings.Name = "nvSettings";
-            this.nvSettings.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nvSettings_LinkClicked);
+            this.nvCashTransaction.Caption = "Kassa Əməliyyatları";
+            this.nvCashTransaction.ImageOptions.SmallImage = global::LecERP.Properties.Resources.safe_icon_png_2424;
+            this.nvCashTransaction.Name = "nvCashTransaction";
+            this.nvCashTransaction.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nvCashTransaction_LinkClicked);
             // 
-            // nvWorkStateView
+            // nvWarehouseProcesses
             // 
-            this.nvWorkStateView.Caption = "Ştat";
-            this.nvWorkStateView.ImageOptions.LargeImage = global::LecERP.Properties.Resources.expandfieldpivottable_32x32;
-            this.nvWorkStateView.ImageOptions.SmallImage = global::LecERP.Properties.Resources.expandfieldpivottable_32x32;
-            this.nvWorkStateView.Name = "nvWorkStateView";
-            this.nvWorkStateView.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nvWorkStateView_LinkClicked);
+            this.nvWarehouseProcesses.Caption = "Anbar Əməliyyatları";
+            this.nvWarehouseProcesses.ImageOptions.SmallImage = global::LecERP.Properties.Resources.rsz_whproc_24;
+            this.nvWarehouseProcesses.Name = "nvWarehouseProcesses";
+            this.nvWarehouseProcesses.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nvWarehouseProcesses_LinkClicked);
             // 
             // nvDeclarations
             // 
@@ -162,45 +159,6 @@
             this.nvCurrencyByDate.Name = "nvCurrencyByDate";
             this.nvCurrencyByDate.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nvCurrencyByDate_LinkClicked);
             // 
-            // nvProcesses
-            // 
-            this.nvProcesses.Caption = "Proseslər";
-            this.nvProcesses.ImageOptions.SmallImage = global::LecERP.Properties.Resources.properties_16x16;
-            this.nvProcesses.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nvFiches),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nvCashTransaction),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nvCurrencyExchanges),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nvWarehouseProcesses)});
-            this.nvProcesses.Name = "nvProcesses";
-            // 
-            // nvFiches
-            // 
-            this.nvFiches.Caption = "Qaimələr";
-            this.nvFiches.ImageOptions.SmallImage = global::LecERP.Properties.Resources.invoiceee2424;
-            this.nvFiches.Name = "nvFiches";
-            this.nvFiches.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nvFiches_LinkClicked);
-            // 
-            // nvCashTransaction
-            // 
-            this.nvCashTransaction.Caption = "Kassa Tranzaksiya";
-            this.nvCashTransaction.ImageOptions.SmallImage = global::LecERP.Properties.Resources.safe_icon_png_2424;
-            this.nvCashTransaction.Name = "nvCashTransaction";
-            this.nvCashTransaction.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nvCashTransaction_LinkClicked);
-            // 
-            // nvCurrencyExchanges
-            // 
-            this.nvCurrencyExchanges.Caption = "Məzənnə Dəyişmə";
-            this.nvCurrencyExchanges.ImageOptions.SmallImage = global::LecERP.Properties.Resources.exch_2424;
-            this.nvCurrencyExchanges.Name = "nvCurrencyExchanges";
-            this.nvCurrencyExchanges.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nvCurrencyExchanges_LinkClicked);
-            // 
-            // nvWarehouseProcesses
-            // 
-            this.nvWarehouseProcesses.Caption = "Anbar Əməliyyatları";
-            this.nvWarehouseProcesses.ImageOptions.SmallImage = global::LecERP.Properties.Resources.rsz_whproc_24;
-            this.nvWarehouseProcesses.Name = "nvWarehouseProcesses";
-            this.nvWarehouseProcesses.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nvWarehouseProcesses_LinkClicked);
-            // 
             // nvReports
             // 
             this.nvReports.Caption = "Raportlar";
@@ -233,11 +191,43 @@
             this.nvFicheReportLineView.Name = "nvFicheReportLineView";
             this.nvFicheReportLineView.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nvFicheReportLineView_LinkClicked);
             // 
+            // nvAdministration
+            // 
+            this.nvAdministration.Caption = "Administrasiya";
+            this.nvAdministration.ImageOptions.SmallImage = global::LecERP.Properties.Resources.bouser_16x16;
+            this.nvAdministration.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nvUsers),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nvSettings),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nvWorkStateView)});
+            this.nvAdministration.Name = "nvAdministration";
+            // 
+            // nvUsers
+            // 
+            this.nvUsers.Caption = "İstifadəçilər";
+            this.nvUsers.ImageOptions.SmallImage = global::LecERP.Properties.Resources.bouser_32x32;
+            this.nvUsers.Name = "nvUsers";
+            this.nvUsers.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nvUsers_LinkClicked);
+            // 
+            // nvSettings
+            // 
+            this.nvSettings.Caption = "Parametrlər";
+            this.nvSettings.ImageOptions.SmallImage = global::LecERP.Properties.Resources.technology_32x32;
+            this.nvSettings.Name = "nvSettings";
+            this.nvSettings.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nvSettings_LinkClicked);
+            // 
+            // nvWorkStateView
+            // 
+            this.nvWorkStateView.Caption = "Ştat";
+            this.nvWorkStateView.ImageOptions.LargeImage = global::LecERP.Properties.Resources.expandfieldpivottable_32x32;
+            this.nvWorkStateView.ImageOptions.SmallImage = global::LecERP.Properties.Resources.expandfieldpivottable_32x32;
+            this.nvWorkStateView.Name = "nvWorkStateView";
+            this.nvWorkStateView.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nvWorkStateView_LinkClicked);
+            // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1053, 447);
+            this.ClientSize = new System.Drawing.Size(1164, 735);
             this.Controls.Add(this.navbarMain);
             this.IsMdiContainer = true;
             this.Name = "Form_Main";
@@ -267,7 +257,6 @@
         private DevExpress.XtraNavBar.NavBarItem nv_CardDebtReport;
         private DevExpress.XtraNavBar.NavBarItem nvSettings;
         private DevExpress.XtraNavBar.NavBarItem nv_ItemReport;
-        private DevExpress.XtraNavBar.NavBarItem nvCurrencyExchanges;
         private DevExpress.XtraNavBar.NavBarItem nvCurrencyByDate;
         private DevExpress.XtraNavBar.NavBarItem nvWarehouseProcesses;
         private DevExpress.XtraNavBar.NavBarItem nvFicheReportLineView;

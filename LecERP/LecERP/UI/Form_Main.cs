@@ -50,17 +50,21 @@ namespace LecERP
         {
             Form_Login form_Login = new Form_Login();
             form_Login.ShowDialog();
-            StaticData.RetrieveAppSettings();
-            nvItems.Enabled = StaticData.IsPermitted(2);
-            nvCards.Enabled = StaticData.IsPermitted(6);
-            nvPrices.Enabled = StaticData.IsPermitted(10);
-            nvFiches.Enabled = StaticData.IsPermitted(12);
-            nvCashTransaction.Enabled = StaticData.IsPermitted(13);
-            nv_CardDebtReport.Enabled = StaticData.IsPermitted(15);
-            nvWarehouseProcesses.Enabled = StaticData.IsPermitted(42);
-            nv_ItemReport.Enabled = StaticData.IsPermitted(43);
-            nvFicheReportLineView.Enabled = StaticData.IsPermitted(44);
-            nvUsers.Enabled = StaticData.CurrentUser.IsAdmin;
+            if (StaticData.CurrentUser != null)
+            {
+                StaticData.RetrieveAppSettings();
+                nvItems.Enabled = StaticData.IsPermitted(2);
+                nvCards.Enabled = StaticData.IsPermitted(6);
+                nvPrices.Enabled = StaticData.IsPermitted(10);
+                nvFiches.Enabled = StaticData.IsPermitted(12);
+                nvCashTransaction.Enabled = StaticData.IsPermitted(13);
+                nv_CardDebtReport.Enabled = StaticData.IsPermitted(15);
+                nvWarehouseProcesses.Enabled = StaticData.IsPermitted(42);
+                nv_ItemReport.Enabled = StaticData.IsPermitted(43);
+                nvFicheReportLineView.Enabled = StaticData.IsPermitted(44);
+                nvUsers.Enabled = StaticData.CurrentUser.IsAdmin;
+            }
+
             
         }
 
@@ -81,7 +85,7 @@ namespace LecERP
 
         private void nvCashTransaction_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            FormHolder.Populate(typeof(Form_CashTransaction), e.Link.Caption);
+            FormHolder.Populate(typeof(Form_CardTransaction), e.Link.Caption);
         }
 
         private void nv_CardDebtReport_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
@@ -92,11 +96,6 @@ namespace LecERP
         private void nv_ItemReport_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
            // FormHolder.Populate(typeof(Form_ItemReport), e.Link.Caption);
-        }
-
-        private void nvCurrencyExchanges_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
-        {
-            FormHolder.Populate(typeof(Form_CurrencyExchange), e.Link.Caption);
         }
 
         private void nvSettings_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)

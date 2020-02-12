@@ -13,7 +13,6 @@ using DevExpress.XtraGrid.Views.Base;
 using LecERP.ViewModels;
 using DevExpress.XtraGrid.Views.Grid;
 using LecERP.Models;
-using ERPService.Models;
 
 namespace LecERP
 {
@@ -73,7 +72,7 @@ namespace LecERP
             rpLookupItem.ValueMember = "Id";
             lookUpWarehouse.Properties.DataSource = dataHolder.Warehouses;
             
-            foreach (ItemView item in dataHolder.Items.Where(x => x.ItemTypeId == 2))
+            foreach (ItemView item in dataHolder.Items.Where(x => x.IsLineService))
             {
                 ToolStripMenuItem menuItem = new ToolStripMenuItem();
                 menuItem.Tag = item.Id;
@@ -282,19 +281,19 @@ namespace LecERP
 
         private void btnAddCashTran_Click(object sender, EventArgs e)
         {
-            if (Fiche.Id == 0)
-            {
-                XtraMessageBox.Show("Əvvəlcə Yaddaşa Yazın !");
-                return;
-            }
-            Manp_CashTransaction cashTransaction = new Manp_CashTransaction(0, 0, 0, string.Empty, Fiche.Id, 0);
-            cashTransaction.ShowDialog();
-            RefreshCashTrans();
+            //if (Fiche.Id == 0)
+            //{
+            //    XtraMessageBox.Show("Əvvəlcə Yaddaşa Yazın !");
+            //    return;
+            //}
+            //Manp_CardTransaction cashTransaction = new Manp_CardTransaction(0, 0, 0, string.Empty, Fiche.Id, 0);
+            //cashTransaction.ShowDialog();
+            //RefreshCashTrans();
         }
 
         private void RefreshCashTrans()
         {
-            gcCashTrans.DataSource = OperationHandler.GetCashTransactionsViewByFiche(Id).Value;
+            //gcCashTrans.DataSource = OperationHandler.GetCashTransactionsViewByFiche(Id).Value;
         }
 
         private void gvLines_ShownEditor(object sender, EventArgs e)
@@ -504,16 +503,16 @@ namespace LecERP
 
         private void btnDistributeExpences_Click(object sender, EventArgs e)
         {
-            List <CashTransactionView> cashes = gcCashTrans.DataSource as List<CashTransactionView>;
-            decimal expcSum = cashes.Sum(x => x.DmTotal) / spCurrencyRate.Value;
-            decimal ficheLinesSum = Fiche.Lines.Sum(x => x.LineNetTotal);
+            //List <CardTransactionView> cashes = gcCashTrans.DataSource as List<CardTransactionView>;
+            //decimal expcSum = cashes.Sum(x => x.DmTotal) / spCurrencyRate.Value;
+            //decimal ficheLinesSum = Fiche.Lines.Sum(x => x.LineNetTotal);
 
-            foreach (var line in Fiche.Lines)
-            {
-                var linePerc = line.LineNetTotal / ficheLinesSum;
-                line.LineExpense = Math.Round(expcSum * linePerc, 2);
-                line.LineTotalAcc = line.LineNetTotal + line.LineExpense;
-            }
+            //foreach (var line in Fiche.Lines)
+            //{
+            //    var linePerc = line.LineNetTotal / ficheLinesSum;
+            //    line.LineExpense = Math.Round(expcSum * linePerc, 2);
+            //    line.LineTotalAcc = line.LineNetTotal + line.LineExpense;
+            //}
             
             gcLines.RefreshDataSource();
         }
